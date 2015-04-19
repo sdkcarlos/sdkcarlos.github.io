@@ -266,6 +266,9 @@ input.act[type="button"]{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
+.separator{
+    height: 20px;
+}
 .about-content p{
 	 line-height:26px;
 	 padding:10px 0px;

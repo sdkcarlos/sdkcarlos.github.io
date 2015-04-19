@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
                                             Validators, inexistent javascript (necessary and useful) functions and a lot of things.
 					</p>
 					<div class="buttons">
-						<input type="button" value="Download dev"/><input type="button" class="act" value="Download prod"/>
+						<input type="button" value="Download dev" id="downloadDev"/><input type="button" class="act" value="Download prod"/>
                                                 <i>or</i>
                                         </div>					
 					</h2>
@@ -212,6 +212,61 @@ jQuery(document).ready(function($) {
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                            
+                            <div class="thumbnail" id="div-validate">
+                                <h3 class="function">$.removeItem(item,object);</h3>
+
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>
+                                            <p>Remove item by it's value in javascript array, is well know that javascript doesn't support this function and that turns into a headache (preventable with this).</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Function
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <code>
+                                            var group = <em>["a","b","c","iterableValue"]</em>;<br>
+                                            var groupWithoutB = $.removeItem(group,"b");<br>
+                                            console.log(groupWithoutB);<br>
+                                            //outputs<br>
+                                            //<em>["a","c","iterableValue"]</em>;
+                                            </code>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="thumbnail" id="div-isempty">
+                                <h3 class="function">.isEmpty();</h3>
+                                
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Evaluate if a field is empty<br>
+                                    </div>
+                                </div>
+                                <div class="separator"></div>
+                                <div class="row">
+                                    <div class="col-md-6 text-center">
+                                        <input type="text" class="form-control" id="isEmptyField" placeholder="I'm empty"/><br>
+                                        <input type="button" id="isEmptySubmit" class="btn" value="Check value"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <code>
+                                            if(<b>$("#isEmptyField").isEmpty()</b>){<br>
+                                            &nbsp;&nbsp;&nbsp;alert("I am empty");<br>
+                                            }else{<br>
+                                            &nbsp;&nbsp;&nbsp;alert("I have " + $("#isEmptyField").val());<br>
+                                            }<br>
+                                        </code>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 			<div class="clearfix"> </div>
@@ -360,9 +415,19 @@ jQuery(document).ready(function($) {
 				$(document).ready(function() {
                                     $().UItoTop({ easingType: 'easeOutQuart' });
 				    
+                                    $("#downloadDev").redirect("https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.js/master/development/sdkcarlos.js");
+                                    
                                     $("#onlyNumbersInput").onlyNumbers();
                                     $(".redirect").redirect("https://www.google.com");
                                     $("#formToValidate").validate();
+                                    
+                                    $("#isEmptySubmit").click(function(){
+                                        if($("#isEmptyField").isEmpty()){
+                                            alert("I am empty");
+                                        }else{
+                                            alert("I have " + $("#isEmptyField").val());
+                                        }
+                                    });
 				});
 			</script>
 		<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

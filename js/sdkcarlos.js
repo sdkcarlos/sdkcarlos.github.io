@@ -59,7 +59,7 @@ if("undefined"==typeof jQuery){
             redirect : function(url){
                 this.css("cursor","pointer");
                 this.click(function(){
-                   window.location = url;
+                    window.location.href = url;
                 });
             },
             
@@ -80,7 +80,7 @@ if("undefined"==typeof jQuery){
              * @returns {Boolean}
              */
             validate: function(){
-                var form = this; if(!form.is( "form" ) ) {console.warn(".validate es valido solo para formularios.");return false;}
+                var form = this; if(!form.is( "form" ) ) {console.warn(".validate is only for FORM tags");return false;}
 
                 form.submit(function( event ) {
                     $('input', form).each(function(){
