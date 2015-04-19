@@ -14,6 +14,16 @@ html, body{
 	background:#fff;
 }
 /*-- header Part starts Here --*/
+.function{
+    background-color: #1abc9c;
+    border-bottom-right-radius: 35px;
+    border-top-left-radius: 35px;
+    text-align: center;
+    padding: 5px;
+    color: white;
+    font-style: italic;
+}
+
 .header{
 	background:url(../images/banner.jpg)no-repeat 0px 0px;
     background-size: cover;
@@ -252,10 +262,9 @@ input.act[type="button"]{
 	padding:20px 0px;
 }
 .about-content h3{
-	 margin: 10px 0px;
-	 font-family: 'Open Sans', sans-serif;
-	 font-weight: 400;
-	 color: #34495E;
+    margin: 10px 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 }
 .about-content p{
 	 line-height:26px;
