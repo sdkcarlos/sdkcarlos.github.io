@@ -44,14 +44,28 @@
         {
             indexes: ['hello how are','hello'],
             action : function(i){
-                var frases = [
-                    "Ring a ding ding, you're talking to the king.",
-                    "Hi, is John there?",
+                var forHowareyou = [
+                    'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
+                    'Cool as a cucumber',
+                    'I am doing so fabulous today! I can hardly control myself from dancing.',
+                    'From what I hear, I am very good.',
+                    "I can't complain... I've tried, but no one listens.",
+                    "As long as I can keep the kitten I found today, I'll be fine!"
                 ];
                 
-                var frase = frases[Math.floor(Math.random() * frases.length)];
-                artyom.say(frase);
-                artyom.say();
+                var forHello = [
+                    "Ring a ding ding, you're talking to the king.",
+                    "Hi, is John there?",
+                    'How goes it?'
+                ];
+                
+                if(i == 0){
+                    var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
+                    artyom.say(frase);
+                }else if(i == 1){
+                    var frase = forHello[Math.floor(Math.random() * forHello.length)];
+                    artyom.say(frase);
+                }
             }
         }
     ];
