@@ -83,11 +83,14 @@
                                         </p>
 <div class='text-left'>                       
 <pre>
+<em style='color: blue;'>
 //We prepare artyom and give the basic config
 // the language, set the continuos to false in order
 // to stop when a command is executed and set debug
 // to true (with this you can see what artyom understand
 // when you talk and other useful information)
+</em>
+
 artyom.initialize({
     lang:"en-GB",
     continuous:false,
@@ -95,15 +98,16 @@ artyom.initialize({
     speed:0.8
 });
 
+<em style='color: blue;'>
 /**
  * And in the commands file the structure is the following
  */
-
+</em>
 var artyomCommands = [
     {
-        <em>//indexes is an array in which you can enter all the ways the user can say to trigger it</em>
+        <em style='color: blue;'>//indexes is an array in which you can enter all the ways the user can say to trigger it</em>
         indexes: ['hello how are','how are you','hello'],
-        <em>//what should do artyom when the user calls this command</em>
+        <em style='color: blue;'>//what should do artyom when the user calls this command</em>
         action : function(i){
             var forHowareyou = [
                 'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
