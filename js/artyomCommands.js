@@ -23,7 +23,7 @@
     
     var artyomCommands = [
         {
-            indexes: ['hello how are','hello'],
+            indexes: ['hello how are','how are you','hello'],
             action : function(i){
                 var forHowareyou = [
                     'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
@@ -40,10 +40,10 @@
                     'How goes it?'
                 ];
                 
-                if(i == 0){
+                if((i == 0) || (i == 1)){
                     var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
                     artyom.say(frase);
-                }else if(i == 1){
+                }else if(i == 2){
                     var frase = forHello[Math.floor(Math.random() * forHello.length)];
                     artyom.say(frase);
                 }
