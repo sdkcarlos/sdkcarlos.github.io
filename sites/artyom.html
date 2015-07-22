@@ -76,8 +76,60 @@
 				<div class="col-lg-8 col-lg-offset-2">
 		
 					<div class="section-heading">
-					<h2>About us</h2>
-					<p>Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has</p>
+					<h2>Let's get started</h2>
+                                        <p>
+                                            For the <a href='#intro'>first</a> demo of artyom, you can say hallo or ask how are you.<br>
+                                            So ... How can we do something like the demo ? Well then !<br>
+                                            
+<pre>
+//We prepare artyom and give the basic config
+// the language, set the continuos to false in order
+// to stop when a command is executed and set debug
+// to true (with this you can see what artyom understand
+// when you talk and other useful information)
+artyom.initialize({
+    lang:"en-GB",
+    continuous:false,
+    debug:true,
+    speed:0.8
+});
+
+/**
+ * And in the commands file the structure is the following
+ */
+
+var artyomCommands = [
+    {
+        indexes: ['hello how are','how are you','hello'],
+        action : function(i){
+            var forHowareyou = [
+                'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
+                'Cool as a cucumber',
+                'I am doing so fabulous today! I can hardly control myself from dancing.',
+                'From what I hear, I am very good.',
+                "I can't complain... I've tried, but no one listens.",
+                "As long as I can keep the kitten I found today, I'll be fine!"
+            ];
+
+            var forHello = [
+                "Ring a ding ding, you're talking to the king.",
+                "Hi, is John there?",
+                'How goes it?'
+            ];
+
+            // var i = the index in the array of the given options.
+            if((i == 0) || (i == 1)){
+                var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
+                artyom.say(frase);
+            }else if(i == 2){
+                var frase = forHello[Math.floor(Math.random() * forHello.length)];
+                artyom.say(frase);
+            }
+        }
+    }
+];
+</pre>
+                                        </p>
 					</div>
 			
 				</div>
