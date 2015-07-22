@@ -23,25 +23,6 @@
     
     var artyomCommands = [
         {
-            indexes: ['wie spät ist es'],
-            action : function(i){
-                var frases = [
-                    "Na ja, Selbe Scheiße, Anderer Tag!",
-                    "Du hättest mich mal gestern fragen sollen",
-                    "Gut, und ich weiss nicht warum",
-                    "wie Pamela Anderson nach einer neuen Brustvergrösserung",
-                    "Finde ich ne originelle Frage, weiter so!",
-                    "Endlich mal einer, der sich für mich interessiert. Schönen Tag noch",
-                    "Schau die Nachrichten",
-                    "Genauso wie beim letzten mal",
-                    "Bevor du gefragt hast, war alles noch in Ordnung"
-                ];
-                
-                var frase = frases[Math.floor(Math.random() * frases.length)];
-                artyom.say(frase);
-            }
-        },
-        {
             indexes: ['hello how are','hello'],
             action : function(i){
                 var forHowareyou = [
@@ -79,17 +60,9 @@
     function ArtyomCommands(){
         var artyCommands = {}; 
         
-        artyCommands.getCommands = function(lang){switch(lang){
-            case 'de-DE':
-                return artyomCommandsDeutsch;
-            case 'en-GB':
-                return artyomCommands;
-            case 'es-CO':
-                return artyomCommandsSpanish;
-            default:
-                console.log("The commands has been set to english because there's no valid language given for get commands");
-                return artyomCommands;
-        }};
+        artyCommands.getCommands = function(lang){
+            return artyomCommands;
+        };
         
         
         /**
@@ -102,7 +75,7 @@
          * @param {type} lang
          * @param {type} extendingFunctions
          * @returns {Boolean}
-         */
+         
         artyCommands.extend = function(lang,extendingFunctions){
             switch(lang){
                 case 'de-DE':
@@ -127,7 +100,7 @@
             
             return true;
         };
-        
+        */
         return artyCommands;
     }
     
