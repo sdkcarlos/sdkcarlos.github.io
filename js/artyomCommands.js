@@ -40,6 +40,7 @@
                     'How goes it?'
                 ];
                 
+                // var i = the index in the array of the given options.
                 if((i == 0) || (i == 1)){
                     var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
                     artyom.say(frase);
