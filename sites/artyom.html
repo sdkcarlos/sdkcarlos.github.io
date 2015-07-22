@@ -63,7 +63,7 @@
         <div class="slogan">
             <h1>This is Artyom</h1>
             <p>make awesome stuff with Bootstrap framework</p>
-            <a href="#about" class="btn btn-skin scroll">Test in this browser</a>
+            <a href="#" onclick="iniciar();" class="btn btn-skin scroll">Start artyom in this browser</a>
         </div>	
     </section>
 	<!-- /Section: intro -->
@@ -402,7 +402,14 @@
 	<script src="../js/stellar.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="../js/custom.js"></script>
-
+    <script>
+        function iniciar(){
+            artyom.initialize({
+                lang:"en-GB",
+                continuous:true
+            });
+        }
+    </script>
 </body>
 
 </html>
