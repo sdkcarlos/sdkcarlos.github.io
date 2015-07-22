@@ -79,9 +79,9 @@
 					<h2>Let's get started</h2>
                                         <p>
                                             For the <a href='#intro'>first</a> demo of artyom, you can say hallo or ask how are you.<br>
-                                            So ... How can we do something like the demo ? Well then !<br>
+                                            So ... How can we do something like the demo with JAVASCRIPT? Well then !<br>
                                         </p>
-                                            
+<div class='text-left'>                       
 <pre>
 //We prepare artyom and give the basic config
 // the language, set the continuos to false in order
@@ -101,7 +101,9 @@ artyom.initialize({
 
 var artyomCommands = [
     {
+        <em>//indexes is an array in which you can enter all the ways the user can say to trigger it</em>
         indexes: ['hello how are','how are you','hello'],
+        <em>//what should do artyom when the user calls this command</em>
         action : function(i){
             var forHowareyou = [
                 'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
@@ -130,6 +132,7 @@ var artyomCommands = [
     }
 ];
 </pre>
+</div>
 					</div>
 			
 				</div>
