@@ -53,6 +53,13 @@
                     break;
                 }
             }
+        },
+        {
+            indexes: ["translate * in Spanish"],
+            smart:true,
+            action : function(i,wildcard,sentence){
+                window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+            }
         }
     ];
     

@@ -68,8 +68,8 @@
                     Make awesome stuff with Google Chrome speech synthesis and speech recognition.<br>
                     Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !<br>
                     <i class="fa fa-heart"></i> Using pure javascript <i class="fa fa-heart"></i><br><br>
-                    <a href="#" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a><br>
-                    <a href="#" onclick="hablar();" class="btn btn-skin">I can say what you want ... wanna prove now?</a>
+                    <a href="javascript:void(0)" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a><br>
+                    <a href="javascript:void(0)" onclick="hablar();" class="btn btn-skin">I can say what you want ... wanna prove now?</a>
                 </p>
                 <div class="row">
                     <div class="col-md-3"></div>
@@ -118,7 +118,7 @@
 
 	<!-- Section: about -->
     <section id="about" class="home-section text-center bg-gray">
-		<div class="heading-about marginbot-50">
+        <div class="heading-about marginbot-50">
 			<div class="container-fluid">
 			<div class="row">
                             <div class="col-md-2"></div>
@@ -195,57 +195,70 @@ var artyomCommands = [
                             <div class="col-md-2"></div>
 			</div>
 			</div>
-		</div>
-		<div class="container">
-
+        </div>
+        
         <div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-3">
+            <div class="col-md-6">
+                <h4>
+                    Ok, that was good isn't ?<br>
+                    <small>But what about more complex commands !</small>
+                </h4><br>
+                <p>Lets try with something like : translate "what you want to translate" in google please<br>
+                
+                    <a href="javascript:void(0)" onclick="iniciar();" class="btn btn-skin">Start artyom</a><br>
+                </p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-3">
 
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Anna Hanaceck</h5>
-                        <p class="subtitle">Pixel Crafter</p>
-                        <div class="avatar"><img src="../img/team/1.jpg" alt="" class="img-responsive" /></div>
-                    </div>
-                </div>
-		
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                                        <h5>Anna Hanaceck</h5>
+                                <p class="subtitle">Pixel Crafter</p>
+                                <div class="avatar"><img src="../img/team/1.jpg" alt="" class="img-responsive" /></div>
+                            </div>
+                        </div>
 
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Maura Daniels</h5>
-                        <p class="subtitle">Ruby on Rails</p>
-                        <div class="avatar"><img src="../img/team/2.jpg" alt="" class="img-responsive" /></div>
                     </div>
+                                <div class="col-xs-6 col-sm-3 col-md-3">
 
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-		
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Jack Briane</h5>
-                        <p class="subtitle">jQuery Ninja</p>
-                        <div class="avatar"><img src="../img/team/3.jpg" alt="" class="img-responsive" /></div>
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                                        <h5>Maura Daniels</h5>
+                                <p class="subtitle">Ruby on Rails</p>
+                                <div class="avatar"><img src="../img/team/2.jpg" alt="" class="img-responsive" /></div>
+                            </div>
+
+                                        </div>
                     </div>
-                </div>
-		
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-		
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Tom Petterson</h5>
-                        <p class="subtitle">Typographer</p>
-                        <div class="avatar"><img src="../img/team/4.jpg" alt="" class="img-responsive" /></div>
+                                <div class="col-xs-6 col-sm-3 col-md-3">
+
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                                        <h5>Jack Briane</h5>
+                                <p class="subtitle">jQuery Ninja</p>
+                                <div class="avatar"><img src="../img/team/3.jpg" alt="" class="img-responsive" /></div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-	
-            </div>
-        </div>		
-		</div>
-	</section>
+                                <div class="col-xs-6 col-sm-3 col-md-3">
+
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                                        <h5>Tom Petterson</h5>
+                                <p class="subtitle">Typographer</p>
+                                <div class="avatar"><img src="../img/team/4.jpg" alt="" class="img-responsive" /></div>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>		
+        </div>
+    </section>
 	<!-- /Section: about -->
 	
 	
@@ -542,6 +555,7 @@ var artyomCommands = [
             alert("Artyom will wait for a single command and after will not hear anymore.");
             artyom.initialize({
                 lang:"en-GB",
+                listen:true,
                 continuous:false,
                 debug:true,
                 speed:0.9
