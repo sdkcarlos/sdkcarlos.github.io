@@ -58,7 +58,15 @@
             indexes: ["translate * in Spanish"],
             smart:true,
             action : function(i,wildcard,sentence){
-                window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                if(artyom.speechSupported){
+                    alertify.success("Translation will open a new window. Allow the popups for the demo please.");
+                    artyom.say("I'm afraid i can'do that by myself. But, google yes. Try with this",function(){
+                        window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                    });
+                }else{
+                    alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                    window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                }
             }
         }
     ];
