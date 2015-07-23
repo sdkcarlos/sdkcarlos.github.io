@@ -492,6 +492,7 @@ var artyomCommands = [
     <script src="../js/artyom.min.js"></script>
     <script>
         artyom.when("error",function(e){
+            alert("ERROR");
             alertify.error("<p style='font-size:1.3em;'>That's an artyom error ['"+e.code+"'] : "+e.message+"</p>");
             console.log(e);
         });
