@@ -55,17 +55,32 @@
             }
         },
         {
-            indexes: ["translate * in Spanish"],
+            indexes: ["translate * in Spanish","translate * in german"],
             smart:true,
             action : function(i,wildcard,sentence){
-                if(artyom.speechSupported()){
-                    alertify.success("Translation will open a new window. Allow the popups for the demo please.");
-                    artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
-                        window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
-                    });
-                }else{
-                    alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
-                    window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                switch(i){
+                    case 0:
+                        if(artyom.speechSupported()){
+                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
+                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
+                                window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                            });
+                        }else{
+                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                        }
+                    break;
+                    case 1:
+                        if(artyom.speechSupported()){
+                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
+                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
+                                window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                            });
+                        }else{
+                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                        }
+                    break;
                 }
             }
         }
