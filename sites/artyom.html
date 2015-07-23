@@ -520,9 +520,9 @@ var artyomCommands = [
             if(artyom.recognizingSupported()){
                 $("#artyom_can_listen").html('Artyom can listen you in <em>THIS</em> browser');
             }else{
-                $("#artyom_can_talk").removeClass('label-success');
-                $("#artyom_can_talk").html("Artyom can't listen you in <em>THIS</em> browser");
-                $("#artyom_can_talk").addClass('label-danger');
+                $("#artyom_can_listen").removeClass('label-success');
+                $("#artyom_can_listen").html("Artyom can't listen you in <em>THIS</em> browser");
+                $("#artyom_can_listen").addClass('label-danger');
             }
         });
         
