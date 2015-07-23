@@ -41,12 +41,16 @@
                 ];
                 
                 // var i = the index in the array of the given options.
-                if((i == 0) || (i == 1)){
-                    var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
-                    artyom.say(frase);
-                }else if(i == 2){
-                    var frase = forHello[Math.floor(Math.random() * forHello.length)];
-                    artyom.say(frase);
+                switch(i){
+                    case 0:
+                    case 1:
+                        var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
+                        artyom.say(frase);
+                    break;
+                    case 2:
+                        var frase = forHello[Math.floor(Math.random() * forHello.length)];
+                        artyom.say(frase);
+                    break;
                 }
             }
         }
