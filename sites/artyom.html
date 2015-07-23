@@ -54,8 +54,7 @@
 				<li><ul class="company-social">
                             <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
                             <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="social-google"><a href="https://github.com/sdkcarlos" target="_blank"><i class="fa fa-github-square"></i></a></li>
                         </ul>	</li>
 			</ul>
 	</div>
@@ -63,7 +62,7 @@
     <!-- Section: intro -->
     <section id="intro" class="intro">
         <div class="slogan">
-            <h1>This is Artyom</h1>
+            <h1>This is Artyom<br><small>Artyom voice recognition with Javascript</small></h1>
             <div class="jumbotron">
                 <p style="color:black;  font-weight: 20px;">
                     Make awesome stuff with Google Chrome speech synthesis and speech recognition.<br>
@@ -493,7 +492,7 @@ var artyomCommands = [
     <script src="../js/artyom.min.js"></script>
     <script>
         artyom.when("error",function(e){
-            alert("Theres an error with something , check it out in the console ");
+            alertify.error("<p style='font-size:1.3em;'>That's an artyom error ['"+e.code+"'] : "+e.message+"</p>");
             console.log(e);
         });
     </script>
