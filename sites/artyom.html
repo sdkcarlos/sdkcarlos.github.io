@@ -17,6 +17,8 @@
 	<link href="../css/nivo-lightbox.css" rel="stylesheet" />
 	<link href="../css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
 	<link href="../css/animate.css" rel="stylesheet" />
+        <link href="../css/alertify.core.css" rel="stylesheet" />
+        <link href="../css/alertify.default.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
     <link href="../css/style.css" rel="stylesheet">
     <link href="../color/default.css" rel="stylesheet">
@@ -66,12 +68,20 @@
                 <p style="color:black;  font-weight: 20px;">
                     Make awesome stuff with Google Chrome speech synthesis and speech recognition.<br>
                     Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !<br>
-                    <i class="fa fa-heart"></i> Using pure javascript <i class="fa fa-heart"></i><br>
+                    <i class="fa fa-heart"></i> Using pure javascript <i class="fa fa-heart"></i><br><br>
+                    <a href="#" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a>
                 </p>
-                <span class="label label-success" style="font-size: large;" id="artyom_can_talk">Loading ...</span>
-                <span class="label label-success" style="font-size: large;" id="artyom_can_listen">Loading ...</span>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                        <span class="label label-success" style="font-size: large;" id="artyom_can_talk">Loading ...</span>&nbsp;
+                    </div>
+                    <div class="col-md-3">
+                        <span class="label label-success" style="font-size: large;" id="artyom_can_listen">Loading ...</span>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
             </div>
-            <a href="#" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a>
         </div>	
     </section>
         
@@ -488,6 +498,7 @@ var artyomCommands = [
         });
     </script>
     <script src="../js/jquery.min.js"></script>
+    <script src="../js/alertify.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.easing.min.js"></script>	
 	<script src="../js/classie.js"></script>
