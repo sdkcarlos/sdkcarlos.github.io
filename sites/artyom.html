@@ -68,7 +68,8 @@
                     Make awesome stuff with Google Chrome speech synthesis and speech recognition.<br>
                     Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !<br>
                     <i class="fa fa-heart"></i> Using pure javascript <i class="fa fa-heart"></i><br><br>
-                    <a href="#" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a>
+                    <a href="#" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a><br>
+                    <a href="#" onclick="hablar();" class="btn btn-skin">I can say what you want ... wanna prove now?</a>
                 </p>
                 <div class="row">
                     <div class="col-md-3"></div>
@@ -544,6 +545,16 @@ var artyomCommands = [
                 debug:true,
                 speed:0.9
             });
+        }
+        
+        function hablar(){
+            alertify.prompt("You! Type something", function (e, str) {
+                if (e) {
+                    artyom.say(str);
+                } else {
+                    alertify.log("You don't trust me ... isn't?");
+                }
+            }, "Hello, a double cheese hamburguer please!");
         }
     </script>
 </body>
