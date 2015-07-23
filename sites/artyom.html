@@ -58,12 +58,20 @@
 			</ul>
 	</div>
     
-	<!-- Section: intro -->
+    <!-- Section: intro -->
     <section id="intro" class="intro">
         <div class="slogan">
             <h1>This is Artyom</h1>
-            <p>make awesome stuff with Bootstrap framework</p>
-            <a href="#" onclick="iniciar();" class="btn btn-skin scroll">Ask to artyom "how are you" or greet him</a>
+            <div class="jumbotron">
+                <p style="color:black;  font-weight: 20px;">
+                    Make awesome stuff with Google Chrome speech synthesis and speech recognition.<br>
+                    Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !<br>
+                    <i class="fa fa-heart"></i> Using pure javascript <i class="fa fa-heart"></i><br>
+                </p>
+                <span class="label label-success" style="font-size: large;" id="artyom_can_talk">Loading ...</span>
+                <span class="label label-success" style="font-size: large;" id="artyom_can_listen">Loading ...</span>
+            </div>
+            <a href="#" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a>
         </div>	
     </section>
         
@@ -464,8 +472,7 @@ var artyomCommands = [
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-12">
-		
-					<p>Copyright &copy; 2014 Ninestars - by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
+                                    <p>Copyright &copy; 2015 Carlos Delgado - Template by <a href="http://bootstraptaste.com" target="_blank">Bootstraptaste</a>, thanks !</p>
 				</div>
 			</div>	
 		</div>
@@ -491,6 +498,24 @@ var artyomCommands = [
     <!-- Custom Theme JavaScript -->
     <script src="../js/custom.js"></script>
     <script>
+        $(function(){
+            if(artyom.speechSupported()){
+                $("#artyom_can_talk").html('Artyom can talk in <em>THIS</em> browser');
+            }else{
+                $("#artyom_can_talk").removeClass('label-success');
+                $("#artyom_can_talk").html("Artyom can't talk in <em>THIS</em> browser");
+                $("#artyom_can_talk").addClass('label-danger');
+            }
+            
+            if(artyom.recognizingSupported()){
+                $("#artyom_can_listen").html('Artyom can listen you in <em>THIS</em> browser');
+            }else{
+                $("#artyom_can_talk").removeClass('label-success');
+                $("#artyom_can_talk").html("Artyom can't listen you in <em>THIS</em> browser");
+                $("#artyom_can_talk").addClass('label-danger');
+            }
+        });
+        
         function iniciar(){
             alert("Artyom will wait for a single command and after will not hear anymore.");
             artyom.initialize({
