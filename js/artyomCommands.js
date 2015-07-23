@@ -58,7 +58,7 @@
             indexes: ["translate * in Spanish"],
             smart:true,
             action : function(i,wildcard,sentence){
-                if(artyom.speechSupported){
+                if(artyom.speechSupported()){
                     alertify.success("Translation will open a new window. Allow the popups for the demo please.");
                     artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
                         window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
