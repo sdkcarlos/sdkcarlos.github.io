@@ -96,8 +96,15 @@
                                     <p>
                                         Unfortunately, SpeechRecognition and SpeechSynthesis is only available for Web Browsers based in chromium (webKit) like
                                         Google Chrome or Safari Apple, anyway you can include artyom files and leave the users that doesn't use one of them
-                                        unnafected including the tools to know when is available or not.
+                                        unnafected including the tools to know when is available or not.<br>
                                     </p>
+                                        <div style='font-size: x-large;'>
+                                            Artyom gives full support for 3 languages, other languages can only use voice recognition but not speech synthesis:<br>
+                                            <span class='label label-success'>English (lang: en-GB,en)</span>
+                                            <span class='label label-success'>Deutsch (lang: de-DE,de)</span>
+                                            <span class='label label-success'>Español (lang: es-ES,es-CO,es)</span>
+                                            <br>
+                                        </div>
                                     <div class='row'>
                                         <img src='../img/chrome-bg.jpg' class='img img-thumbnail'>
                                     </div>
@@ -701,6 +708,14 @@ var artyomCommands = [
                 }
             ]);
             alert("Now start artyom and say wake me up please");
+        }
+        
+        function setArtyomLang(lenguaje){
+            artyom.initialize({
+                lang:lenguaje,
+                listen:false,
+                continuous:false
+            });
         }
     </script>
 </body>
