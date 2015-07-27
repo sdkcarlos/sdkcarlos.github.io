@@ -126,47 +126,31 @@
     function ArtyomCommands(){
         var artyCommands = {}; 
         
+        /**
+         * 
+         * @param {type} lang
+         * @returns {Array}
+         */
         artyCommands.getCommands = function(lang){
             return artyomCommands;
         };
         
         
         /**
-         * Artyom Default functions are not always required in all views
-         * so is necessary put the things in the right place.
+         * Create explicits commands in other views where this commands is not
+         * needed all the time
          * 
-         * Artyom can extend it's commands in differents views for 
-         * differents purposes through the .extend function.
-         * 
-         * @param {type} lang
-         * @param {type} extendingFunctions
-         * @returns {Boolean}
-         
-        artyCommands.extend = function(lang,extendingFunctions){
-            switch(lang){
-                case 'de-DE':
-                    extendingFunctions.forEach(function(comando) {
-                        artyomCommandsDeutsch.push(comando);
-                    });
-                break;
-                case 'en-GB':
-                    extendingFunctions.forEach(function(comando) {
-                        artyomCommands.push(comando);
-                    });
-                break;
-                case 'es-CO':
-                    extendingFunctions.forEach(function(comando) {
-                        artyomCommandsSpanish.push(comando);
-                    });
-                break;
-                case 'default':
-                    console.error("Failed to extend artyom commands, " + lang + " is not a valid language.");
-                break;
-            }
+         * @param {type} commands
+         * @returns {Array}
+         */
+        artyCommands.extend = function(commands){
+            commands.forEach(function(comando) {
+                artyomCommands.push(comando);
+            });
             
-            return true;
+            return artyomCommands;
         };
-        */
+        
         return artyCommands;
     }
     
