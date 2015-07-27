@@ -411,7 +411,8 @@ var artyomCommands = [
                     But what if I have a command that is only available in a specific view
                 </h2>
                 <p>
-                    Don't worry , you can add commands where you want in the moment that you want!For this feature use <em>artyCommands.extend();</em>
+                    Don't worry , you can add commands where you want in the moment that you want!For this feature use <em>artyCommands.extend();</em> 
+                    Try with this : "wake me up".
                 </p>
 <pre class="text-left">
     <em style='color: blue;'>
@@ -431,9 +432,20 @@ var artyomCommands = [
             action:function(i,wildcard,sentence){
                 alert("The room will be painted in " + wildcard);
             }
+        },
+        {
+            indexes:["wake me up please"],
+            action:function(i){
+                alert("Well ... I don't know how to do that, create something for that");
+            }
         }
     ]);
 </pre>
+            <p>
+                As you could see ... NOTHING HAPPENED because that command is not in the artyomCommands.js<br>
+                So, let's add it<br>
+                <input type='button' onclick='addExternCommand();' class='btn btn-success' value='Add wake me up command'/> 
+            </p>
             </div>
         </div>		
 		</div>
@@ -677,6 +689,18 @@ var artyomCommands = [
             }else{
                 div.show("slow");
             }
+        }
+        
+        function addExternCommand(){
+            artyCommands.extend([
+                {
+                    indexes:["wake me up please"],
+                    action:function(i){
+                        alert("Well ... I don't know how to do that, create something for that");
+                    }
+                }
+            ]);
+            alert("Now start artyom and say wake me up please");
         }
     </script>
 </body>
