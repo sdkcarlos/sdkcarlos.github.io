@@ -95,7 +95,26 @@
             indexes: ["Shut down yourself"],
             action : function(i,wildcard,sentence){
                 artyom.fatality();
-                alertify.success("Artyom is not active now");
+                alertify.success("Artyom is not active now. Because you turned off with your voice.");
+            }
+        },
+        {
+            indexes: ['search the weather in * please'],
+            smart:true,
+            action : function(i,wildcard,sentence){
+                $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q="+ wildcard.trim() +"&units=metric&lang=en", function( data ) {
+                    if(data.cod === "404"){
+                        artyom.say("I can't find the weather of " + wildcard);
+                    }else{
+                     /*   var num = data.main.temp;
+                        var n = num.toFixed(2);
+
+                        $("#city").text(ciudad + " ," + data.sys.country);
+                        $("#actual_temp").text( n + " °C");
+                        */
+                        artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
+                    }
+                });
             }
         }
     ];
