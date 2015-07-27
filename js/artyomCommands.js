@@ -83,6 +83,20 @@
                     break;
                 }
             }
+        },
+        {
+            indexes: ["Say good afternoon","Say *"],
+            smart:true,
+            action : function(i,wildcard,sentence){
+                switch(i){
+                    case 0:
+                        artyom.say("Good afternoon my friend!");
+                    break;
+                    case 1:
+                        artyom.say(wildcard);
+                    break;
+                }
+            }
         }
     ];
     
