@@ -256,7 +256,108 @@ var artyomCommands = [
             </div>
             <div class="row">
                 <div class="col-md-12">
-                     <a href="javascript:void(0)" onclick="iniciar();" class="btn btn-skin btn-block">Start artyom</a>
+                    <a href="javascript:void(0)" onclick="iniciar();" class="btn btn-skin btn-block">Start artyom</a>
+                    <a href="javascript:void(0)" onclick="showFont();" class="btn btn-skin btn-block">See source of above example</a>
+                </div>
+            </div>
+            <div class="row" id="smart-source-panel" style="display: none;">
+                <div class="col-md-12">
+<pre class="text-left">
+<em style='color: blue;'>//Those were the used commands in this example</em>
+{
+            indexes: ['hello how are','how are you','hello'],
+            action : function(i){
+                var forHowareyou = [
+                    'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
+                    'Cool as a cucumber',
+                    'I am doing so fabulous today! I can hardly control myself from dancing.',
+                    'From what I hear, I am very good.',
+                    "I can't complain... I've tried, but no one listens.",
+                    "As long as I can keep the kitten I found today, I'll be fine!"
+                ];
+                
+                var forHello = [
+                    "Ring a ding ding, you're talking to the king.",
+                    "Hi, is John there?",
+                    'How goes it?'
+                ];
+                
+                // var i = the index in the array of the given options.
+                switch(i){
+                    case 0:
+                    case 1:
+                        var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
+                        artyom.say(frase);
+                    break;
+                    case 2:
+                        var frase = forHello[Math.floor(Math.random() * forHello.length)];
+                        artyom.say(frase);
+                    break;
+                }
+            }
+        },
+        {
+            indexes: ["translate * in Spanish","translate * in german"],
+            smart:true,
+            action : function(i,wildcard,sentence){
+                switch(i){
+                    case 0:
+                        if(artyom.speechSupported()){
+                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
+                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
+                                window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                            });
+                        }else{
+                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                        }
+                    break;
+                    case 1:
+                        if(artyom.speechSupported()){
+                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
+                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
+                                window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                            });
+                        }else{
+                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                        }
+                    break;
+                }
+            }
+        },
+        {
+            indexes: ["Pronunciate *"],
+            smart:true,
+            action : function(i,wildcard,sentence){
+                artyom.say(wildcard);
+            }
+        },
+        {
+            indexes: ["Shut down yourself"],
+            action : function(i,wildcard,sentence){
+                artyom.fatality();
+                alertify.success("Artyom is not active now. Because you turned off with your voice.");
+            }
+        },
+        {
+            indexes: ['search the weather in * please','search the weather in *'],
+            smart:true,
+            action : function(i,wildcard,sentence){
+                $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q="+ wildcard.trim() +"&units=metric&lang=en", function( data ) {
+                    if(data.cod === "404"){
+                        artyom.say("I can't find the weather of " + wildcard);
+                        alertify.error(wildcard + " Doesn't exist maybe ?");
+                    }else{
+                        var num = data.main.temp;
+                        var n = num.toFixed(2);
+                        artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
+                        alertify.success("Description: "+ data.weather[0].description+"<br>Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
+                    }
+                });
+            }
+        }
+</pre>
                 </div>
             </div>
         </div>
@@ -305,57 +406,34 @@ var artyomCommands = [
 		</div>
 		<div class="container">
         <div class="row">
-            <div class="col-sm-3 col-md-3">
-			
-                <div class="service-box">
-					<div class="service-icon">
-						<i class="fa fa-code fa-3x"></i>
-					</div>
-					<div class="service-desc">
-						<h5>Print</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-	
-            </div>
-			<div class="col-sm-3 col-md-3">
-	
-                <div class="service-box">
-					<div class="service-icon">
-						<i class="fa fa-suitcase fa-3x"></i>
-					</div>
-					<div class="service-desc">
-						<h5>Web Design</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-
-            </div>
-			<div class="col-sm-3 col-md-3">
-
-                <div class="service-box">
-					<div class="service-icon">
-						<i class="fa fa-cog fa-3x"></i>
-					</div>
-					<div class="service-desc">
-						<h5>Photography</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-			
-            </div>
-			<div class="col-sm-3 col-md-3">
-	
-                <div class="service-box">
-					<div class="service-icon">
-						<i class="fa fa-rocket fa-3x"></i>
-					</div>
-					<div class="service-desc">
-						<h5>Cloud System</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-			
+            <div class='col-md-12'>
+                <h2>
+                    But what if I have a command that is only available in a specific view
+                </h2>
+                <p>
+                    Don't worry , you can add commands where you want in the moment that you want!For this feature use <em>artyCommands.extend();</em>
+                </p>
+<pre class="text-left">
+    <em style='color: blue;'>
+    //This commands will be only available in the view where you did this
+    //that means , these commands are not saved in artyomCommands.js file
+    </em>
+    artyCommands.extend([
+        {
+            indexes:["another useful command","and another"],
+            action:function(i){
+                alert("this function were called");
+            }
+        },
+        {
+            indexes:["paint this room with a * color"],
+            smart:true,
+            action:function(i,wildcard,sentence){
+                alert("The room will be painted in " + wildcard);
+            }
+        }
+    ]);
+</pre>
             </div>
         </div>		
 		</div>
@@ -378,7 +456,6 @@ var artyomCommands = [
                                                         Download required files here now
                                                     </a>
                                                 </h4>
-                                            </p>
                                             <pre>
 &lt;!-- Add the commands manager file --&gt;
 &lt;script src=&quot;../your-path-to-artyom-commands-file/artyomCommands.js&quot;&gt;&lt;/script&gt;
@@ -401,6 +478,44 @@ var artyomCommands = [
                                                     </a><br>
                                                 </h4>
                                             </div>
+                                    </div>
+				</div>
+			</div>
+			</div>
+		</div>
+    </section>
+        <section id="contact" class="home-section text-center">
+		<div class="heading-contact marginbot-50">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+                                    <div class="section-heading">
+                                        <h2>Lazy Developers Zone !</h2>
+                                        <div class="col-md-12">
+                                        For an automatic assistent (siri,cortana, google now mode) initialize artyom like this :<br>
+<pre class='text-left'>
+    artyom.initialize({
+        lang:"en-GB", // United Kingdom english for example
+        listen:true, // Start Listen
+        continuous:true, // Don't stop never until I say otherwise
+        debug:true//See in the console what artyom understand
+    });
+</pre>
+                                        </div>
+                                        
+                                        <div class="col-md-12">
+                                        For await a single action with a simple click : <br>
+<pre class='text-left'>
+    function callThisActionWhenUserClicksButtons(){
+        artyom.initialize({
+            lang:"en-GB", // United Kingdom english for example
+            listen:true, // Start Listen
+            continuous:false, // Execute only one command
+            debug:true//See in the console what artyom understand
+        });
+    }
+</pre>
+                                        </div>
                                     </div>
 				</div>
 			</div>
@@ -514,8 +629,6 @@ var artyomCommands = [
 	<script src="../js/gnmenu.js"></script>
 	<script src="../js/jquery.scrollTo.js"></script>
 	<script src="../js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="../js/custom.js"></script>
     <script>
         $(function(){
             if(artyom.speechSupported()){
@@ -554,6 +667,16 @@ var artyomCommands = [
                     alertify.log("You don't trust me ... isn't?");
                 }
             }, "Hello, a double cheese hamburguer please!");
+        }
+        
+        function showFont(){
+            var div = $("#smart-source-panel");
+            
+            if(div.is(":visible")){
+                div.hide("slow");
+            }else{
+                div.show("slow");
+            }
         }
     </script>
 </body>
