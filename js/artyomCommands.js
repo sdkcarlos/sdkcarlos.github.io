@@ -106,13 +106,14 @@
                     if(data.cod === "404"){
                         artyom.say("I can't find the weather of " + wildcard);
                     }else{
-                     /*   var num = data.main.temp;
+                        var num = data.main.temp;
                         var n = num.toFixed(2);
-
+/* 
                         $("#city").text(ciudad + " ," + data.sys.country);
                         $("#actual_temp").text( n + " °C");
                         */
                         artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
+                        alertify.success("Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
                     }
                 });
             }
