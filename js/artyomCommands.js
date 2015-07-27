@@ -85,17 +85,17 @@
             }
         },
         {
-            indexes: ["Pronunciate good afternoon","Pronunciate *"],
+            indexes: ["Pronunciate *"],
             smart:true,
             action : function(i,wildcard,sentence){
-                switch(i){
-                    case 0:
-                        artyom.say("Good afternoon my friend!");
-                    break;
-                    case 1:
-                        artyom.say(wildcard);
-                    break;
-                }
+                artyom.say(wildcard);
+            }
+        },
+        {
+            indexes: ["Shut down yourself"],
+            action : function(i,wildcard,sentence){
+                artyom.fatality();
+                alertify.success("Artyom is not active now");
             }
         }
     ];
