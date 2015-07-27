@@ -14,8 +14,6 @@
 
     <!-- Fonts -->
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="../css/nivo-lightbox.css" rel="stylesheet" />
-	<link href="../css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
 	<link href="../css/animate.css" rel="stylesheet" />
         <link href="../css/alertify.core.css" rel="stylesheet" />
         <link href="../css/alertify.default.css" rel="stylesheet" />
@@ -272,12 +270,34 @@ var artyomCommands = [
 			<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-		
-					<div class="section-heading">
-					<h2>Our Services</h2>
-					<p>Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has</p>
-					</div>
-			
+                                    <h2>Awesome ! How can i achieve that</h2>
+                                        <p>
+                                            For this kind of commands there are 2 simple rules you need to follow.
+                                        </p>
+                                        <ul>
+                                            <li>Save the command with a property : <code>smart:true</code> <em style='color: blue;'>//Artyom needs to know when have to think or not</em></li>
+                                            <li>In the indexes of the command, put a  <b>*</b> in the string , in order to find out what's the wildcard.<br>
+                                                For example :<br>
+                                                <code>indexes:["Activate * please","Deactivate * please"]</code>
+                                            </li>
+                                        </ul>
+                                        <pre class="text-left">
+//Command
+{
+    indexes:["Activate * please","Deactivate * please"],
+    smart:true,
+    action:function(i,wildcard,sentence){
+        switch(i){
+            case 0:
+                alert("Activating " + wildcard);
+            break;
+            case 1:
+                alert("Deactivating " + wildcard);
+            break;
+        }
+    }
+}
+                                        </pre>
 				</div>
 			</div>
 			</div>
@@ -341,79 +361,8 @@ var artyomCommands = [
 	</section>
 	<!-- /Section: services -->
 	
-		
-	<!-- Section: works -->
-    <section id="works" class="home-section text-center bg-gray">
-		<div class="heading-works marginbot-50">
-			<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-		
-					<div class="section-heading">
-					<h2>Recent Works</h2>
-					<p>Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has</p>
-					</div>
-		
-				</div>
-			</div>
-			</div>
-		</div>
-		<div class="container">
-
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12" >
-
-                    <div class="row gallery-item">
-                        <div class="col-md-3">
-							<a href="../img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="../img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/2.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="../img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/3.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="../img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/4.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="../img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/5.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="../img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/6.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="../img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/7.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="../img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="../img/works/1@2x.jpg">
-								<img src="../img/works/8.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-					</div>
-	
-                </div>
-            </div>	
-		</div>
-	</section>
-	<!-- /Section: works -->
-
 	<!-- Section: contact -->
-    <section id="contact" class="home-section text-center">
+    <section id="contact" class="home-section text-center bg-gray">
 		<div class="heading-contact marginbot-50">
 			<div class="container">
 			<div class="row">
@@ -502,13 +451,13 @@ var artyomCommands = [
 	<!-- /Section: contact -->
 
 	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-lg-12">
-                                    <p>Copyright &copy; 2015 Carlos Delgado - Template by <a href="http://bootstraptaste.com" target="_blank">Bootstraptaste</a>, thanks !</p>
-				</div>
-			</div>	
-		</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <p>Copyright &copy; 2015 Carlos Delgado - Template by <a href="http://bootstraptaste.com" target="_blank">Bootstraptaste</a>, thanks !</p>
+                    </div>
+                </div>	
+            </div>
 	</footer>
 
     <!-- Core JavaScript Files -->
@@ -531,7 +480,6 @@ var artyomCommands = [
 	<script src="../js/classie.js"></script>
 	<script src="../js/gnmenu.js"></script>
 	<script src="../js/jquery.scrollTo.js"></script>
-	<script src="../js/nivo-lightbox.min.js"></script>
 	<script src="../js/stellar.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="../js/custom.js"></script>
@@ -555,7 +503,7 @@ var artyomCommands = [
         });
         
         function iniciar(){
-            alert("Artyom will wait for a single command and after will not hear anymore.");
+            alert("Artyom is not in continuous mode .It will wait for a single command and after will not hear anymore.");
             artyom.initialize({
                 lang:"en-GB",
                 listen:true,
