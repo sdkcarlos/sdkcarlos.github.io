@@ -110,7 +110,7 @@
                         var num = data.main.temp;
                         var n = num.toFixed(2);
                         artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
-                        alertify.success("Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
+                        alertify.success("Description: "+ data.weather[0].description+"<br>Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
                     }
                 });
             }
