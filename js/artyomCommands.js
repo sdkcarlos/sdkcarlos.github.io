@@ -85,7 +85,7 @@
             }
         },
         {
-            indexes: ["Say good afternoon","Say *"],
+            indexes: ["Pronunciate good afternoon","Pronunciate *"],
             smart:true,
             action : function(i,wildcard,sentence){
                 switch(i){
