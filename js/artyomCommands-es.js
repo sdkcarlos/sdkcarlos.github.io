@@ -90,25 +90,25 @@
             }
         },
         {
-            indexes: ["Shut down yourself"],
+            indexes: ["deja de escuchar"],
             action : function(i,wildcard,sentence){
                 artyom.fatality();
                 alertify.success("Artyom is not active now. Because you turned off with your voice.");
             }
         },
         {
-            indexes: ['search the weather in * please','search the weather in *'],
+            indexes: ['Cómo está el clima en *'],
             smart:true,
             action : function(i,wildcard,sentence){
-                $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q="+ wildcard.trim() +"&units=metric&lang=en", function( data ) {
+                $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q="+ wildcard.trim() +"&units=metric&lang=es", function( data ) {
                     if(data.cod === "404"){
-                        artyom.say("I can't find the weather of " + wildcard);
-                        alertify.error(wildcard + " Doesn't exist maybe ?");
+                        artyom.say("No conozco ninguna ciudad llamada " + wildcard);
+                        alertify.error(wildcard + " Quiza entendi mal ?");
                     }else{
                         var num = data.main.temp;
                         var n = num.toFixed(2);
-                        artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
-                        alertify.success("Description: "+ data.weather[0].description+"<br>Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
+                        artyom.say("El clima en " + wildcard + " esta " + data.weather[0].description);
+                        alertify.success("Descripción: "+ data.weather[0].description+"<br>Temperatura actual : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
                     }
                 });
             }
