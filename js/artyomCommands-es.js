@@ -107,7 +107,7 @@
                     }else{
                         var num = data.main.temp;
                         var n = num.toFixed(2);
-                        artyom.say("El clima en " + wildcard + " esta " + data.weather[0].description);
+                        artyom.say("El clima en " + wildcard + " es el siguiente :  " + data.weather[0].description);
                         alertify.success("Descripción: "+ data.weather[0].description+"<br>Temperatura actual : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
                     }
                 });
