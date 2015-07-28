@@ -93,7 +93,7 @@
             indexes: ["deja de escuchar"],
             action : function(i,wildcard,sentence){
                 artyom.fatality();
-                alertify.success("Artyom is not active now. Because you turned off with your voice.");
+                alertify.success("Artyom ya no escuchara. Porque lo desactivaste con tu voz");
             }
         },
         {
