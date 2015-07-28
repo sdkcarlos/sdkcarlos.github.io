@@ -48,7 +48,7 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-				<li><a href="../index.html">SDkCarlos</a></li>
+				<li><a href="https://github.com/sdkcarlos">SDkCarlos</a></li>
 				<li><ul class="company-social">
                                         <!--
                             <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -61,14 +61,14 @@
     <!-- Section: intro -->
     <section id="intro" class="intro">
         <div class="slogan">
-            <h1>This is Artyom<br><small>Artyom voice recognition with Javascript</small></h1>
+            <h1>Este es Artyom<br><small>Artyom es una libreria de reconocimiento de voz con Javascript</small></h1>
             <div class="jumbotron">
                 <p style="color:black;  font-weight: 20px;">
-                    Make awesome stuff with Google Chrome speech synthesis and speech recognition.<br>
-                    Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !<br>
-                    <i class="fa fa-heart"></i> Using pure javascript <i class="fa fa-heart"></i><br><br>
-                    <a href="javascript:void(0)" onclick="iniciar();" class="btn btn-skin">Ask to artyom "how are you" or greet him</a><br>
-                    <a href="javascript:void(0)" onclick="hablar();" class="btn btn-skin">I can say what you want ... wanna prove now?</a>
+                    Construye aplicaciones increible con Google Chrome Speech synthesis and Speech recognition API<br>
+                    Crea tu propio <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> dentro de tu aplicacion web !<br>
+                    <i class="fa fa-heart"></i> Usando solo Javascript <i class="fa fa-heart"></i><br><br>
+                    <a href="javascript:void(0)" onclick="iniciar();" class="btn btn-skin">Preguntale a artyom "como estas" o solo saluda</a><br>
+                    <a href="javascript:void(0)" onclick="hablar();" class="btn btn-skin">Puedo decir lo quieras , Probemos ya !</a>
                 </p>
                 <div class="row">
                     <div class="col-md-3"></div>
@@ -655,7 +655,7 @@ var artyomCommands = [
 	</footer>
 
     <!-- Core JavaScript Files -->
-    <script src="../js/artyomCommands.js"></script>
+    <script src="../js/artyomCommands-es.js"></script>
     <script src="../js/artyom.min.js"></script>
     <script>
         artyom.when("error",function(e){
@@ -695,9 +695,9 @@ var artyomCommands = [
         });
         
         function iniciar(){
-            alert("Artyom is not in continuous mode .It will wait for a single command and after will not hear anymore.");
+            alert("Artyom no está en modo continuo. Lo que significa que solo prestara atención a un comando y luego se detendra.");
             artyom.initialize({
-                lang:"en-GB",
+                lang:"es-CO",
                 listen:true,
                 continuous:false,
                 debug:true,
@@ -706,13 +706,17 @@ var artyomCommands = [
         }
         
         function hablar(){
-            alertify.prompt("You! Type something", function (e, str) {
+            artyom.initialize({
+                lang:"es-CO"
+            });
+            
+            alertify.prompt("Hey ! Escribe algo aquí ", function (e, str) {
                 if (e) {
                     artyom.say(str);
                 } else {
-                    alertify.log("You don't trust me ... isn't?");
+                    alertify.log("Porque no confias en mi? Soy buena persona");
                 }
-            }, "Hello, a double cheese hamburguer please!");
+            }, "Hola, una hamburguesa con queso doble por favor");
         }
         
         function showFont(){
