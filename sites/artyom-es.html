@@ -92,14 +92,14 @@
                         <div class="col-lg-8 col-lg-offset-2">
 
                                 <div class="section-heading">
-                                    <h2>Before continue<br><small>Know what artyom can or cannot do.</small></h2>
+                                    <h2>Antes de continuar<br><small>Conoce que puede y no puede hacer Artyom</small></h2>
                                     <p>
-                                        Unfortunately, SpeechRecognition and SpeechSynthesis is only available for Web Browsers based in chromium (webKit) like
-                                        Google Chrome or Safari Apple, anyway you can include artyom files and leave the users that doesn't use one of them
-                                        unnafected including the tools to know when is available or not.<br>
+                                        Desafortunadamente (al menos hasta ahora), SpeechRecognition y SpeechSynthesis esta disponible solo para navegadores basados en chromium (webKit )
+                                        como Google Chrome o Safari Apple, de todas maneras puedes  incluir la libreria de Artyom y dejar a los usuarios que no usan estos exploradores sin ser afectados.
+                                        incluyendo las herramientas para saber cuando es el caso.<br>
                                     </p>
                                         <div style='font-size: x-large;'>
-                                            Artyom gives full support for 3 languages, other languages can only use voice recognition but not speech synthesis:<br>
+                                            Artyom proporciona soporte completo para 3 lenguajes, otros lenguajes pueden usar Voice recognition sin sintetizador de voz : <br>
                                             <span class='label label-success'>English (lang: en-GB,en)</span>
                                             <span class='label label-success'>Deutsch (lang: de-DE,de)</span>
                                             <span class='label label-success'>Español (lang: es-ES,es-CO,es)</span>
@@ -130,70 +130,67 @@
                             <div class="col-md-2"></div>
 				<div class="col-md-8">
 					<div class="section-heading">
-					<h2>Let's get started</h2>
+					<h2>Comencemos !</h2>
                                         <p>
-                                            For the <a href='#intro'>first</a> demo of artyom, you can say hallo or ask how are you.<br>
-                                            So ... How can we do something like the demo with JAVASCRIPT? Well then !<br>
+                                            En el <a href='#intro'>primer</a> demo de Artyom, puedes preguntarle como esta e incluso saludarle<br>
+                                            Pero ... como podemos lograr algo como eso con JAVASCRIPT? Mira el ejemplo : <br>
                                         </p>
 					</div>
                                         <div class='text-left'>                       
 <pre>
 <em style='color: blue;'>
-// We prepare artyom and give the basic config ,the language, set the continuos to false in order
-// to stop when a command is executed and set debug to true (with this you can see what
-// artyom understand when you talk and other useful information)
+// Inicializamos artyom y proporcionamos la configuración básica , el lenguaje
+// la propiedad "continuous" le asignamos un false con el fin de que se detenga cuando
+// reconozca un solo comando.
+// Activamos el debug para ver en la consola que pasa con artyom detras de escena
+// (ver que esta entendiendo y cuando son llamados algunos eventos etc)
 </em>
 
 artyom.initialize({
-    lang:"en-GB",
+    lang:"es-CO",
     continuous:false,
-    listen:true,<em style='color: blue;'>//Otherwise we will save only the configuration but don't start artyom.</em>
-    debug:true,
-    speed:0.9
+    listen:true,<em style='color: blue;'>//De otra manera solo guardaremos la configuración pero no iniciara el reconocimiento.</em>
+    debug:true
 });
 
 <em style='color: blue;'>
 /**
- * And in the commands file the structure is the following
+ * Y en el archivo de comandos (artyomCommands.js) se guardaron los siguientes comandos
  */
 </em>
 var artyomCommands = [
-    {
-        <em style='color: blue;'>//indexes is an array in which you can enter all the ways the user can say to trigger it</em>
-        indexes: ['hello how are','how are you','hello'],
-        <em style='color: blue;'>//what should do artyom when the user calls this command</em>
-        action : function(i){
-            var forHowareyou = [
-                'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
-                'Cool as a cucumber',
-                'I am doing so fabulous today! I can hardly control myself from dancing.',
-                'From what I hear, I am very good.',
-                "I can't complain... I've tried, but no one listens.",
-                "As long as I can keep the kitten I found today, I'll be fine!"
-            ];
-
-            var forHello = [
-                "Ring a ding ding, you're talking to the king.",
-                "Hi, is John there?",
-                'How goes it?'
-            ];
-
-            <em style='color: blue;'>// var i = the index in the array of the given options.</em>
-            switch(i){
-                case 0:
-                case 1:
-                    <em style='color: blue;'>// When the index equal to 0 or 1 take a sentence of forHowareyou array and speak it !</em>
-                    var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
-                    artyom.say(frase);
-                break;
-                case 2:
-                    <em style='color: blue;'>// When the index equal to 2 take a sentence of forHello array and speak it !</em>
-                    var frase = forHello[Math.floor(Math.random() * forHello.length)];
-                    artyom.say(frase);
-                break;
+        {
+            <em style='color: blue;'>//indexes se compone de un array que contendrá todas las opciones y maneras en la que el usuario llamará este comando.</em>
+            indexes: ['hola','que tal','hola como estas','como esta','Cómo estás'],
+            <em style='color: blue;'>//action es una funcion que será llamada cuando Artyom identifique este comando</em>
+            action : function(i){
+                var forHowareyou = [
+                    'Muy bien y no gracias a ti',
+                    'No es de tu incumbencia'
+                ];
+                
+                var forHello = [
+                    "Holita",
+                    "Hola que hace",
+                    'Que honda, todo bien?'
+                ];
+                
+                <em style='color: blue;'>// var i = contiene el indice en el array de la opcion que fue identificada.</em>
+                switch(i){
+                    case 0:
+                    case 1:
+                        var frase = forHello[Math.floor(Math.random() * forHello.length)];
+                        artyom.say(frase);
+                    break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
+                        artyom.say(frase);
+                    break;
+                }
             }
         }
-    }
 ];
 </pre>
 </div>
@@ -206,8 +203,8 @@ var artyomCommands = [
         <div class="row">
             <div class="col-md-12">
                 <h4>
-                    Ok, that was good isn't ?<br>
-                    <small>But what about more complex commands ? Think in one of the bottom examples and start artyom !</small>
+                    Ok, interesante?<br>
+                    <small>Que hay de comandos más complejos ? Prueba algunos de los siguientes comandos y cambia las variables a tu gusto !</small>
                 </h4><br>
             </div>
         </div>
@@ -217,8 +214,8 @@ var artyomCommands = [
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="team boxed-grey" style="height:255px;">
                             <div class="inner">
-                                <h5>Complex command #1</h5>
-                                <p>Lets try with something like : <br><b>translate "something" in spanish please</b><br> or <br><b> translate "something" in german </b><br>
+                                <h5>Comando Complejo #1</h5>
+                                <p>Intenta con : <br><b>traducir "algo" en aleman</b><br> or <br><b> traducir "otra cosa" en ingles</b><br>
                             </div>
                         </div>
                     </div>
@@ -678,18 +675,18 @@ var artyomCommands = [
     <script>
         $(function(){
             if(artyom.speechSupported()){
-                $("#artyom_can_talk").html('Artyom can talk in <em>THIS</em> browser');
+                $("#artyom_can_talk").html('Artyom puede hablar en <em>ESTE</em> navegador');
             }else{
                 $("#artyom_can_talk").removeClass('label-success');
-                $("#artyom_can_talk").html("Artyom can't talk in <em>THIS</em> browser");
+                $("#artyom_can_talk").html("Artyom no puede hablar en <em>ESTE</em> navegador");
                 $("#artyom_can_talk").addClass('label-danger');
             }
             
             if(artyom.recognizingSupported()){
-                $("#artyom_can_listen").html('Artyom can listen you in <em>THIS</em> browser');
+                $("#artyom_can_listen").html('Artyom puede escucharte en <em>ESTE</em> navegador');
             }else{
                 $("#artyom_can_listen").removeClass('label-success');
-                $("#artyom_can_listen").html("Artyom can't listen you in <em>THIS</em> browser");
+                $("#artyom_can_listen").html("Artyom no puede escucharte en <em>ESTE</em> navegador");
                 $("#artyom_can_listen").addClass('label-danger');
             }
         });
