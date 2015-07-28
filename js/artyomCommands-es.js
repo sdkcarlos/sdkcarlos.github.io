@@ -40,13 +40,13 @@
                 switch(i){
                     case 0:
                     case 1:
-                        var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
+                        var frase = forHello[Math.floor(Math.random() * forHello.length)];
                         artyom.say(frase);
                     break;
                     case 2:
                     case 3:
                     case 4:
-                        var frase = forHello[Math.floor(Math.random() * forHello.length)];
+                        var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
                         artyom.say(frase);
                     break;
                 }
