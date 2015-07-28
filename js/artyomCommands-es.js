@@ -53,29 +53,29 @@
             }
         },
         {
-            indexes: ["translate * in Spanish","translate * in german"],
+            indexes: ["traducir * en inglés","traducir * en alemán"],
             smart:true,
             action : function(i,wildcard,sentence){
                 switch(i){
                     case 0:
                         if(artyom.speechSupported()){
-                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
-                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
-                                window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                            alertify.success("La traduccion se hará en una nueva ventama. Permita los PopUps para esta demostracion.");
+                            artyom.say("Ciertamente no puedo hacer esto, pero Google si, prueba con esto",function(){
+                                window.open("https://translate.google.com/?source=gtx_m#es/en/"+wildcard);
                             });
                         }else{
-                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            alertify.success("La traduccion se hará en una nueva ventama. Permita los PopUps para esta demostracion.");
                             window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
                         }
                     break;
                     case 1:
                         if(artyom.speechSupported()){
-                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
-                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
-                                window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                            alertify.success("La traduccion se hará en una nueva ventama. Permita los PopUps para esta demostracion.");
+                            artyom.say("Ciertamente no puedo hacer esto, pero Google si, prueba con esto",function(){
+                                window.open("https://translate.google.com/?source=gtx_m#es/de/"+wildcard);
                             });
                         }else{
-                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            alertify.success("La traduccion se hará en una nueva ventama. Permita los PopUps para esta demostracion.");
                             window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
                         }
                     break;
