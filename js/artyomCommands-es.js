@@ -83,7 +83,7 @@
             }
         },
         {
-            indexes: ["Pronunciate *"],
+            indexes: ["Pronunciar *"],
             smart:true,
             action : function(i,wildcard,sentence){
                 artyom.say(wildcard);
