@@ -23,7 +23,7 @@
     
     var artyomCommands = [
         {
-            indexes: ['hola','que tal','hola como estas','como esta','como estas'],
+            indexes: ['hola','que tal','hola como estas','como esta','Cómo estás'],
             action : function(i){
                 var forHowareyou = [
                     'Muy bien y no gracias a ti',
