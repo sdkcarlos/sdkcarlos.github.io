@@ -463,26 +463,26 @@ var artyomCommands = [
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
                                     <div class="section-heading">
-                                        <h2>Try by yourself !</h2>
-                                        <p>Include the 2 JS required files and make your own assistent. Download the following path which is ready to be initializated.<br>
-                                            it have 2 demo commands.
+                                        <h2>Haz la prueba ya mismo !</h2>
+                                        <p>Incluye los 2 archivos JS y crea tu propio asistente.Descarga el siguiente fichero para incluir Artyom en su web.<br>
+                                            incluye 2 comandos de prueba (En ingles)
                                                 <br>
                                                 <h4>
                                                     <a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip" target="_blank" class="btn btn-success">
-                                                        Download required files here now
+                                                        Descargar archivos necesarios (2)
                                                     </a>
                                                 </h4>
                                             <pre>
-&lt;!-- Add the commands manager file --&gt;
+&lt;!-- Añadir el archivo de comandos --&gt;
 &lt;script src=&quot;../your-path-to-artyom-commands-file/artyomCommands.js&quot;&gt;&lt;/script&gt;
-&lt;!-- Add finally artyom --&gt;
+&lt;!-- Añadir finalmente a artyom --&gt;
 &lt;script src=&quot;../your-path-to-artyom/artyom.js&quot;&gt;&lt;/script&gt;
                                             </pre>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <h4>
                                                         <a href="https://github.com/sdkcarlos/artyom.js" target="_blank">
-                                                            Visit the official repository in Github<br>
+                                                            Visitar el repositorio oficial en Github<br>
                                                             <i class="fa fa-github-square fa-2x"></i>
                                                         </a> 
                                                     </h4>
@@ -490,7 +490,7 @@ var artyomCommands = [
                                                 <div class="col-md-6">
                                                     <h4>
                                                         <a href="https://github.com/sdkcarlos/artyom.js/issues">
-                                                            Issues ? any problem ? Question ? Go to github issues !<br>
+                                                            Dudas ? Problemas ? Preguntas ? Ir a Github issues !<br>
                                                             <i class="fa fa-ambulance fa-2x"></i>
                                                         </a><br>
                                                     </h4>
@@ -503,7 +503,7 @@ var artyomCommands = [
                                                 <div class="col-md-4">
                                                     <h4>
                                                         <a href="https://github.com/sdkcarlos/artyom.js/wiki">
-                                                            Read the guide and wiki of artyom!<br>
+                                                            Leer wiki y manual de artyom en Github!<br>
                                                             <i class="fa fa-book fa-2x"></i>
                                                         </a><br>
                                                     </h4>
@@ -526,35 +526,35 @@ var artyomCommands = [
                                     <div class="section-heading">
                                         <h2>Lazy Developers Zone !</h2>
                                         <div class="col-md-12">
-                                        For an automatic assistent (siri,cortana, google now mode) initialize artyom like this :<br>
+                                        Para un asistente automático (siri,cortana, google now mode) inicialice artyom así :<br>
 <pre class='text-left'>
     artyom.initialize({
-        lang:"en-GB", // United Kingdom english for example
-        listen:true, // Start Listen
-        continuous:true, // Don't stop never until I say otherwise
-        debug:true//See in the console what artyom understand
+        lang:"es-CO", // Español
+        listen:true, // Comience a escuchar desde ahora
+        continuous:true, // No deje de reconocer a menos que se le indique lo contrario
+        debug:true // Ver en la consola lo que Artyom entiende y otros mensajes
     });
 
-    or another language
+    o en otro idioma
 
     artyom.initialize({
-        lang:"es-ES", // Artyom in spanish
-        listen:true, // Start Listen
-        continuous:true, // Don't stop never until I say otherwise
-        debug:true//See in the console what artyom understand
+        lang:"de-DE", // Artyom in Deutsch
+        listen:true, 
+        continuous:true,  
+        debug:true 
     });
 </pre>
                                         </div>
                                         
                                         <div class="col-md-12">
-                                        For await a single action with a simple click : <br>
+                                        Para crear un boton que active artyom y ejecute un solo comando, use de la siguiente manera : <br>
 <pre class='text-left'>
     function callThisActionWhenUserClicksButtons(){
         artyom.initialize({
-            lang:"de-DE", // Deutsch
-            listen:true, // Start Listen
-            continuous:false, // Execute only one command
-            debug:true//See in the console what artyom understand
+            lang:"es-CO",
+            listen:true, // Escuche desde ahora
+            continuous:false, // No se ejecute en modo continuo
+            debug:true//Ver en la consola etc ...
         });
     }
 </pre>
