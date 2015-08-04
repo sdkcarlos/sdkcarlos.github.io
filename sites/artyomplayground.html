@@ -206,7 +206,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a>
+              	  <p class="centered"><a href="profile.html"><img src="https://avatars0.githubusercontent.com/u/11634719?v=3&s=460" class="img-circle" width="60"></a>
                     <br><br>
                   <i id="artyom-status-label" class="fa fa fa-microphone fa-2x" style="color:red;"></i>
                   </p>
@@ -215,7 +215,7 @@
                   <li class="mt">
                       <a class="active" href="index.html">
                           <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
+                          <span>Main Demo</span>
                       </a>
                   </li>
 
@@ -310,9 +310,9 @@
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1">
 					  			<span class="li_cloud"></span>
-					  			<h3>+48</h3>
+					  			<h3>&infin;</h3>
                   			</div>
-					  			<p>48 New files were added in your cloud storage.</p>
+					  			<p>Infinite number of commands that can be charged to Artyom.</p>
                   		</div>
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1">
@@ -372,16 +372,16 @@
                       	<div class="col-md-4 col-sm-4 mb">
                       		<div class="white-panel pn">
                       			<div class="white-header">
-						  			<h5>TOP PRODUCT</h5>
+						  			<h5>TOP BROWSER</h5>
                       			</div>
 								<div class="row">
 									<div class="col-sm-6 col-xs-6 goleft">
-										<p><i class="fa fa-heart"></i> 122</p>
+										<p><i class="fa fa-heart"></i> Please use google chrome for this demo</p>
 									</div>
 									<div class="col-sm-6 col-xs-6"></div>
 	                      		</div>
 	                      		<div class="centered">
-										<img src="assets/img/product.png" width="120">
+                                            <img src="../img/chrome-bg.jpg" width="180" alt="Google chrome browser">
 	                      		</div>
                       		</div>
                       	</div><!-- /col-md-4 -->
@@ -390,18 +390,18 @@
 							<!-- WHITE PANEL - TOP USER -->
 							<div class="white-panel pn">
 								<div class="white-header">
-									<h5>TOP USER</h5>
+									<h5>About the creator</h5>
 								</div>
-								<p><img src="assets/img/ui-zac.jpg" class="img-circle" width="80"></p>
-								<p><b>Zac Snider</b></p>
+								<p><img src="https://avatars0.githubusercontent.com/u/11634719?v=3&s=460" class="img-circle" width="80"></p>
+								<p><b>SDkCarlos</b></p>
 								<div class="row">
 									<div class="col-md-6">
-										<p class="small mt">MEMBER SINCE</p>
-										<p>2012</p>
+										<p class="small mt">Artyom.js</p>
+										<p>Author</p>
 									</div>
 									<div class="col-md-6">
-										<p class="small mt">TOTAL SPEND</p>
-										<p>$ 47,60</p>
+										<p class="small mt"><i class="fa fa-github-square"></i> Github</p>
+                                                                                <p><a href="https://github.com/sdkcarlos" target="_blank">Profile</a></p>
 									</div>
 								</div>
 							</div>
@@ -635,7 +635,7 @@
                       <!-- Fifth Member -->
                       <div class="desc">
                       	<div class="thumb">
-                      		<img class="img-circle" src="assets/img/ui-sam.jpg" width="35px" height="35px" align="">
+                      		<img class="img-circle" src="https://avatars0.githubusercontent.com/u/11634719?v=3&s=460" width="35px" height="35px" align="">
                       	</div>
                       	<div class="details">
                       		<p><a href="#">Marcel Newman</a><br/>
@@ -643,21 +643,6 @@
                       		</p>
                       	</div>
                       </div>
-
-                        <!-- CALENDAR-->
-                        <div id="calendar" class="mb">
-                            <div class="panel green-panel no-margin">
-                                <div class="panel-body">
-                                    <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                                        <div class="arrow"></div>
-                                        <h3 class="popover-title" style="disadding: none;"></h3>
-                                        <div id="date-popover-content" class="popover-content"></div>
-                                    </div>
-                                    <div id="my-calendar"></div>
-                                </div>
-                            </div>
-                        </div><!-- / calendar -->
-
                   </div><!-- /col-lg-3 -->
               </div><! --/row -->
           </section>
@@ -704,7 +689,7 @@
         // (string | mandatory) the text inside the notification
         text: 'Hey ! Welcome, I am a demo of what you can do with Artyom.js in your website.<br>  Please if you like this, give a me a Starred in the Github repository , that would really help the project <i class="fa fa-heart"></i><a href="https://github.com/sdkcarlos/artyom.js" target="_blank" style="color:#ffd777">Artyom.js</a>.',
         // (string | optional) the image to display on the left
-        image: 'assets/img/ui-sam.jpg',
+        image: 'https://avatars0.githubusercontent.com/u/11634719?v=3&s=460',
         // (bool | optional) if you want it to fade out on its own or just sit there
         sticky: true,
         // (int | optional) the time you want it to be alive for before fading out
@@ -724,23 +709,6 @@
         $("#date-popover").hide();
         $("#date-popover").click(function (e) {
             $(this).hide();
-        });
-
-        $("#my-calendar").zabuto_calendar({
-            action: function () {
-                return myDateFunction(this.id, false);
-            },
-            action_nav: function () {
-                return myNavFunction(this.id);
-            },
-            ajax: {
-                url: "show_data.php?action=1",
-                modal: true
-            },
-            legend: [
-                {type: "text", label: "Special event", badge: "00"},
-                {type: "block", label: "Regular event", }
-            ]
         });
     });
 
