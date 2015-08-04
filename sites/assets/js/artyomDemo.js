@@ -18,7 +18,7 @@ artyom.initialize({
  */
 artyom.when("Recognition",function(e){
     $("#artyom-status-label").css({
-      color:"green"
+      color:"#06DC07"
     });
 });
 artyom.when("FinishRecognition",function(e){
