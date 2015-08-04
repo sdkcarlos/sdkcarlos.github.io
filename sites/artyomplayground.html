@@ -714,6 +714,16 @@
 
 	<script type="application/javascript">
         $(document).ready(function () {
+
+            //Start artyom !
+            artyom.initialize({
+              lang : "en-GB",
+              continuous : true,
+              listen:true,
+              debug:true
+            });
+
+
             $("#date-popover").popover({html: true, trigger: "manual"});
             $("#date-popover").hide();
             $("#date-popover").click(function (e) {
