@@ -674,6 +674,14 @@ var artyomCommands = [
         artyom.when("info",function(e){
             alertify.success("INFO :" + e.message);
         });
+        
+        artyom.when("Recognition",function(e){
+            alertify.success("Artyom have listen something");
+        });
+        
+        artyom.when("FinishRecognition",function(e){
+            alertify.success("Artyom is not listening anymore.");
+        });
     </script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/alertify.js"></script>

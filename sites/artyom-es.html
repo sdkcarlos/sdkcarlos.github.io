@@ -656,12 +656,21 @@ var artyomCommands = [
     <script src="../js/artyom.min.js"></script>
     <script>
         artyom.when("error",function(e){
-            alertify.error("<p style='font-size:1.3em;'>That's an artyom error ['"+e.code+"'] : "+e.message+"</p>");
+            alertify.error("<p style='font-size:1.3em;'>Eso es un error de artyom ['"+e.code+"'] : "+e.message+"</p>");
             console.log(e);
         });
         
         artyom.when("info",function(e){
             alertify.success("INFO :" + e.message);
+        });
+        
+        
+        artyom.when("Recognition",function(e){
+            alertify.success("Artyom ha reconocido algo");
+        });
+        
+        artyom.when("FinishRecognition",function(e){
+            alertify.success("Artyom no esta reconociendo más");
         });
     </script>
     <script src="../js/jquery.min.js"></script>
