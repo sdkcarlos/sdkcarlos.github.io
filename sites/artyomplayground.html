@@ -47,7 +47,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Artyom Playground - Your personal assistent built with javascript</b></a>
+            <a href="javascript:void(0)" class="logo"><b>Artyom Playground - Your personal assistent built with javascript</b></a>
             <!--logo end-->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
@@ -78,18 +78,18 @@
                           <span>Main Demo</span>
                       </a>
                   </li>
-
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>UI Elements</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="general.html">General</a></li>
-                          <li><a  href="buttons.html">Buttons</a></li>
-                          <li><a  href="panels.html">Panels</a></li>
-                      </ul>
-                  </li>
+<!--
+                    <li class="sub-menu">
+                        <a href="javascript:;" >
+                            <i class="fa fa-desktop"></i>
+                            <span>UI Elements</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a  href="general.html">General</a></li>
+                            <li><a  href="buttons.html">Buttons</a></li>
+                            <li><a  href="panels.html">Panels</a></li>
+                        </ul>
+                    </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
@@ -142,7 +142,7 @@
                           <li><a  href="chartjs.html">Chartjs</a></li>
                       </ul>
                   </li>
-
+-->
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -163,9 +163,9 @@
                   		<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
                   			<div class="box1">
 					  			<span class="li_heart"></span>
-					  			<h3>933</h3>
+					  			<h3>Active</h3>
                   			</div>
-					  			<p>933 People liked your page the last 24hs. Whoohoo!</p>
+					  			<p>Artyom.js is kept constantly updated</p>
                   		</div>
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1">
@@ -177,9 +177,9 @@
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1">
 					  			<span class="li_stack"></span>
-					  			<h3>23</h3>
+					  			<h3 id='artyom-commands-quant'>wait...</h3>
                   			</div>
-					  			<p>You have 23 unread messages in your inbox.</p>
+					  			<p>These are the total of commands available for artyom in this demo. See further information down.</p>
                   		</div>
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1">
@@ -547,6 +547,8 @@
         $("#date-popover").click(function (e) {
             $(this).hide();
         });
+        
+        $("#artyom-commands-quant").html("+" + artyCommands.getCommands("en").length);
     });
 /*
     function myNavFunction(id) {
