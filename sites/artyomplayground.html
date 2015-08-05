@@ -391,6 +391,14 @@
                 $("#available-commands-list").append('<li> <b style="color:red;">Normal : </b>'+comando.indexes+'</li>');
             }
         });
+        
+        if(!artyom.speechSupported()){
+            alertify.log("It seems artyom can't talk in this browser. You must use google chrome!", "", 0);
+        }
+        
+        if(!artyom.recognizingSupported()){
+            alertify.log("It seems artyom can't listen to you in this browser. You must use google chrome!", "", 0);
+        }
     });
 </script>
   </body>
