@@ -20,8 +20,9 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    <script src="assets/js/chart-master/Chart.js"></script>
+    
+    <link href="../css/alertify.core.css" rel="stylesheet" />
+    <link href="../css/alertify.default.css" rel="stylesheet" />
 
     <!-- Artyom Core -->
     <script src="assets/js/artyomCommands.js"></script>
@@ -198,10 +199,8 @@
 
                   	</div><!-- /row mt -->
 
-
-                      <div class="row mt">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-success tooltips" data-original-title="Start artyom .. if you stop it before" onclick="alert('On development ...')">Start artyom</button>
@@ -214,34 +213,28 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea id="artyom-speak-demo" class="form-control">Just click the Read text button. I will read what is inside this textarea.</textarea>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button type="button" class="btn btn-success tooltips" data-original-title="Artyom can read the text that you put in the textarea" onclick="artyom.say($('#artyom-speak-demo').val());">Read text <i class="fa fa-soundcloud"></i></button>
+                                </div>
+                            </div>
                         </div>
-                          <div style="height: 20px;"></div>
+                      <div class="row mt">
                       <!-- SERVER STATUS PANELS -->
                       	<div class="col-md-4 col-sm-4 mb">
                       		<div class="white-panel pn donut-chart">
                       			<div class="white-header">
-						  			<h5>SERVER LOAD</h5>
+						  			<h5>Open Chrome Dev Console</h5>
                       			</div>
-								<div class="row">
-									<div class="col-sm-6 col-xs-6 goleft">
-										<p><i class="fa fa-database"></i> 70%</p>
-									</div>
+                                                <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p>Press <kbd>F12</kbd> and open the console</p>
+                                            </div>
 	                      		</div>
-								<canvas id="serverstatus01" height="120" width="120"></canvas>
-								<script>
-									var doughnutData = [
-											{
-												value: 70,
-												color:"#68dff0"
-											},
-											{
-												value : 30,
-												color : "#fdfdfd"
-											}
-										];
-										var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
-								</script>
-	                      	</div><! --/grey-panel -->
+	                      	</div> 
                       	</div><!-- /col-md-4-->
 
 
@@ -297,6 +290,9 @@
                                     And will be green when it listen to you ! Try saying hello and see the magic ! When a command is executed , it will be red again 
                                     till you talk again</h4></li>
                                 <li><h4>&#8226;The following list have all the available commands of artyom in this document.</h4></li>
+                            </ul>
+                            <ul style="list-style:" id="available-commands-list">
+                                <li>Try saying any of the following commands [Commands marked as smart accepts you to change the wildcard, for example : search the weather in washington]</li>
                             </ul>
                         </div>
                     </div>
@@ -389,6 +385,7 @@
   </section>
 
     <script src="assets/js/jquery-1.8.3.min.js"></script>
+    <script src="../js/alertify.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
@@ -428,6 +425,14 @@
         });
         
         $("#artyom-commands-quant").html("+" + artyCommands.getCommands("en").length);
+        
+        artyCommands.getCommands("en").forEach(function(comando){
+            if(comando.smart){
+                $("#available-commands-list").append('<li> <b style="color:blue;">Smart : </b>'+comando.indexes+'</li>');
+            }else{
+                $("#available-commands-list").append('<li> <b style="color:red;">Normal : </b>'+comando.indexes+'</li>');
+            }
+        });
     });
 </script>
   </body>
