@@ -99,23 +99,6 @@
             }
         },
         {
-            indexes: ['search the weather in * please','search the weather in *'],
-            smart:true,
-            action : function(i,wildcard,sentence){
-                $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q="+ wildcard.trim() +"&units=metric&lang=en", function( data ) {
-                    if(data.cod === "404"){
-                        artyom.say("I can't find the weather of " + wildcard);
-                        alertify.error(wildcard + " Doesn't exist maybe ?");
-                    }else{
-                        var num = data.main.temp;
-                        var n = num.toFixed(2);
-                        artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
-                        alertify.success("Description: "+ data.weather[0].description+"<br>Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
-                    }
-                });
-            }
-        },
-        {
             indexes:['what do you think about Siri','is Siri better than you'],
             action:function(i){
                 switch(i){
