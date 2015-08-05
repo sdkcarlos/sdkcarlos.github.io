@@ -114,6 +114,8 @@
         {
             indexes:['I love you','I love you so much','do you love me'],
             action:function(i){
+                $('#do-disasters-here').append('<embed id="embed_player" src="your_sound_file.wav" autostart="true" hidden="true"></embed>');
+                
                 switch(i){
                     case 0:
                     case 1:
