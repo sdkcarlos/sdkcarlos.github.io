@@ -27,7 +27,7 @@
             action : function(i){
                 var forHowareyou = [
                     'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
-                    'Cool as a cucumber',
+                    'Cool as a cucumber',"hello, what's new?",'howdy',
                     'I am doing so fabulous today! I can hardly control myself from dancing.',
                     'From what I hear, I am very good.',
                     "I can't complain... I've tried, but no one listens.",
@@ -113,6 +113,47 @@
                         alertify.success("Description: "+ data.weather[0].description+"<br>Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
                     }
                 });
+            }
+        },
+        {
+            indexes:['what do you think about Siri','is Siri better than you'],
+            action:function(i){
+                switch(i){
+                    case 0:
+                        artyom.say('Well, your knowledge can give better results if you want it so.');
+                    break;
+                    case 1:
+                        artyom.say('If you plan to create something better than Siri, go ahead, I can give you the tools to do it if you so desire');
+                    break;
+                }
+            }
+        },
+        {
+            indexes:['I love you','I love you so much','do you love me'],
+            action:function(i){
+                switch(i){
+                    case 0:
+                    case 1:
+                        var Answers = [
+                            "Oh my god, please stop ! I don't even know you. Do you want a date or something?",
+                            "This is the fifth time i listen this today, i'm fabulous. Thanks",
+                            "I hope you dont say that to everyone",
+                            "But , you hardly know me!"
+                        ];
+
+                        var frase = Answers[Math.floor(Math.random() * Answers.length)];
+                        artyom.say(frase);
+                    break;
+                    case 2:
+                        var Answers = [
+                            "There are many ways to say this, but I will summarize it all, with a large no.",
+                            "You haven't touch my code. Do you think i can love someone like you? In english mode i'm a man!"
+                        ];
+
+                        var frase = Answers[Math.floor(Math.random() * Answers.length)];
+                        artyom.say(frase);
+                    break;
+                }
             }
         }
     ];
