@@ -21,11 +21,20 @@ function initializeArtyomInEnglish(){
  */
 artyom.when("Recognition",function(e){
     $("#artyom-status-label").css({
-      color:"#06DC07"
+        color:"#06DC07"
     });
 });
 artyom.when("FinishRecognition",function(e){
     $("#artyom-status-label").css({
         color:"red"
     });
+});
+
+artyom.when("error",function(e){
+    alertify.error("<p style='font-size:1.3em;'>That's an artyom error ['"+e.code+"'] : "+e.message+"</p>");
+    console.log(e);
+});
+
+artyom.when("info",function(e){
+    alertify.success("INFO :" + e.message);
 });
