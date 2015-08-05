@@ -4,12 +4,15 @@
  * Initialize artyom first.
  * @param {type} param
  */
-artyom.initialize({
-  lang : "en-GB",
-  continuous : true,
-  listen:true,
-  debug:true
-});
+
+function initializeArtyomInEnglish(){
+    artyom.initialize({
+        lang : "en-GB",
+        continuous : true,
+        listen:true,
+        debug:true
+    });
+}
 
 /**
  * When start listen and end listen do that !
