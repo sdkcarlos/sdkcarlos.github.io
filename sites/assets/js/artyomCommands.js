@@ -144,7 +144,21 @@
 
                 snd.play();
             }
-        }
+        },
+        {
+            indexes:['I need money','I have no money','I have not money'],
+            action:function(i){
+                var Answers = [
+                    "Sorry, but i'm not a bank",
+                    "Do you work everyday for it ? Otherwise I have bad news for you",
+                    "I will not give a dollar, if that's what you mean",
+                    "Tell No One, but I also need"
+                ];
+
+                var frase = Answers[Math.floor(Math.random() * Answers.length)];
+                artyom.say(frase);
+            }
+        },
     ];
     
     
