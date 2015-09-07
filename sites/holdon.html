@@ -33,7 +33,7 @@
 				</nav>
 				<footer>
 					<ul class="icons">
-                                            <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+                                            <li><a href="https://github.com/sdkcarlos/HoldOn.js" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
 					</ul>
 				</footer>
 			</section>
@@ -98,6 +98,27 @@
                                                                                     <input type="submit" class="special" value="Fading Circle Theme" onclick="testHoldon('sk-fading-circle');">
                                                                                 </li>
 									</ul>
+                                                                        <p>
+                                                                            You dont like anything of the previous themes or you want to customize your own theme? No problem !<br>
+                                                                            HoldOn allows you to customize the main content and message ,in the way you want! Test it !
+                                                                        </p>
+                                                                        <ul class="feature-icons">
+                                                                            <li class="fa-cubes">
+                                                                                <input type="submit" class="special" value="Custom Theme" onclick="customHoldon();">
+                                                                            </li>
+                                                                        </ul>
+                                                                        <p>Previous theme achieved with :</p>
+<pre style="font-size:0.7em;">
+    HoldOn.open({
+        theme:&quot;custom&quot;,
+        content:'&lt;img style=&quot;width:80px;&quot; src=&quot;https://www.google.de/images/bran\n\
+        ding/googlelogo/2x/googlelogo_color_272x92dp.png&quot; class=&quot;center-block&quot;&gt;',
+        message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit.\n\
+        &lt;br&gt; &lt;input type=&quot;button&quot; value=&quot;Close this Cover&quot; onclick=&quot;HoldOn.close();&quot;&gt;',
+        backgroundColor:&quot;#1847B1&quot;,
+        textColor:&quot;white&quot;,
+    });
+</pre>
 								</div>
 							</section>
 
@@ -517,7 +538,7 @@ HoldOn.open({
 					<section id="footer">
 						<div class="container">
 							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; HoldOn.js . All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</section>
@@ -534,6 +555,20 @@ HoldOn.open({
 			<script src="holdon-resources/js/main.js"></script>
                         <script src="holdon-resources/js/HoldOn.js"></script>
                         <script>
+                            $(function(){
+                               
+                            });
+                            
+                            function customHoldon(){
+                                HoldOn.open({
+                                    theme:"custom",
+                                    content:'<img style="width:80px;" src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="center-block">',
+                                    message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit. <br> <input type="button" value="Close this Cover" onclick="HoldOn.close();">',
+                                    backgroundColor:"#1847B1",
+                                    textColor:"white",
+                                });
+                            }
+                            
                             function testHoldon(themeName){
                                 HoldOn.open({
                                     theme:themeName,
