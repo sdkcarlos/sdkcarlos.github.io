@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This is the generated HTML file of the demo page -->
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Artyom.js - A Javascript Voice Commands Handler</title>
+
+    <link rel="stylesheet" href="artyom-resources/css/winstrap.css" />
+    <link rel="stylesheet" href="artyom-resources/css/font-awesome.min.css" />
+
+    <script src="artyom-resources/js/jquery.min.js"></script>
+    <script src="artyom-resources/js/artyomCommands.js"></script>
+    <script src="artyom-resources/js/artyom.min.js"></script>
+
+    <script src="artyom-resources/js/winstrap.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="artyom-resources/js/html5shiv.min.js"></script>
+        <script src="artyom-resources/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="icon-hamburger"></i>
+                </button>
+
+                <a href="index.html" class="navbar-brand">
+                    <img src="images/artyomjs-logo-min.png" alt="Artyom" height="29" />
+                </a>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Colors <i class="icon-flipviewdown"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="colors.html">All colors</a></li>
+                            <li class="divider"></li>
+                            <li><a href="colors.html#bootstrap-colors">Bootstrap colors</a></li>
+                            <li><a href="colors.html#mdl-colors">MDL colors</a></li>
+                            <li><a href="colors.html#mdl-alt-colors">MDL alt colors</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="typography.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Typography <i class="icon-flipviewdown"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="typography.html">All typography</a></li>
+                            <li class="divider"></li>
+                            <li><a href="typography.html#fonts">Fonts</a></li>
+                            <li><a href="typography.html#icons">Icons</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="layout.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Layout <i class="icon-flipviewdown"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="layout.html">All layout</a></li>
+                            <li class="divider"></li>
+                            <li><a href="layout.html#page-header">Page header</a></li>
+                            <li><a href="layout.html#grid">Grid</a></li>
+                            <li><a href="layout.html#grid-small-gutters">Small gutters</a></li>
+                            <li><a href="layout.html#spacers">Spacers</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="controls.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Controls <i class="icon-flipviewdown"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="controls.html">All controls</a></li>
+                            <li class="divider"></li>
+                            <li><a href="controls.html#buttons">Buttons</a></li>
+                            <li><a href="controls.html#toggle-switch">Toggle Switch</a></li>
+                            <li><a href="controls.html#forms">Forms</a></li>
+                            <li><a href="controls.html#progress">Progress bar</a></li>
+                            <li><a href="controls.html#loader">Progress ring</a></li>
+                            <li><a href="controls.html#dropdowns">Dropdowns</a></li>
+                            <li><a href="controls.html#tooltips">Tooltips</a></li>
+                            <li><a href="controls.html#flyouts">Flyouts</a></li>
+                            <li><a href="controls.html#dialogs">Dialogs</a></li>
+                            <li><a href="controls.html#tabs">Tabs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="components.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Components <i class="icon-flipviewdown"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="components.html">All components</a></li>
+                            <li class="divider"></li>
+                            <li><a href="components.html#breadcrumb">Breadcrumb</a></li>
+                            <li><a href="components.html#back-to-top">Back to top</a></li>
+                            <li><a href="components.html#rating">Rating</a></li>
+                            <li><a href="components.html#labels">Labels</a></li>
+                            <li><a href="components.html#media">Media</a></li>
+                            <li><a href="components.html#tables">Tables</a></li>
+                            <li><a href="components.html#responsive-table">Responsive table</a></li>
+                            <li><a href="components.html#list-items">List items</a></li>
+                            <li><a href="components.html#pagination">Pagination</a></li>
+                            <li><a href="components.html#tiles">Tiles</a></li>
+                            <li><a href="components.html#jumbotron">Jumbotron</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a href="alerts.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Alerts <i class="icon-flipviewdown"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="alerts.html">All alerts</a></li>
+                            <li class="divider"></li>
+                            <li><a href="alerts.html#stack">Alert stack</a></li>
+                            <li><a href="alerts.html#inline">Inline alerts</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="color-type-secondary" href="https://github.com/sdkcarlos/artyom.js">GitHub <i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <div class="modal modal-center" id="changelog" tabindex="-1" role="dialog" aria-labelledby="changelog-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="icon-cancel" aria-hidden="true"></i>
+                    </button>
+                    <h4 class="modal-title" id="changelog-label">Changelog</h4>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>0.4.4</dt>
+                        <dd>
+                            <ul class="list-unstyled">
+                                <li>Updates and fixes for:</li>
+                                <li><a href="typography.html#fonts">Responsive type</a></li>
+                                <li><a href="controls.html#buttons">Push buttons</a></li>
+                                <li><a href="controls.html#buttons">Toggle buttons</a></li>
+                                <li><a href="controls.html#toggle-switch">Toggle switch</a></li>
+                                <li><a href="components.html#back-to-top">Back-to-top button</a></li>
+                                <li><a href="controls.html#forms">Select box</a></li>
+                                <li><a href="alerts.html">Alerts</a></li>
+                                <li><a href="components.html#tables">Tables</a></li>
+                                <li><a href="components.html#jumbotron">Jumbotron and highlight bar</a></li>
+                                <li><a href="components.html#pagination">Pagination</a></li>
+                                <li><a href="components.html#pager">Pager</a></li>
+                                <li>Default <code>&lt;p&gt;</code> spacing</li>
+                                <li>Remove MDL 1.0 controls and components</li>
+                            </ul>
+                        </dd>
+
+                        <dt>0.4.0</dt>
+                        <dd>
+                            <ul class="list-unstyled">
+                                <li>New colors and color naming that reflect the latest MDL colors.</li>
+                                <li>Remove <code>win-</code> prefix from class and variable names.</li>
+                            </ul>
+                        </dd>
+
+                        <dt>0.3.2</dt>
+                        <dd>
+                            <ul class="list-unstyled">
+                                <li>Rename to Winstrap.</li>
+                            </ul>
+                        </dd>
+
+                        <dt>0.1.1</dt>
+                        <dd>
+                            <ul class="list-unstyled">
+                                <li>Add <code>win-</code> prefix to:</li>
+                                <li><a href="components.html#list-items">list items</a></li>
+                                <li><a href="components.html#refine-list">refine list</a></li>
+                                <li><a href="typography.html#fonts">typography utilities</a></li>
+                                <li><a href="tabs.html">media browser component</a></li>
+                                <li><a href="components.html#back-to-top">back to top component</a></li>
+                                <li><a href="alerts.html">alert stack component</a></li>
+                                <li><a href="layout.html#section">section component</a></li>
+                                <li>Extend the Bootstrap grid with a <a href="layout.html#grid-small-gutters">small gutter option</a>.</li>
+                                <li>Add a <a href="images/bootstrap-winjs.png">placeholder logo</a>.</li>
+                            </ul>
+                        </dd>
+
+                        <dt>0.1.0</dt>
+                        <dd>
+                            <ul class="list-unstyled">
+                                <li>Initialize bootstrap-winjs.</li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-24">
+        <h1>Artyom.js</h1>
+        <ul class="nav nav-pills">
+
+          <li role="presentation">
+              <a href="#changelog" data-toggle="modal">Create a voice interactive Web with Artyom in Google Chrome</a>
+          </li>
+          <li role="presentation">
+              <a href="javascript:void(0)">Download Latest Version</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-xs-24">
+          <section class="section" id="buttons">
+              <header class="section-header ">
+                  <h1 class="section-title ">
+                      <a href="javascript:void()">This is artyom</a>
+                  </h1>
+              </header>
+
+              <div class="row">
+                  <div class="col-md-24">
+                  <p class="text-center">
+                      Make awesome stuff with Google Chrome speech synthesis and speech recognition.
+                      Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !                 </p>
+                  </p>
+                  <p class="text-center">
+                      <i class="icon-emoji"></i> Using pure javascript <i class="icon-emoji"></i>
+                  </p>
+                  </div>
+
+                  <div class="col-md-24">
+                      <h2>Before continue</h2>
+                  </div>
+
+                  <div class="col-md-24">
+                    <h4>Know what artyom can or cannot do</h4>
+                  </div>
+
+
+
+                  <div class="col-md-24">
+                      <h4>About artyom in this Browser</h4>
+                      <div class="color-fill-accent-vivid-high" style="padding: 0 2em 2em; margin-bottom: 1em;">
+                          <div class="btn-group btn-block">
+                              <a class="btn btn-block btn-secondary theme-on-color" id="tag-speech-supported">Loading ...</a>
+                              <a class="btn btn-block btn-secondary theme-on-color" id="tag-recognition-supported">Loading ...</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-24">
+                      <p>
+                        Artyom needs a WebKit Platform to run properly. That means you need either <a href="https://www.google.de/chrome/browser/desktop/" target="_blank">Google Chrome</a> or Safari as Browser, otherwise Artyom will be unavailable.<br>
+                        If artyom is not available, nothing will happen in order to do not affect the users that doesn't support it!<br>
+                        You need use the provided tools of artyom to determine when is available or not.
+                      </p>
+                  </div>
+
+
+              </div>
+
+
+              <!-- Toggle Buttons -->
+              <div class="row">
+                  <div class="col-xs-24">
+                      <h2>Let's get started !</h2>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-24">
+                      <h4>Artyom Initialization <small>Couldn't be more easy</small></h4>
+                      <div class="btn-group">
+                          <button type="button" autocomplete="off" class="btn btn-default" data-toggle="button"  onclick="StartArtyomTemp();" aria-pressed="false">Listen 1 command <i class="icon-microphone"></i></button>
+                      </div>
+                      <p>
+                        Use the following code to create a Only Command Listener of artyom ! (A "Ok Google" like)<br>
+
+                        <b>The button of up is only an example of how you can use artyom (Nothing will happen with this button)</b>
+                      </p>
+                      <script>
+                      window.addEventListener('onload', function()
+                      {
+                          $("[data-toggle='button']").button("toggle");
+                      });
+                      </script>
+<pre>
+<code>function StartArtyomTemp(){</code>
+    <code class="language-xml"><span class="tag">artyom.fatality()</span>;</code>// Stop any previous Artyom Instance to prevent any error
+
+    <code class="language-xml"><span class="tag">artyom.initialize</span></code>({
+        <code class="language-xml"><span class="attribute">lang</span>:<span class="value">"en-GB"</span>,</code>
+        <code class="language-xml"><span class="attribute">continuous</span>:<span class="value">false</span>,</code>// recognize 1 command and stop listening !
+        <code class="language-xml"><span class="attribute">listen</span>:<span class="value">true</span>,//Otherwise we will save only the configuration but don't start artyom.</code>
+        <code class="language-xml"><span class="attribute">debug</span>:<span class="value">true</span>,</code>
+        <code class="language-xml"><span class="attribute">speed</span>:<span class="value">1</span></code>
+    });
+<code>}</code>
+</pre>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <!-- On dark background -->
+                  <div class="col-md-6">
+                      <h4>Alt</h4>
+                      <div class="color-black" style="padding: 0 1em 1em; margin-bottom: 0.5em;">
+                          <div class="btn-group">
+                              <button type="button" autocomplete="off" class="btn btn-default btn-toggle theme-alt" data-toggle="button" aria-pressed="false">Toggle Button</button>
+                              <button type="button" autocomplete="off" class="btn btn-default btn-toggle theme-alt" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- On colored background -->
+                  <div class="col-md-6">
+                      <h4>On solid color</h4>
+                      <div class="color-fill-accent-vivid-high" style="padding: 0 1em 1em; margin-bottom: 0.5em;">
+                          <div class="btn-group">
+                              <button type="button" autocomplete="off" class="btn btn-default theme-on-color" data-toggle="button" aria-pressed="false">Toggle Button</button>
+                              <button type="button" autocomplete="off" class="btn btn-default theme-on-color" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- On light image -->
+                  <div class="col-md-6">
+                      <h4>On light image</h4>
+                      <div class="example-light-image-bg" style="padding: 0 1em 1em; margin-bottom: 0.5em; background-position: center;">
+                          <div class="btn-group">
+                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-light" data-toggle="button" aria-pressed="false">Toggle Button</button>
+                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-light" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- On dark image -->
+                  <div class="col-md-6">
+                      <h4>On dark image</h4>
+                      <div class="example-dark-image-bg" style="padding: 0 1em 1em; margin-bottom: 0.5em;">
+                          <div class="btn-group">
+                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-dark" data-toggle="button" aria-pressed="false">Toggle Button</button>
+                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-dark" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-24">
+  <pre><code class="language-xml"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">autocomplete</span>=<span class="value">"off"</span> <span class="attribute">class</span>=<span class="value">"btn btn-default [theme-alt] [theme-on-color] [theme-on-img-light] [theme-on-img-dark]"</span> <span class="attribute">data-toggle</span>=<span class="value">"button"</span> <span class="attribute">aria-pressed</span>=<span class="value">"false"</span>&gt;</span>Toggle Button<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+  $(<span class="string">"[data-toggle='button']"</span>).button(<span class="string">"toggle"</span>);
+  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+                  </div>
+              </div>
+
+  <hr />
+  <section class="section" id="dialogs">
+      <header class="section-header row">
+          <h1 class="section-title col-xs-24">
+              <a href="#dialogs">Dialogs</a>
+          </h1>
+      </header>
+
+      <div class="row">
+          <div class="col-xs-24">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-sample">
+                      Launch demo dialog
+                  </button>
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-sample-alt">
+                      Launch dialog in alt theme
+                  </button>
+              </div>
+          </div>
+      </div>
+
+
+
+      <div class="modal modal-center-vertical theme-alt" id="modal-sample-alt" tabindex="-1" role="dialog" aria-labelledby="modal-sample-label" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="modal-sample-label">Dialog in alt theme</h4>
+                  </div>
+                  <div class="modal-body">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-10">
+              <p>Example with a button to launch the dialog:</p>
+
+  <pre><code class="language-xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"btn-group"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"btn btn-primary btn-lg"</span>
+              <span class="attribute">data-toggle</span>=<span class="value">"modal"</span>
+              <span class="attribute">data-target</span>=<span class="value">"#modal-sample"</span>&gt;</span>
+          Launch demo dialog
+      <span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+              <p>Launching the dialog with the <a href="http://getbootstrap.com/javascript/#modals-methods" target="_blank">JavaScript API</a>:</p>
+
+  <pre><code class="language-javascript">$(<span class="string">'#modal-sample'</span>).modal(<span class="string">'show'</span>);</code></pre>
+
+              <p>Closing the dialog with the <a href="http://getbootstrap.com/javascript/#modals-methods" target="_blank">JavaScript API</a>:</p>
+
+  <pre><code class="language-javascript">$(<span class="string">'#modal-sample'</span>).modal(<span class="string">'hide'</span>);</code></pre>
+          </div>
+
+          <div class="col-md-14">
+              <p>By default the dialog is already in the DOM:</p>
+
+  <pre><code class="language-xml"><span class="comment">&lt;!-- Add modal-center-vertical class to center the modal vertically --&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal [modal-center-vertical] [theme-alt]"</span> <span class="attribute">id</span>=<span class="value">"modal-sample"</span>
+       <span class="attribute">tabindex</span>=<span class="value">"-1"</span> <span class="attribute">role</span>=<span class="value">"dialog"</span>
+       <span class="attribute">aria-labelledby</span>=<span class="value">"modal-sample-label"</span> <span class="attribute">aria-hidden</span>=<span class="value">"true"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-dialog"</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-content"</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-header"</span>&gt;</span>
+                  <span class="tag">&lt;<span class="title">h4</span> <span class="attribute">class</span>=<span class="value">"modal-title"</span> <span class="attribute">id</span>=<span class="value">"modal-sample-label"</span>&gt;</span>
+                      Dialog title
+                  <span class="tag">&lt;/<span class="title">h4</span>&gt;</span>
+              <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-body"</span>&gt;</span>
+                  Lorem ipsum dolor sit amet.
+              <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-footer"</span>&gt;</span>
+                  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"btn btn-primary"</span>&gt;</span>
+                      Button
+                  <span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+                  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"btn btn-info"</span>
+                          <span class="attribute">data-dismiss</span>=<span class="value">"modal"</span>&gt;</span>
+                      Cancel
+                  <span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+              <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+          <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+          </div>
+      </div>
+  </section>
+  <hr />
+  <section class="section" id="tabs" style="padding-bottom:160px;">
+
+      <div class="modal modal-center-vertical" id="modal-error"
+          tabindex="-1" role="dialog"
+          aria-labelledby="modal-sample-label" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h4 class="modal-title" id="modal-sample-label">
+                         An error ocurred with Artyom
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-primary" onclick="$('#modal-error').modal('hide');">
+                         Ok
+                     </button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+  </section>
+</div>
+
+
+
+
+    <a href="#top" class="back-to-top">
+        <i class="icon-up"></i>
+        <span class="sr-only">Back to top</span>
+    </a>
+
+    <script src="artyom-resources/js/bootstrap.min.js"></script>
+    <script src="artyom-resources/js/app.js"></script>
+    <script>
+      $(function(){
+          if(artyom.speechSupported()){
+              $("#tag-speech-supported").text("Artyom can talk to you in this Browser");
+          }else{
+              $("#tag-speech-supported").text("Artyom cannot talk in this Browser");
+          }
+
+          if(artyom.recognizingSupported()){
+              $("#tag-recognition-supported").text("Artyom can obey orders in this Browser");
+          }else{
+              $("#tag-recognition-supported").text("Artyom cannot listen in this Browser");
+          }
+
+          artyom.when("error",function(data){
+              $('#modal-error').modal('show');
+              $('#modal-error .modal-body').html(data.message);
+
+              console.log(data);
+          });
+      });
+
+
+      function StartArtyomTemp(){
+          artyom.fatality();// Stop any previous Artyom Instance to prevent any error
+
+          artyom.initialize({
+              lang:"en-GB",
+              continuous:false,// recognize 1 command and stop listening !
+              listen:true,//Otherwise we will save only the configuration but don't start artyom.
+              debug:true,
+              speed:1
+          });
+      }
+    </script>
+</body>
+</html>
