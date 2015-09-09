@@ -217,7 +217,7 @@
               <a href="#changelog" data-toggle="modal">Create a voice interactive Web with Artyom in Google Chrome</a>
           </li>
           <li role="presentation">
-              <a href="javascript:void(0)">Download Latest Version</a>
+              <a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip" target="_blank">Download Latest Version</a>
           </li>
         </ul>
       </div>
@@ -241,9 +241,9 @@
                       Make awesome stuff with Google Chrome speech synthesis and speech recognition.
                       Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !                 </p>
                   </p>
-                  <p class="text-center">
+                  <h2 class="text-center">
                       <i class="icon-emoji"></i> Using pure javascript <i class="icon-emoji"></i>
-                  </p>
+                  </h2>
                   </div>
 
                   <div class="col-md-24">
@@ -276,30 +276,41 @@
 
               </div>
 
-
+              <hr>
               <!-- Toggle Buttons -->
-              <div class="row">
-                  <div class="col-xs-24">
-                      <h2>Let's get started !</h2>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-24">
-                      <h4>Artyom Initialization <small>Couldn't be more easy</small></h4>
-                      <div class="btn-group">
-                          <button type="button" autocomplete="off" class="btn btn-default" data-toggle="button"  onclick="StartArtyomTemp();" aria-pressed="false">Listen 1 command <i class="icon-microphone"></i></button>
-                      </div>
-                      <p>
-                        Use the following code to create a Only Command Listener of artyom ! (A "Ok Google" like)<br>
+                <div class="row">
+                    <div class="col-xs-24">
+                        <h2>Let's get started !</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-24">
+                        <h4>Include the required files <small>Artyom has its own dependencies! (Only its commands) </small></h4>
+                    </div>
+                    
+<pre>
+    <code class="language-xml"><span class="tag">&lt;script</span> <span class="attribute">src=<span class="value">"artyomCommands.js"</span></span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="attribute">/script</span><span class="tag">&gt;</span>&lt;-- Load the artyom commands that can be executed --&gt;</code>
+    <code class="language-xml"><span class="tag">&lt;script</span> <span class="attribute">src=<span class="value">"artyom.min.js"</span></span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="attribute">/script</span><span class="tag">&gt;</span> &lt;-- Load the Core of artyom that will handle the commands --&gt;</code>
+</pre>
+                    <p>
+                        And now we can manipulate artyom with javascript !
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-24">
+                        <h4>Artyom Initialization <small>Couldn't be more easy</small></h4>
+                          <button type="button" role="button" class="btn btn-default btn-block" data-toggle="button"  onclick="StartArtyomTemp();" aria-pressed="false">Activate Artyom <i class="icon-microphone"></i></button>
+                        <p>
+                          Use the following code to create a Only Command Listener of artyom ! (A "Ok Google" like)<br>
 
-                        <b>The button of up is only an example of how you can use artyom (Nothing will happen with this button)</b>
-                      </p>
-                      <script>
-                      window.addEventListener('onload', function()
-                      {
-                          $("[data-toggle='button']").button("toggle");
-                      });
-                      </script>
+                          <b>The button of up will activate artyom in uncontinous mode, that means only 1 command will be executed an then it will stop.</b>
+                        </p>
+                        <script>
+                        window.addEventListener('onload', function()
+                        {
+                            $("[data-toggle='button']").button("toggle");
+                        });
+                        </script>
 <pre>
 <code>function StartArtyomTemp(){</code>
     <code class="language-xml"><span class="tag">artyom.fatality()</span>;</code>// Stop any previous Artyom Instance to prevent any error
@@ -313,7 +324,7 @@
     });
 <code>}</code>
 </pre>
-                  </div>
+                    </div>
               </div>
 
               <div class="row">
@@ -502,30 +513,34 @@
     <script src="artyom-resources/js/bootstrap.min.js"></script>
     <script src="artyom-resources/js/app.js"></script>
     <script>
-      $(function(){
-          if(artyom.speechSupported()){
-              $("#tag-speech-supported").text("Artyom can talk to you in this Browser");
-          }else{
-              $("#tag-speech-supported").text("Artyom cannot talk in this Browser");
-          }
+        $(function(){
+            if(artyom.speechSupported()){
+                $("#tag-speech-supported").text("Artyom can talk to you in this Browser");
+            }else{
+                $("#tag-speech-supported").removeClass("btn-secondary");
+                $("#tag-speech-supported").addClass("btn-danger");
+                $("#tag-speech-supported").text("Artyom cannot talk in this Browser");
+            }
 
-          if(artyom.recognizingSupported()){
-              $("#tag-recognition-supported").text("Artyom can obey orders in this Browser");
-          }else{
-              $("#tag-recognition-supported").text("Artyom cannot listen in this Browser");
-          }
+            if(artyom.recognizingSupported()){
+                $("#tag-recognition-supported").text("Artyom can obey orders in this Browser");
+            }else{
+                $("#tag-recognition-supported").removeClass("btn-secondary");
+                $("#tag-recognition-supported").addClass("btn-danger");
+                $("#tag-recognition-supported").text("Artyom cannot listen in this Browser");
+            }
 
-          artyom.when("error",function(data){
-              $('#modal-error').modal('show');
-              $('#modal-error .modal-body').html(data.message);
+            artyom.when("error",function(data){
+                $('#modal-error').modal('show');
+                $('#modal-error .modal-body').html(data.message);
 
-              console.log(data);
-          });
-      });
+                console.log(data);
+            });
+        });
 
 
       function StartArtyomTemp(){
-          //artyom.fatality();// Stop any previous Artyom Instance to prevent any error
+          artyom.fatality();// Stop any previous Artyom Instance to prevent any error
 
           artyom.initialize({
               lang:"en-GB",
