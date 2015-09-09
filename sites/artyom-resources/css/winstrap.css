@@ -8394,12 +8394,10 @@ code .number {
   margin-right: 8px; }
 
 .example-dark-image-bg {
-  background-image: url('../images/example_dark.jpg');
   background-position: top left;
   background-size: cover; }
 
 .example-light-image-bg {
-  background-image: url('../images/example_light.jpg');
   background-position: top right;
   background-size: cover; }
 
