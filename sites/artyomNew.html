@@ -264,15 +264,18 @@
 
 
 
-                  <div class="col-md-24">
-                      <h4>About artyom in this Browser</h4>
-                      <div class="color-fill-accent-vivid-high" style="padding: 0 2em 2em; margin-bottom: 1em;">
-                          <div class="btn-group btn-block">
-                              <a class="btn btn-block btn-secondary theme-on-color" id="tag-speech-supported">Loading ...</a>
-                              <a class="btn btn-block btn-secondary theme-on-color" id="tag-recognition-supported">Loading ...</a>
-                          </div>
-                      </div>
-                  </div>
+                    <div class="col-md-24">
+                        <h4>About artyom in this Browser</h4>
+                        <div class="color-fill-accent-vivid-high" style="padding: 0 2em 2em; margin-bottom: 1em;">
+                            <div class="btn-group btn-block">
+                                <a class="btn btn-block btn-secondary theme-on-color" id="tag-speech-supported">Loading ...</a>
+                                <a class="btn btn-block btn-secondary theme-on-color" id="tag-recognition-supported">Loading ...</a>
+                                <select class="btn btn-block theme-on-color" id="tag-availablevoices">
+                                    <option>Loading voices ..</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                   <div class="col-md-24">
                       <p>
                         Artyom needs a WebKit Platform to run properly. That means you need either <a href="https://www.google.de/chrome/browser/desktop/" target="_blank">Google Chrome</a> or Safari as Browser, otherwise Artyom will be unavailable.<br>
@@ -335,51 +338,6 @@
                     </div>
               </div>
 
-              <div class="row">
-                  <!-- On dark background -->
-                  <div class="col-md-6">
-                      <h4>Alt</h4>
-                      <div class="color-black" style="padding: 0 1em 1em; margin-bottom: 0.5em;">
-                          <div class="btn-group">
-                              <button type="button" autocomplete="off" class="btn btn-default btn-toggle theme-alt" data-toggle="button" aria-pressed="false">Toggle Button</button>
-                              <button type="button" autocomplete="off" class="btn btn-default btn-toggle theme-alt" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- On colored background -->
-                  <div class="col-md-6">
-                      <h4>On solid color</h4>
-                      <div class="color-fill-accent-vivid-high" style="padding: 0 1em 1em; margin-bottom: 0.5em;">
-                          <div class="btn-group">
-                              <button type="button" autocomplete="off" class="btn btn-default theme-on-color" data-toggle="button" aria-pressed="false">Toggle Button</button>
-                              <button type="button" autocomplete="off" class="btn btn-default theme-on-color" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- On light image -->
-                  <div class="col-md-6">
-                      <h4>On light image</h4>
-                      <div class="example-light-image-bg" style="padding: 0 1em 1em; margin-bottom: 0.5em; background-position: center;">
-                          <div class="btn-group">
-                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-light" data-toggle="button" aria-pressed="false">Toggle Button</button>
-                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-light" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- On dark image -->
-                  <div class="col-md-6">
-                      <h4>On dark image</h4>
-                      <div class="example-dark-image-bg" style="padding: 0 1em 1em; margin-bottom: 0.5em;">
-                          <div class="btn-group">
-                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-dark" data-toggle="button" aria-pressed="false">Toggle Button</button>
-                              <button type="button" autocomplete="off" class="btn btn-default theme-on-img-dark" data-toggle="button" aria-pressed="false" disabled>Disabled</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
 
               <div class="row">
                   <div class="col-md-24">
@@ -522,6 +480,8 @@
     <script src="artyom-resources/js/app.js"></script>
     <script>
         $(function(){
+            listArtyomVoices(); 
+            
             var isMobile = false; //initiate as false
             // device detection
             if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -555,19 +515,29 @@
                 console.log(data);
             });
         });
+        
+        function StartArtyomTemp(){
+            artyom.fatality();// Stop any previous Artyom Instance to prevent any error
 
+            artyom.initialize({
+                lang:"en-GB",
+                continuous:false,// recognize 1 command and stop listening !
+                listen:true,//Otherwise we will save only the configuration but don't start artyom.
+                debug:true,
+                speed:1
+            });
+        }
 
-      function StartArtyomTemp(){
-          artyom.fatality();// Stop any previous Artyom Instance to prevent any error
-
-          artyom.initialize({
-              lang:"en-GB",
-              continuous:false,// recognize 1 command and stop listening !
-              listen:true,//Otherwise we will save only the configuration but don't start artyom.
-              debug:true,
-              speed:1
-          });
-      }
+        function listArtyomVoices(){
+            var select = $("#tag-availablevoices");
+            var voices = artyom.getVoices();
+            select.empty();
+            
+            for(var i = 0;i < voices.length;i++){
+                var voice = voices[i];
+                select.append('<option>'+voice.name+'</option>');
+            }
+        }
     </script>
 </body>
 </html>
