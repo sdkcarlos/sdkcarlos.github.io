@@ -239,8 +239,16 @@
                   <div class="col-md-24">
                   <p class="text-center">
                       Make awesome stuff with Google Chrome speech synthesis and speech recognition.
-                      Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !                 </p>
+                      Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !                 
                   </p>
+<script>
+    function talktemport(){
+        alert("will talk");
+        artyom.say($("#demo-arty").val());
+    }
+</script>
+<textarea id="demo-arty"></textarea>
+<input type="button" value="hablar" class="btn btn-info" onclick="talktemport();">
                   <h2 class="text-center">
                       <i class="icon-emoji"></i> Using pure javascript <i class="icon-emoji"></i>
                   </h2>
