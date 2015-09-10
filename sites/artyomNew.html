@@ -12,13 +12,14 @@
 
     <link rel="stylesheet" href="artyom-resources/css/winstrap.css" />
     <link rel="stylesheet" href="artyom-resources/css/font-awesome.min.css" />
-
+    <link rel="stylesheet" href="artyom-resources/css/pace.css" />
+    
     <script src="artyom-resources/js/jquery.min.js"></script>
     <script src="artyom-resources/js/artyomCommands.js"></script>
     <script src="artyom-resources/js/artyom.min.js"></script>
 
     <script src="artyom-resources/js/winstrap.js"></script>
-
+    <script src="artyom-resources/js/pace.min.js"></script>
     <!--[if lt IE 9]>
         <script src="artyom-resources/js/html5shiv.min.js"></script>
         <script src="artyom-resources/js/respond.min.js"></script>
@@ -39,9 +40,10 @@
                 </a>
 
             </div>
-
+            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <!-- <ul class="nav navbar-nav">
+                    MAIN TOP OPTIONS
                     <li class="dropdown">
                         <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Colors <i class="icon-flipviewdown"></i></a>
                         <ul class="dropdown-menu" role="menu">
@@ -123,13 +125,14 @@
                         </ul>
                     </li>
                 </ul>
+                    -->
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="color-type-secondary" href="https://github.com/sdkcarlos/artyom.js">GitHub <i class="fa fa-github"></i></a>
                     </li>
                 </ul>
             </div>
-
+            
         </div>
     </nav>
     <div class="modal modal-center" id="changelog" tabindex="-1" role="dialog" aria-labelledby="changelog-label" aria-hidden="true">
@@ -210,7 +213,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-24">
-        <h1>Artyom.js</h1>
+          <h1>Artyom.js </h1><span class="label label-success"> Website in renovation ! Give artyom a star on Github and don't lose any of the new features !
+         </span>
         <ul class="nav nav-pills">
 
           <li role="presentation">
@@ -263,11 +267,15 @@
                             <div class="btn-group btn-block">
                                 <a class="btn btn-block btn-secondary theme-on-color" id="tag-speech-supported">Loading ...</a>
                                 <a class="btn btn-block btn-secondary theme-on-color" id="tag-recognition-supported">Loading ...</a>
+                                <label class="text-center">These are the available voices of artyom in this browser</label>
                                 <select class="btn btn-block theme-on-color" id="tag-availablevoices">
                                     <option>Loading voices ..</option>
                                 </select>
                             </div>
                         </div>
+                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomspeechsupported" target="_blank"><code class="language-xml"><span class="tag">artyom.speechSupported</span>();</code></a>
+                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomrecognizingsupported" target="_blank"><code class="language-xml"><span class="tag">artyom.recognizingSupported</span>();</code></a>
+                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomgetvoices" target="_blank"><code class="language-xml"><span class="tag">artyom.getVoices</span>();</code></a>
                     </div>
                   <div class="col-md-24">
                       <p>
@@ -303,7 +311,7 @@
                 <div class="row">
                     <div class="col-xs-24">
                         <h4>Artyom Initialization <small>Couldn't be more easy</small></h4>
-                          <button type="button" role="button" class="btn btn-default btn-block" data-toggle="button"  onclick="StartArtyomTemp();" aria-pressed="false">Activate Artyom <i class="icon-microphone"></i></button>
+                            <button type="button" role="button" class="btn btn-default btn-block" data-toggle="button"  onclick="StartArtyomTemp();" aria-pressed="false">Activate Artyom <i class="icon-microphone"></i></button>
                         <p>
                           Use the following code to create a Only Command Listener of artyom ! (A "Ok Google" like)<br>
 
@@ -333,19 +341,47 @@
 
 
     <hr />
+    <section class="section" id="artyom-command-division">
+        <header class="section-header row">
+            <h1 class="section-title col-xs-24">
+                Artyom Commands <i class="icon-bullets"></i>
+            </h1>
+        </header>
+        <hr />
+        <div class="row">
+            <p>
+                The commands for artyom are the most important thing for this plugin ! Without them artyom can't do anything.<br>
+                To add commands follow the following instructions:
+            </p>
+            <h5><b><em>Skip ALL THIS if you included artyomCommands file because all is included in that file.</em></b></h5>
+            <ol>
+                <li>A global function called : <b>artyCommands.getCommands();</b> Must be declared  </li>
+                <li>Create an array of objects with the following structure :  
+                    <pre>
+{
+    indexes:["hello","another way to say hello"], // Those words trigger the event when you talk to artyom
+    action:function(i){
+        //Execute something
+    }
+}, // and so on ...
+                    </pre>
+                </li>
+                <li>That's all ! We are ready to initialize artyom</li>
+            </ol>
+        </div>
+    </section>
+    <hr />
     <section class="section" id="testing">
         <header class="section-header row">
             <h1 class="section-title col-xs-24">
                 Latest Features
             </h1>
         </header>
-
+        <hr />
         <div class="row">
-            <h5>Executing voice commands via javascript - Simulation<small> (Without microphone)</small></h5>
-            <div class="col-xs-8"></div>
-            <div class="col-xs-8">
-                <div style="padding: 1em;">
-                    <div class="form-group">
+            <h5>Executing voice commands via text - Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomdoinstruction" target="_blank"><code class="language-xml"><span class="tag">artyom.doInstruction</span>(<span class="attribute">"instruction"</span>);</code></a><br><small> (Without microphone)</small></h5>
+            <div class="col-md-24">
+                <div style="padding: 1em;"> 
                         <label for="demo-simulation-input">
                             Voice command (hello as default) 
                         </label>
@@ -353,28 +389,11 @@
                         <label for="demo-simulation-input">
                             Try " search the weather in *a city* "
                         </label>
-                    </div>
                     <button type="submit" class="btn btn-primary btn-block" onclick="simulateCommand();">Simulate voice command</button>
                 </div>
             </div>
-            <div class="col-xs-8"></div>
         </div>
-      <div class="modal modal-center-vertical theme-alt" id="modal-sample-alt" tabindex="-1" role="dialog" aria-labelledby="modal-sample-label" aria-hidden="true">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="modal-sample-label">Dialog in alt theme</h4>
-                  </div>
-                  <div class="modal-body">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+    </section>
     <hr />
     <section class="section" id="tabs" style="padding-bottom:160px;">
 
@@ -401,17 +420,51 @@
          </div>
      </div>
 
-  </section>
+    </section>
+    
+    
+    
         </div>
     </div>
 </div>
-
+    
+    <div class="jumbotron highlight-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-24 col-md-12 col-md-push-12">
+                    <div class="img-container">
+                        <img src="http://placekitten.com/600/338">
+                    </div>
+                </div>
+                <div class="col-sm-24 col-md-12 col-md-pull-12">
+                    <div class="jumbotron-content">
+                        <h1>Did you like artyom? Give it a try !</h1>
+                        <p>I would really appreciate your support with this plugin </p>
+                        <a href="https://github.com/sdkcarlos/artyom.js/issues" class='btn btn-primary'>
+                            Github Issues <i class='fa fa-ambulance'></i>
+                        </a>
+                        <a href='https://github.com/sdkcarlos/artyom.js/wiki' class='btn btn-primary'>
+                            Read official Artyom Wiki <i class="fa fa-book"></i>
+                        </a>
+                        <a href='https://github.com/sdkcarlos/artyom.js' class='btn btn-primary'>
+                            Official Repository <i class='fa fa-github-square'></i>
+                        </a>
+                        <a href='https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip' target='_blank' class='btn btn-primary'>
+                            Download a Ready-To-Test Files of artyom ! <i class='fa fa-github-square'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <a href="#top" class="back-to-top">
         <i class="icon-up"></i>
         <span class="sr-only">Back to top</span>
     </a>
-
+    
+    <button type="button" role="button" class="btn btn-primary" style='position: fixed; top: 80%; width: 60px;height: 60px;'  onclick="StartArtyomTemp();" aria-pressed="false">Listen <i class="icon-microphone"></i></button>
+    
     <script src="artyom-resources/js/bootstrap.min.js"></script>
     <script src="artyom-resources/js/app.js"></script>
     <script>
