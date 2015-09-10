@@ -95,7 +95,6 @@
             indexes: ["Shut down yourself"],
             action : function(i,wildcard,sentence){
                 artyom.fatality();
-                alertify.success("Artyom is not active now. Because you turned off with your voice.");
             }
         },
         {
@@ -109,8 +108,9 @@
                     }else{
                         var num = data.main.temp;
                         var n = num.toFixed(2);
+                        
                         artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
-                        alertify.success("Description: "+ data.weather[0].description+"<br>Actual temperature : " + n + " Celcius"+"<br> Open the console and see the example for more information about this function");
+                        alert("Description: "+ data.weather[0].description+" \n Actual temperature : " + n + " Celcius"+" \n Open the console and see the example for more information about this function");
                     }
                 });
             }
