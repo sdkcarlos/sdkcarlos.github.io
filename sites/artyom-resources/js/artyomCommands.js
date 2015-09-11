@@ -62,23 +62,23 @@
                 switch(i){
                     case 0:
                         if(artyom.speechSupported()){
-                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
+                            alert("Translation will open a new window. Allow the popups for the demo please.");
                             artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
                                 window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
                             });
                         }else{
-                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            alert("Translation detected,this will open a new window. Allow the popups for the demo please.");
                             window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
                         }
                     break;
                     case 1:
                         if(artyom.speechSupported()){
-                            alertify.success("Translation will open a new window. Allow the popups for the demo please.");
+                            alert("Translation will open a new window. Allow the popups for the demo please.");
                             artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
                                 window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
                             });
                         }else{
-                            alertify.success("Translation detected,this will open a new window. Allow the popups for the demo please.");
+                            alert("Translation detected,this will open a new window. Allow the popups for the demo please.");
                             window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
                         }
                     break;
@@ -108,7 +108,7 @@
                 $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q="+ wildcard.trim() +"&units=metric&lang=en", function( data ) {
                     if(data.cod === "404"){
                         artyom.say("I can't find the weather of " + wildcard);
-                        alertify.error(wildcard + " Doesn't exist maybe ?");
+                        alert(wildcard + " Doesn't exist maybe ?");
                     }else{
                         var num = data.main.temp;
                         var n = num.toFixed(2);
