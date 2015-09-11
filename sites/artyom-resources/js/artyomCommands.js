@@ -23,6 +23,7 @@
     
     var artyomCommands = [
         {
+            description:"It is polite to greet people <i class='icon-emoji'></i>",
             indexes: ['hello how are','how are you','hello'],
             action : function(i){
                 var forHowareyou = [
@@ -85,6 +86,7 @@
             }
         },
         {
+            description: "Pronunciate all that i say after <b>Pronunciate</b>",
             indexes: ["Pronunciate *"],
             smart:true,
             action : function(i,wildcard,sentence){
@@ -92,12 +94,14 @@
             }
         },
         {
+            description: "Deactivate artyom with your voice",
             indexes: ["Shut down yourself"],
             action : function(i,wildcard,sentence){
                 artyom.fatality();
             }
         },
         {
+            description: "Search the weather in any city of the world !",
             indexes: ['search the weather in * please','search the weather in *'],
             smart:true,
             action : function(i,wildcard,sentence){
