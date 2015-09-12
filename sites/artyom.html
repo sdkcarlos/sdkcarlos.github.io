@@ -48,7 +48,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip">Latest version</a></li>
                             <li class="divider"></li>
-                            <li><a href="colors.html#bootstrap-colors">0.5</a></li>
+                            <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip">0.5</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -200,9 +200,9 @@
                                 </select>
                             </div>
                         </div>
-                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomspeechsupported" target="_blank"><code class="language-xml"><span class="tag">artyom.speechSupported</span>();</code></a>
-                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomrecognizingsupported" target="_blank"><code class="language-xml"><span class="tag">artyom.recognizingSupported</span>();</code></a>
-                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomgetvoices" target="_blank"><code class="language-xml"><span class="tag">artyom.getVoices</span>();</code></a>
+                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomspeechsupported" target="_blank"><code class="language-xml"><span class="tag">artyom.speechSupported</span>();</code></a>
+                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomrecognizingsupported" target="_blank"><code class="language-xml"><span class="tag">artyom.recognizingSupported</span>();</code></a>
+                        <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomgetvoices" target="_blank"><code class="language-xml"><span class="tag">artyom.getVoices</span>();</code></a>
                     </div>
                   <div class="col-md-24">
                       <p>
@@ -313,7 +313,7 @@
                         </tbody>
                 </table>
             </div>
-            Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomgetavailablecommands" target="_blank"><code class="language-xml"><span class="tag">artyom.getAvailableCommands</span>();</code></a>
+            Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomgetavailablecommands" target="_blank"><code class="language-xml"><span class="tag">artyom.getAvailableCommands</span>();</code></a>
         </div>
     </section>
     <hr />
@@ -325,7 +325,7 @@
         </header>
         <hr />
         <div class="row">
-            <h5>Executing voice commands via text - Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/B)-Artyom-Methods#artyomdoinstruction" target="_blank"><code class="language-xml"><span class="tag">artyom.doInstruction</span>(<span class="attribute">"instruction"</span>);</code></a><br><small> (Without microphone)</small></h5>
+            <h5>Executing voice commands via text - Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomdoinstruction" target="_blank"><code class="language-xml"><span class="tag">artyom.doInstruction</span>(<span class="attribute">"instruction"</span>);</code></a><br><small> (Without microphone)</small></h5>
             <div class="col-md-24">
                 <div style="padding: 1em;"> 
                         <label for="demo-simulation-input">
@@ -337,6 +337,60 @@
                         </label>
                     <button type="submit" class="btn btn-primary btn-block" onclick="simulateCommand();">Simulate voice command</button>
                 </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <h5>Synthesizing text - Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomsay" target="_blank"><code class="language-xml"><span class="tag">artyom.say</span>(<span class="attribute">"A word"</span>);</code></a><br><small> (Removes all Normal API limitations)</small></h5>
+            <div class="col-md-24">
+                <div style="padding: 1em;"> 
+                    <label for="demo-simulation-textarea">
+                        I can read without errors really extense text without get locked.<br>
+                        And respecting onStart and onEnd callbacks (The button will be disabled and enabled respectively)!
+                    </label>
+<textarea class="form-control" id="demo-textcontainer-read" rows="8">This is a very simple demostration of what I can do. Go ahead ! search very long texts and see what happen . I can read text without errors. What do you think about this? Artyom removes the typical limitations of the traditional api, read them below.</textarea>
+<button type="button" class="btn btn-primary btn-block"  id="trigger-textreading"><i class="icon-volume"></i> Read text</button>
+                </div>
+                <p>
+                    With the traditional speechSynthesis API there are a couple of problems that artyom solves !
+                </p>
+                <ul>
+                    <li>
+                        SpeechSynthesis simply stops talking when it's between 200-300 characters. When it does break you can un-freeze it by doing speechSynthesis.cancel(); the problem is that you don't know when it's stopped.
+                    </li>
+                    <li>
+                        The ORIGINAL 'onend' event sometimes decides not to fire.
+                    </li>
+                </ul>
+                <h4>Artyom.say makes your life easier in the following and simple wrapper</h4>
+<pre>
+<code><span class="tag">artyom.say</span>("Text to be spoken",{</code>
+    <code class="language-xml"><span class="attribute">onStart</span>:function()<span class="tag">{</span></code> 
+    <code>  //Do Something in the moment the text starts</code>
+    <code class="language-xml"><span class="tag">},</span></code>
+    <code class="language-xml"><span class="attribute">onEnd</span>:function()<span class="tag">{</span></code> 
+    <code>  //Do Something in the moment the text ends</code>
+    <code class="language-xml"><span class="tag">}</span></code>
+<code>});</code>
+
+//Or only ..
+
+<code><span class="tag">artyom.say</span>("Text to be spoken");</code>
+</pre>
+            </div>
+        </div>
+        
+        <hr />
+        
+        <div class="row">
+            <h5>Saying random thing - Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomsayrandom" target="_blank"><code class="language-xml"><span class="tag">artyom.sayRandom</span>(<span class="attribute">["A quote","Other quote"]</span>);</code></a><br><small> (Removes all Normal API limitations)</small></h5>
+            <div class="col-md-24 text-center">
+                <p>
+                    Make that artyom says something random, for example a command like ("How do you feel today") would trigger that artyom<br>
+                    Says something different everytime you call this command, use artyom.sayRandom
+                </p>
+                <h5><span  id="random-quotespace" class="label label-primary">let my wisdom enlighten you today, press the following button</span></h5><br>
+                <input type="button" class="btn btn-primary btn-block" onclick="randomQuote();" value="Say random quote">
             </div>
         </div>
     </section>
@@ -512,6 +566,36 @@
                 $("#table-available-commands-here tbody").append(row);
             }
         }
+        
+        function randomQuote(){
+            artyom.shutUp();
+            
+            var seleccionado = artyom.sayRandom([
+                "Don't live in a town where there are no doctors.","When a thing is funny, search it carefully for a hidden truth.",
+                "Silent gratitude isn't very much use to anyone.","This is why I loved technology: if you used it right, it could give you power and privacy.",
+                "It's kind of fun to do the impossible.","I like the night. Without the dark, we'd never see the stars.",
+                "I didn't go to college at all, any college, and I'm not saying you wasted your time or money, but look at me, I'm a huge celebrity.",
+                "Be rich to yourself and poor to your friends.","Change is the process by which the future invades our lives.","If at first you don't succeed, failure may be your style.",
+                "The secret of all success is to know how to deny yourself.<br> Prove that you can control yourself, and you are an educated man; and without this all other education is good for nothing."
+            ]);
+            
+            $("#random-quotespace").html(seleccionado.text + " <i icon='icon-emoji'></i>");
+        }
+        
+        $("#trigger-textreading").click(function(){
+            var button = $(this);
+            var text = $('#demo-textcontainer-read').val();
+            button.attr("disabled","disabled");
+            
+            artyom.say(text,{
+                onStart:function(){
+                    
+                },
+                onEnd:function(){
+                    button.removeAttr("disabled");
+                }
+            });
+        });
     </script>
 </body>
 </html>
