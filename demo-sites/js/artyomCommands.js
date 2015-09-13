@@ -34,7 +34,19 @@
             action : function(i){
                 artyom.say("How's going !");
             }
-        }
+        },
+        {
+            indexes: ['open google',"go to google"],
+            action : function(i){
+               window.href = "www.google.com";
+            }
+        },
+        {
+            indexes: ['what time is it'],
+            action : function(i){
+               alert(new Date() + " You can create something more awesome than this. This is just a demo !");
+            }
+        },
         //Continue adding your own commands here
     ];
     
