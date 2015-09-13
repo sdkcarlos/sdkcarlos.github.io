@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>An Artyom Hello World Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    
+    <!-- Loading Artyom in Head for a optimized experience -->
+    
+    <script src="js/artyomCommands.js"></script>
+    <script src="js/artyom.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Artyom Template</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">
+                            Status of recognizing 
+                            <span class="glyphicon glyphicon-record" id="artyom-status-microphone" style="color:red;"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Artyom Continous Mode Template</h1>
+                    <p><strong>Usage Instructions:</strong> Click the button to start a continuous assistent that will work under your commands, modify them in <code>js/artyomCommands.js</code></p>
+                    <a class="btn btn-default" href="javascript:void(0);" id="artyom-initialize-button">Click here to activate your Artyom Assistent</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+    <script>
+        $(function(){
+            artyom.when("error",function(error){
+                alert("An error of artyom has ocurred ! See the console for more information");
+                console.log(error);
+            });
+            
+            artyom.when("Recognition",function(data){
+                $("#artyom-status-microphone").css("color","green");
+            });
+            
+            
+            isLocalFile();
+            
+            if(!artyom.device.isChrome){
+                alert("ATENTION: You are not running Google Chrome ! SpeechRecognitionAPI and SpeechSynthesisAPI is only available in google chrome ! ");
+            }
+            
+            $("#artyom-initialize-button").click(function(){
+                InitializeContinuousArtyom();
+            });
+        });
+        
+        $(window).load(function(){
+            artyom.say("Artyom succesfully loaded!"); 
+        });
+        
+        function isLocalFile(){
+            if((window.location.origin) == "file://"){
+                alert("ATENTION: It seems you're running the artyom demo from a local file ! The SpeechRecognitionAPI Needs to be hosted someway (server as http or https). \n Artyom will NOT work here, Sorry.");
+                return true;
+            }
+            return false;
+        }
+        
+        /**
+         * Initializes artyom
+         * 
+         * @returns {undefined}
+         */
+        function InitializeContinuousArtyom(){
+            if(!isLocalFile()){
+                artyom.initialize({
+                    debug:true, // Show messages in console
+                    lang:"en-GB",
+                    continuous:true, //A forever Running Mode
+                    listen:true //Start Listening
+                });
+                
+                artyom.say("I'm listening my dear friend. What can i do for you?");
+            }
+        }
+    </script>
+</body>
+
+</html>
