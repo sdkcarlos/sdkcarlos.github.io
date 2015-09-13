@@ -284,6 +284,62 @@
             Using <a href="https://github.com/sdkcarlos/artyom.js/wiki/Artyom-Latest-Version-Documentation#artyomgetavailablecommands" target="_blank"><code class="language-xml"><span class="tag">artyom.getAvailableCommands</span>();</code></a>
         </div>
     </section>
+    <section>
+        <div  class="row">
+            <div class="text-center">
+                <h2><span><img src="artyom-resources/images/artyomjs-logo-min.png" alt="Artyom" height="29"></span> <b>Artyom </b> VS <span><img src="artyom-resources/images/annyang-logo.png" alt="annyang" height="29"></span>  <a href='https://www.talater.com/annyang/' target='_blank'><b>Annyang</b></a></h2>
+            </div>
+            <div class="col-md-24">
+                <div class='col-md-12'>
+                    <h4>Artyom</h4>
+                    <ul>
+                        <li style='color: #0078D7;'>Artyom can make google chrome talk too (artyom.say())</li>
+                        <li style='color: green;'>Supports continuous mode (Listen forever)</li>
+                        <li style='color: green;'>High Flexibility adding commands
+<pre>
+{
+    //There are infinite ways if trigger this function
+    indexes:["Hello","How's going","Hey","Another way to say hello"],
+    action:function(i){
+        //You want to identificate which command were recognized? i is the index of the recognized command in the given array
+        artyom.say("Hello INVISIBLE MAN, how are you today?");
+    }
+}
+</pre>
+                        </li>
+                        <li style='color: green;'>Supports commands with variables</li>
+                    </ul>
+                </div>
+                <div class='col-md-12'>
+                    <h4>Annyang</h4>
+                    <ul>
+                        <li style='color: red;'>Annyang only supports command recognition</li>
+                        <li style='color: green;'>Supports continuous mode (Listen forever)</li>
+                        <li style='color: red;'>Low Flexibility adding commands
+<pre>
+var commands = {
+    'hello': function() {
+        alert("Hello invisible man !");
+    },
+    'How's going': function() {
+        alert("Hello invisible man !");
+    },
+    'Hey': function() {
+        alert("Hello invisible man !");
+    },
+    'Another way to say hello': function() {
+        alert("Hello invisible man !");
+    },
+};
+</pre>
+                        </li>
+                        <li style='color: green;'>Supports commands with variables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <hr />
     <section class="section" id="testing">
         <header class="section-header row">
