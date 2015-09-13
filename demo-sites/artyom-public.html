@@ -72,6 +72,9 @@
     <section id="intro" class="intro-section">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12" id="alert-containers">
+                    
+                </div>
                 <div class="col-lg-12">
                     <h1>Artyom Continous Mode Template</h1>
                     <p><strong>Usage Instructions:</strong> Click the button to start a continuous assistent that will work under your commands, modify them in <code>js/artyomCommands.js</code></p>
@@ -91,25 +94,46 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
     <script>
+        /**
+         * Overriding ALERT Function - eliminate this when you understan how artyom works !
+         * 
+         * @param {type} msg
+         * @returns {undefined}
+         */
+        alert = function(msg){
+            var row = '<div class="alert alert-danger">'+msg+'</div>';
+            $("#alert-containers").append(row);
+        };
+        /**
+         * The onDOM Ready function is not obligatory. This is only for notice the user of errors while testing
+         * artyom.
+         * 
+         * @returns {undefined}
+         */
         $(function(){
+            isLocalFile();
+            
             artyom.when("error",function(error){
                 alert("An error of artyom has ocurred ! See the console for more information");
                 console.log(error);
             });
             
             artyom.when("Recognition",function(data){
+                //Green color again when a word is recognized
                 $("#artyom-status-microphone").css("color","green");
             });
             
-            
-            isLocalFile();
+            artyom.when("FinishRecognition",function(data){
+                //Red color again when finish the recognition
+                $("#artyom-status-microphone").css("color","red");
+            });
             
             if(!artyom.device.isChrome){
                 alert("ATENTION: You are not running Google Chrome ! SpeechRecognitionAPI and SpeechSynthesisAPI is only available in google chrome ! ");
             }
             
             if (window.location.protocol != "https:"){
-                alert("Artyom is not running in HTTPS, that means the browser will ask the permission of microphone too often. You need a HTTPS Connection if you want artyom in continuous mode !");
+                alert("Artyom is not running in HTTPS protocol,running in protocol : "+window.location.protocol+" that means the browser will ask the permission of microphone too often. You need a HTTPS Connection if you want artyom in continuous mode !");
             }
             
             $("#artyom-initialize-button").click(function(){
