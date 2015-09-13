@@ -38,7 +38,7 @@
         {
             indexes: ['open google',"go to google"],
             action : function(i){
-               window.href = "www.google.com";
+               window.location.href = "https://google.com";
             }
         },
         {
