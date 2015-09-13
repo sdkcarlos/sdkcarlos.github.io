@@ -114,7 +114,7 @@
         {
             indexes:['I love you','I love you so much','do you love me'],
             action:function(i){
-                var snd = new Audio('https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.github.io/master/sites/assets/Ha%20GAY!!!.mp3');
+                var snd = new Audio('https://github.com/sdkcarlos/sdkcarlos.github.io/raw/master/sites/artyom-playground-resources/Ha%20GAY!!!.mp3');
 
                 snd.addEventListener("ended",function(){
                     switch(i){

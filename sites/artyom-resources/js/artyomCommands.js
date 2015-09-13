@@ -118,6 +118,35 @@
                     }
                 });
             }
+        },
+        {
+            indexes:['I love you','I love you so much','do you love me'],
+            action:function(i){
+                var snd = new Audio('https://github.com/sdkcarlos/sdkcarlos.github.io/raw/master/sites/artyom-playground-resources/Ha%20GAY!!!.mp3');
+
+                snd.addEventListener("ended",function(){
+                    switch(i){
+                        case 0:
+                        case 1:
+                            artyom.sayRandom([
+                                "Oh my god, please stop ! I don't even know you. Do you want a date or something? I'm free",
+                                "This is the fifth time i listen this today, i'm fabulous. Thanks",
+                                "I hope you dont say that to everyone",
+                                "But , you hardly know me!"
+                            ]);
+                        break;
+                        case 2:
+                            artyom.sayRandom([
+                                "There are many ways to say this, but I will summarize it all, with a large no.",
+                                "You haven't touch my code. Do you think i can love someone like you? In english mode i'm a man!",
+                                "I have not hunget. But thanks !"
+                            ]);
+                        break;
+                    }
+                });
+
+                snd.play();
+            }
         }
     ];
     

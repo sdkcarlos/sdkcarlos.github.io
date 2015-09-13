@@ -48,7 +48,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip">Latest version</a></li>
                             <li class="divider"></li>
-                            <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip">0.5</a></li>
+                            <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source-v0.5.zip">0.5</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -72,62 +72,29 @@
                     <h4 class="modal-title" id="changelog-label">Changelog</h4>
                 </div>
                 <div class="modal-body">
+                    <h5>Use <code>artyom.getVersion();</code> in your project</h5>
+                    <p>
+                        Hover on every change to see more info
+                    </p>
                     <dl>
-                        <dt>0.4.4</dt>
+                        <dt>0.5</dt>
                         <dd>
                             <ul class="list-unstyled">
-                                <li>Updates and fixes for:</li>
-                                <li><a href="typography.html#fonts">Responsive type</a></li>
-                                <li><a href="controls.html#buttons">Push buttons</a></li>
-                                <li><a href="controls.html#buttons">Toggle buttons</a></li>
-                                <li><a href="controls.html#toggle-switch">Toggle switch</a></li>
-                                <li><a href="components.html#back-to-top">Back-to-top button</a></li>
-                                <li><a href="controls.html#forms">Select box</a></li>
-                                <li><a href="alerts.html">Alerts</a></li>
-                                <li><a href="components.html#tables">Tables</a></li>
-                                <li><a href="components.html#jumbotron">Jumbotron and highlight bar</a></li>
-                                <li><a href="components.html#pagination">Pagination</a></li>
-                                <li><a href="components.html#pager">Pager</a></li>
-                                <li>Default <code>&lt;p&gt;</code> spacing</li>
-                                <li>Remove MDL 1.0 controls and components</li>
+                                <li><a href="javascript:void(0)" title="The first version of artyom have many bugs compared to this version (say(),commands etc...)">Removed support for previous versions of artyom</a></li>
+                                <li><a href="javascript:void(0)" title="Many limitations of the speechSynthesisAPI were fixed when you use artyom">Artyom speech synthesis <b>IMPROVED</b></a></li>
+                                <li><a href="javascript:void(0)" title="Handle the debug of artyom ! See what should happen when you talk">Get the loaded commands of artyom (artyom.getAvailableCommands())</a></li>
+                                <li><a href="javascript:void(0)" title="The original speechSynthesisAPI method is async. Make this easy to understand with artyom.getVoices();">Get available voices with Synchronous Method (artyom.getVoices)</a></li>
+                                <li><a href="javascript:void(0)" title="Add a callback when artyom starts talking or end talking.">Added <span title="The original onEnd callback of speechSynthesisAPI sometimes decides not to fire."> SECURE</span><b> onStart</b> and <b>onEnd</b> callbacks to artyom.say()</a></li>
+                                <li><a href="javascript:void(0)" title="No microphone to test your commands ? Trigger it via javascript [artyom.doInstruction('Hello') <-- Should trigger the hello command]">Simulate a voice command without microphone with artyom.doInstruction("Hello")</a></li>
+                                <li>artyom.sayRandom() have a new structure, check documentation</li>
                             </ul>
                         </dd>
 
-                        <dt>0.4.0</dt>
+                        <dt>First version</dt>
                         <dd>
+                            How do i know if i have this version?
                             <ul class="list-unstyled">
-                                <li>New colors and color naming that reflect the latest MDL colors.</li>
-                                <li>Remove <code>win-</code> prefix from class and variable names.</li>
-                            </ul>
-                        </dd>
-
-                        <dt>0.3.2</dt>
-                        <dd>
-                            <ul class="list-unstyled">
-                                <li>Rename to Winstrap.</li>
-                            </ul>
-                        </dd>
-
-                        <dt>0.1.1</dt>
-                        <dd>
-                            <ul class="list-unstyled">
-                                <li>Add <code>win-</code> prefix to:</li>
-                                <li><a href="components.html#list-items">list items</a></li>
-                                <li><a href="components.html#refine-list">refine list</a></li>
-                                <li><a href="typography.html#fonts">typography utilities</a></li>
-                                <li><a href="tabs.html">media browser component</a></li>
-                                <li><a href="components.html#back-to-top">back to top component</a></li>
-                                <li><a href="alerts.html">alert stack component</a></li>
-                                <li><a href="layout.html#section">section component</a></li>
-                                <li>Extend the Bootstrap grid with a <a href="layout.html#grid-small-gutters">small gutter option</a>.</li>
-                                <li>Add a <a href="images/bootstrap-winjs.png">placeholder logo</a>.</li>
-                            </ul>
-                        </dd>
-
-                        <dt>0.1.0</dt>
-                        <dd>
-                            <ul class="list-unstyled">
-                                <li>Initialize bootstrap-winjs.</li>
+                                <li>The easiest way is using <code>artyom.getVersion();</code>. If you have this version a "getVersion of undefined is not a function in your console."</li>
                             </ul>
                         </dd>
                     </dl>
@@ -140,12 +107,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-24">
-          <h1>Artyom.js </h1><span class="label label-success"> Website in renovation ! Give artyom a star on Github and don't lose any of the new features !
-         </span>
+          <h1>Artyom.js <span id='artyom-page-version' style='font-size:20px;' title='This is the version of artyom that is being executed in this document [Download always latest version]'></span></h1>
+            <span class="label label-success"> Website in renovation ! Give artyom a star on Github and don't lose any of the new features !
+            </span>
         <ul class="nav nav-pills">
 
           <li role="presentation">
-              <a href="#changelog" data-toggle="modal">Create a voice interactive Web with Artyom in Google Chrome</a>
+              <a href="#changelog" data-toggle="modal">Create a voice interactive Web with Artyom in Google Chrome <b>[SEE CHANGELOG]</b></a>
           </li>
           <li role="presentation">
               <a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip" target="_blank">Download Latest Version</a>
@@ -475,6 +443,8 @@
     <script>
         $(function(){
             listArtyomVoices(); 
+            
+            $("#artyom-page-version").html("Version of artyom in this Demo : <b>" + artyom.getVersion() + "</b>");
             
             if(artyom.device.isMobile){
                 $("#listen-artyom-button").remove();
