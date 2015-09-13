@@ -108,6 +108,10 @@
                 alert("ATENTION: You are not running Google Chrome ! SpeechRecognitionAPI and SpeechSynthesisAPI is only available in google chrome ! ");
             }
             
+            if (window.location.protocol != "https:"){
+                alert("Artyom is not running in HTTPS, that means the browser will ask the permission of microphone too often. You need a HTTPS Connection if you want artyom in continuous mode !");
+            }
+            
             $("#artyom-initialize-button").click(function(){
                 InitializeContinuousArtyom();
             });
