@@ -476,11 +476,11 @@ var commands = {
                 </div>
                 <div class="col-sm-24 col-md-12 col-md-pull-12">
                     <div class="jumbotron-content">
-                        <div class="text-center">
+                        <div class="text-center" id="final-footer-subs">
                             <h1>Did you like artyom? Give it a try !</h1>
                             <p>
                                 I would really appreciate your support with this plugin<br>
-                                Please give a Star<i class="icon-outlinestar"></i> on the Github Repository !
+                                give a Star<i class="icon-outlinestar"></i> on the Github Repository !
                             </p>
                         </div>
                         <a href="https://github.com/sdkcarlos/artyom.js/issues" class='btn btn-primary'>
@@ -545,6 +545,11 @@ var commands = {
                 $('#modal-error .modal-body').html(data.message);
 
                 console.log(data);
+            });
+            
+            $.getJSON("https://api.github.com/repos/sdkcarlos/artyom.js",function(data){
+                var text = "We are already <a href='https://github.com/sdkcarlos/artyom.js/stargazers'><span class='label label-success'>" + data.watchers_count + "</span></a> persons supporting this plugin, Please Join Us !";
+                $("#final-footer-subs").append("<h5>"+text+"</h5>");
             });
         });
         
