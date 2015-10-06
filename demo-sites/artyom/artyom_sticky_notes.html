@@ -138,7 +138,7 @@ ol li a{color:#fff;}
     </p>
   <ul id="sticky_notes_container">
   </ul>
-    <h3>Commands for create notes in all the languages [English, Italiano, Espanol, Francais, Deutsch]<small>Select a language and search the command in the list below</small></h3>
+    <h3>Commands for create notes in all the languages [English, Italiano, Espanol, Francais, Deutsch] <small>Select a language and search the command in the list below</small></h3>
     <table id="table-commands" style="width:100%;">
         <thead>
             <tr>
@@ -154,8 +154,8 @@ ol li a{color:#fff;}
 <script>
     var comandos = [
         {
-            description:"Trigger the creation of a note with your voice ! Say the command and replace the * With the content of your note",
-            indexes:["Make me a note *","Create a note *","Remember me *","Creare una nota *","Crear nota *","Notiz hinzufügen *"],
+            description:"Trigger the creation of a note with your voice ! Say the command and replace the * With the content of your note. <br> Example: <b>Make me a note call my mother this sunday</b>",
+            indexes:["Make me a note *","Create a note *","Remember me *","Creare una nota *","Crear nota *","Notiz hinzufügen *",'créer la note *'],
             smart:true,
             action:function(index,wildcard){
                 var id = parseInt($("#sticky_notes_container li").last().data("noteid")) + 1;
@@ -183,8 +183,8 @@ ol li a{color:#fff;}
             }
         },
         {
-            description:"Remove a note with the identified number! Replace the * With the number of an existing note",
-            indexes:["Remove note number *","Remove the note number *","Delete the note number *","Delete note number *","eliminare la nota *","Remover nota numero *"],
+            description:"Remove a note with the identified number! Replace the * With the number of an existing note <br> Example : <b>Remove note number 1</b>",
+            indexes:["Remove note number *","Remove the note number *","Delete the note number *","Delete note number *","eliminare la nota *","Remover nota numero *","supprimer la note *"],
             smart:true,
             action:function(index,wildcard){
                 var number = wildcard;
@@ -373,8 +373,13 @@ ol li a{color:#fff;}
         
         for(var i = 0;i < comandi.length;i++){
             var com = comandi[i];
+            var list = "";
+            for(var q = 0;q < com.indexes;q++){
+                list += "<br>" + com.indexes[q];
+            }
+            
             var row = '<tr>\n\
-                        <td>'+com.indexes+'</td>\n\
+                        <td>'+list+'</td>\n\
                         <td>'+com.description+'</td>\n\
                         </tr>';
             $("#table-commands tbody").append(row);
