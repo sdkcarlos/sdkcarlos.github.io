@@ -1,25 +1,4 @@
-/**
- * artyom.js can't do anything without commands , this file will set up
- * artyom for it's final use
- * 
- * with artyom.hey() say "show commands"
- *                       "mostrar comandos"
- * to see all available commands in a view [default and .extend commands]
- * 
- * 
- * @Artyom AI.
- * @dependencies [artyom.js]
- * @copyright 2015, Colombia.
- * @author Carlos Delgado
- * @param {type} window
- * @Description Part Of Artyom JS Core
- * @returns {[
- * 
- * ]}
- */
-
-(function(window){
-    'use strict';
+(function(window){'use strict';
     
     var artyomCommands = [
         {
@@ -63,8 +42,10 @@
                     case 0:
                         if(artyom.speechSupported()){
                             alert("Translation will open a new window. Allow the popups for the demo please.");
-                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
-                                window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",{
+                                onEnd:function(){
+                                    window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                                }
                             });
                         }else{
                             alert("Translation detected,this will open a new window. Allow the popups for the demo please.");
@@ -74,8 +55,10 @@
                     case 1:
                         if(artyom.speechSupported()){
                             alert("Translation will open a new window. Allow the popups for the demo please.");
-                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",function(){
-                                window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",{
+                                onEnd : function(){
+                                    window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                                }
                             });
                         }else{
                             alert("Translation detected,this will open a new window. Allow the popups for the demo please.");
@@ -149,45 +132,6 @@
             }
         }
     ];
-    
-    
-    /**
-     * Artyom Commands Functions
-     * 
-     * @returns {artyomCommands_L13.ArtyomCommands.artyCommands}
-     */
-    function ArtyomCommands(){
-        var artyCommands = {}; 
-        
-        /**
-         * 
-         * @param {type} lang
-         * @returns {Array}
-         */
-        artyCommands.getCommands = function(lang){
-            return artyomCommands;
-        };
-        
-        
-        /**
-         * Create explicits commands in other views where this commands is not
-         * needed all the time
-         * 
-         * @param {type} commands
-         * @returns {Array}
-         */
-        artyCommands.extend = function(commands){
-            commands.forEach(function(comando) {
-                artyomCommands.push(comando);
-            });
-            
-            return artyomCommands;
-        };
-        
-        return artyCommands;
-    }
-    
-    if(typeof(artyCommands) === 'undefined'){
-        window.artyCommands = ArtyomCommands();
-    }
+    //Updated to artyom v 0.6
+    artyom.addCommands(artyomCommands);
 })(window);

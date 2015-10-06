@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Artyom.js - A Sticky Notes Demo</title>
+<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+<link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">
+<script src="../../sites/artyom-resources/js/artyom.min.js"></script>
+<script src="../../sites/artyom-resources/js/artyom.min.js"></script>
+<style type="text/css">
+table, td, th {
+    border: 1px solid white;
+    padding:5px;
+}
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:arial,sans-serif;
+  font-size:100%;
+  margin:3em;
+  background:#666;
+  color:#fff;
+}
+h2,p{
+  font-size:100%;
+  font-weight:normal;
+}
+ul,li{
+  list-style:none;
+}
+ul{
+  overflow:hidden;
+  padding:3em;
+}
+ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  overflow: auto;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  -moz-transition:-moz-transform .15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+}
+
+ul li{
+  margin:1em;
+  float:left;
+}
+ul li h2{
+  font-size:140%;
+  font-weight:bold;
+  padding-bottom:10px;
+}
+ul li p{
+  font-family:"Reenie Beanie",arial,sans-serif;
+  font-size:1.5em;
+}
+ul li a{
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -moz-transform:rotate(-6deg);
+}
+ul li:nth-child(even) a{
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+  background:#cfc;
+}
+ul li:nth-child(3n) a{
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background:#ccf;
+}
+ul li:nth-child(5n) a{
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+ul li a:hover,ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+ol{text-align:center;}
+ol li{display:inline;padding-right:1em;}
+ol li a{color:#fff;}
+</style>
+</head>
+<body>
+    <p style="text-align:center;">
+        <a href="https://github.com/sdkcarlos/artyom.js">
+            <img src="../../sites/artyom-resources/images/artyomjs-logo.png" width="200"/>
+        </a>
+    </p>
+  <ol>
+    <li>
+        <label for="language-selector">Select the Artyom Language for this demo when you want</label>
+        <select id="language-selector">
+            <option value="en-GB" selected="selected">English Great Britain</option>
+            <option value="en-US">English USA</option>
+            <option value="de-DE">Deutsch</option>
+            <option value="es-ES">Español</option>
+            <option value="it-IT">Italiano</option>
+            <option value="fr-FR">Français</option>
+        </select>
+    </li>
+    <li><strong>Demo without Japanese (Artyom supports too Japanese)</strong></li>
+    <li><a href="#"></a></li>
+  </ol>
+    <br>
+    <p style="text-align:center;"> 
+        A simple demostration of how to use artyom in Continuous mode , add all the notes that you want ! They will be added in your Local Storage and will be accessible whenever you enter to this site<br>
+        Artyom will be always available if you allow the use of the microphone for the first time thanks to the <em>https://</em> connection.<br>
+        You can visit another websites while artyom is active ! It will listen although another tab is on user focus<b>,visit the Facebook wall of your girlfriend while this site is opened and add some dead notes :)</b><br>
+        Click on any note, artyom will read it, and all the recognized text will appear here :<br>
+        <span id="output-artyom" style="font-size: 20px;font-family: monospace;font-style: italic;color: coral;"></span>
+    </p>
+  <ul id="sticky_notes_container">
+  </ul>
+    <h3>Commands for create notes in all the languages [English, Italiano, Espanol, Francais, Deutsch]<small>Select a language and search the command in the list below</small></h3>
+    <table id="table-commands" style="width:100%;">
+        <thead>
+            <tr>
+                <td>Voice commands</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+<script src="../../sites/artyom-resources/js/jquery.min.js"></script>
+<script>
+    var comandos = [
+        {
+            description:"Trigger the creation of a note with your voice ! Say the command and replace the * With the content of your note",
+            indexes:["Make me a note *","Create a note *","Remember me *","Creare una nota *","Crear nota *","Notiz hinzufügen *"],
+            smart:true,
+            action:function(index,wildcard){
+                var id = parseInt($("#sticky_notes_container li").last().data("noteid")) + 1;
+                if(isNaN(id)){
+                    id = 1;
+                }
+                
+                AddNote(wildcard,id,true);
+                    switch(artyom.getLanguage()){
+                        case "en-GB":
+                        case "en-US":
+                            artyom.say("The note has been added succesfully");
+                        break;
+                        case "it-IT":
+                            artyom.say("Nota è stato creato con successo");
+                        break;
+                        case "es-ES":
+                        case "es-CO":
+                            artyom.say("Nota creada satisfactoriamente");
+                        break;
+                        case "de-DE":
+                            artyom.say("Reminder erfolgreich erstellt");
+                        break;
+                    }
+            }
+        },
+        {
+            description:"Remove a note with the identified number! Replace the * With the number of an existing note",
+            indexes:["Remove note number *","Remove the note number *","Delete the note number *","Delete note number *","eliminare la nota *","Remover nota numero *"],
+            smart:true,
+            action:function(index,wildcard){
+                var number = wildcard;
+                
+                if(isNaN(number)){
+                    alert("Cannot remove the note with id : " + number + " . Is not numeric, if you say a number maybe, artyom doesn't give a numeric value, instead give in characters. Try again.");
+                }else{
+                    RemoveNoteNumber(number);
+                    
+                    switch(artyom.getLanguage()){
+                        case "en-US":
+                        case "en-GB":
+                            artyom.say("The note will not appear anymore in the list");
+                        break;
+                        case "es-ES":
+                        case "es-CO":
+                            artyom.say("Esa nota no aparecera mas en la lista");
+                        break;
+                        case "it-IT":
+                            artyom.say("La nota non apparirà più nella lista");
+                        break;
+                        case "de-DE":
+                            artyom.say("Diese Notiz nimmt auf der Liste erscheinen");
+                        break;
+                    }
+                }
+            }
+        },
+        {
+            description:"Removes all the notes saved in the document",
+            indexes: ["Remove all the notes","Remove everything","Delete all","Delete all the notes","eliminare tutte le note","rimuovere tutte le note","Eliminar todas las notas"],
+            action:function(){
+                switch(artyom.getLanguage()){
+                    case "en-US":
+                    case "en-GB":
+                        artyom.say("Are you sure you want to remove all the notes? You can't undo this action",{
+                            onEnd:function(){
+                                if(confirm("Delete all the notes?")){
+                                    window.localStorage.setItem("notes","[]");
+                                    $("#sticky_notes_container").empty();
+                                }
+                            }
+                        });
+                    break;
+                    case "it-IT":
+                        artyom.say("Sei sicuro di voler rimuovere tutte le note? Non è possibile annullare questa azione",{
+                            onEnd:function(){
+                                if(confirm("eliminare tutte le note?")){
+                                    window.localStorage.setItem("notes","[]");
+                                    $("#sticky_notes_container").empty();
+                                }
+                            }
+                        });
+                    break;
+                    case "es-ES":
+                    case "es-CO":
+                        artyom.say("Esta seguro de que quiere eliminar las notas? no puede deshacer esta acción",{
+                            onEnd:function(){
+                                if(confirm("Eliminar de todas maneras?")){
+                                    window.localStorage.setItem("notes","[]");
+                                    $("#sticky_notes_container").empty();
+                                }
+                            }
+                        });
+                    break;
+                    case "de-DE":
+                        artyom.say("Wirklich wollen, um alle Notizen löschen? Sie können diese Aktion nicht rückgängig gemacht werden",{
+                            onEnd:function(){
+                                if(confirm("löschen")){
+                                    window.localStorage.setItem("notes","[]");
+                                    $("#sticky_notes_container").empty();
+                                }
+                            }
+                        });
+                    break;
+                }
+            }
+        }
+    ];
+    
+    /**
+     * Add the commands to artyom !
+     * @param {type} param
+     */
+    artyom.addCommands(comandos);
+    
+    artyom.redirectRecognizedTextOutput(function(output,isFinal){
+        if(!isFinal){
+            $("#output-artyom").text(output);
+        }else{
+            $("#output-artyom").text("");
+        }
+    });
+    
+    $(window).load(function(){
+        RenderCommands();
+        //We create an artyom extension in order to call it when we want 
+        artyom.extensions.StartMainDemo = function(lang){
+            artyom.initialize({
+                lang:lang,
+                continuous:true,//Listen forever
+                listen:true,
+                debug:true
+            });
+        };
+        
+        artyom.extensions.StartMainDemo($("#language-selector").val());
+    });
+    
+    $(function(){
+        if(!artyom.device.isChrome){
+            alert("ARTYOM ONLY WORKS IN Google Chrome BROWSER");
+        }
+        
+        if(!window.localStorage.getItem("notes")){
+            window.localStorage.setItem("notes",'[{"id":"1","content":"Reminder: create something awesome with artyom later"},{"id":"2","content":"Recordatorio: Crear algo asombroso con artyom luego"},{"id":"3","content":"Zur Erinnerung: schaffen etwas erstaunlich, mit Artyom später"},{"id":"4","content":"Promemoria: creare qualcosa di incredibile con Artyom più tardi"},{"id":"5","content":"Rappel: créer quelque chose d´incroyable avec Artyom tard"}]');
+        }
+        
+        var notas = JSON.parse(window.localStorage.getItem("notes"));
+        
+        for(var i = 0;i < notas.length;i++){
+            AddNote(notas[i].content,notas[i].id,false);
+        }
+        
+        if(window.localStorage.getItem("lang")){
+            $("#language-selector").val(window.localStorage.getItem("lang"));
+        }
+        
+        $("#language-selector").change(function(){
+            artyom.fatality();//Stop Any previous artyom if exist
+            var lang = $(this).val();
+            window.localStorage.setItem("lang",lang);
+            setTimeout(function(){
+                artyom.extensions.StartMainDemo(lang);
+            },2000);
+        });
+    });
+    
+    function AddNote(content,id,addToLocal){
+        if(typeof(window.localStorage) !== "undefined"){
+            if(addToLocal === true){
+                var notitas = window.localStorage.getItem("notes");
+                if(notitas){
+                    var group = JSON.parse(notitas);
+                    group.push({id:id,content:content});
+                    window.localStorage.setItem("notes",JSON.stringify(group));
+                }else{
+                    var neu = [{id:id,content:content}];
+                    window.localStorage.setItem("notes",JSON.stringify(neu));
+                }
+            }
+        }
+        
+        var note = '<li data-noteid="'+id+'">\n\
+                    <a href="javascript:void(0);" onclick="sayNoteContent(this);">\n\
+                      <h2>Note #'+id+'</h2>\n\
+                      <p>'+content+'</p>\n\
+                    </a>\n\
+                  </li>';
+        $("#sticky_notes_container").append(note);
+    }
+    
+    function RemoveNoteNumber(id){
+        var notas = JSON.parse(window.localStorage.getItem("notes"));
+        var found = false;
+        
+        for(var i = notas.length - 1; i >= 0; i--) {
+            if(notas[i].id == id) {
+               notas.splice(i, 1);
+               found = true;
+            }
+        }
+        
+        if(!found){
+            alert("Cannot remove note number " + id + " because it doesn't exist !");
+        }
+        
+        window.localStorage.setItem("notes",JSON.stringify(notas));
+        
+        $("li[data-noteid='"+id+"']").remove();
+    }
+    
+    
+    function RenderCommands(){
+        var comandi = artyom.getAvailableCommands();
+        
+        for(var i = 0;i < comandi.length;i++){
+            var com = comandi[i];
+            var row = '<tr>\n\
+                        <td>'+com.indexes+'</td>\n\
+                        <td>'+com.description+'</td>\n\
+                        </tr>';
+            $("#table-commands tbody").append(row);
+        }
+    }
+    
+    function sayNoteContent(dom){
+        artyom.say($(dom).find("p").text());
+    }
+</script>
+</body>
+
+</html>

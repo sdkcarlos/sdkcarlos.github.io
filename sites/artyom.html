@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="artyom-resources/css/pace.css" />
     
     <script src="artyom-resources/js/jquery.min.js"></script>
-    <script src="artyom-resources/js/artyomCommands.js"></script>
+    
     <script src="artyom-resources/js/artyom.min.js"></script>
-
+    <script src="artyom-resources/js/artyomCommands.js"></script>
+    
     <script src="artyom-resources/js/winstrap.js"></script>
     <script src="artyom-resources/js/pace.min.js"></script>
     <!--[if lt IE 9]>
@@ -200,7 +201,7 @@
                         You need use the provided tools of artyom to determine when is available or not.
                       </p>
                   </div>
-
+                
 
               </div>
 
@@ -213,11 +214,10 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-24">
-                        <h4>Include the required files <small>Artyom has its own dependencies! (Only its commands) </small></h4>
+                        <h4>Include artyom on your <em>header</em> tag of your document</h4>
                     </div>
                     
 <pre>
-    <code class="language-xml"><span class="tag">&lt;script</span> <span class="attribute">src=<span class="value">"artyomCommands.js"</span></span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="attribute">/script</span><span class="tag">&gt;</span>&lt;-- Load the artyom commands that can be executed --&gt;</code>
     <code class="language-xml"><span class="tag">&lt;script</span> <span class="attribute">src=<span class="value">"artyom.min.js"</span></span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="attribute">/script</span><span class="tag">&gt;</span> &lt;-- Load the Core of artyom that will handle the commands --&gt;</code>
 </pre>
                     <p>
@@ -271,7 +271,6 @@
             </p>
             <h5><b><em>Skip ALL THIS if you included artyomCommands file because all is included in that file.</em></b></h5>
             <ol>
-                <li>A global function called : <b>artyCommands.getCommands();</b> Must be declared  </li>
                 <li>Create an array of objects with the following structure :  
                     <pre>
 {
@@ -282,6 +281,7 @@
 }, // and so on ...
                     </pre>
                 </li>
+                <li>Add to artyom with the function artyom.addCommands(MyArrayOfCommands)</li>
                 <li>That's all ! We are ready to INJECT commands and initialize artyom</li>
             </ol>
         </div>
@@ -371,9 +371,42 @@ var commands = {
     <section class="section" id="testing">
         <header class="section-header row">
             <h1 class="section-title col-xs-24">
-                Latest Features
+                Latest Features <small><a href="https://sdkcarlos.gitbooks.io/artyom/content/">Read the documentation of all the artyom functions HERE</a></small>
             </h1>
         </header>
+        <hr/>
+        <div class="row">
+            <h5>See what artyom understand in the window - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomdoinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.redirectRecognizedTextOutput</span>();</code></a><br><small> (Create your visible debug)</small></h5>
+            <div class="col-md-24">
+                <div style="padding: 1em;"> 
+                    <p>
+                        Show easily to your user what artyom understands while is active.<br>
+                        For example the output of the recognized text of artyom will be displayed down here when you talk ! Go ahead, active artyom and talk !
+                    </p>
+                    <p class="text-center">
+                        Output here : <br>
+                    </p>
+                    <div class="row text-center">
+                        <h2><span class="label label-primary" id="artyom-default-output-ro"></span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <h5>Create a Dictation - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomdoinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.newDictation</span>();</code></a><br><small> (Easy initialization)</small></h5>
+            <div class="col-md-24">
+                <div style="padding: 1em;"> 
+                    <p>
+                        Talk instead writing ! Create a Dictation and allows your user to easily create articles !<br>
+                        Click the button, accept the use of the microphone and start talking, all that you say will appear in the following textarea
+                    </p>
+<textarea class="form-control" id="demo-textcontainer-dictation"></textarea>
+                <button type="submit" class="btn btn-primary btn-block" onclick="StartDefaultDictation();" id="dictation-active-button">Start dictation</button>
+                <button type="submit" class="btn btn-primary btn-block" onclick="StopDefaultDictation();" id="dictation-deactivate-button" disabled="disabled">Stop dictation</button>
+                </div>
+            </div>
+        </div>
         <hr />
         <div class="row">
             <h5>Executing voice commands via text - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomdoinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.doInstruction</span>(<span class="attribute">"instruction"</span>);</code></a><br><small> (Without microphone)</small></h5>
@@ -570,6 +603,14 @@ var commands = {
                 console.log(data);
             });
             
+            artyom.redirectRecognizedTextOutput(function(recognized,isFinal){
+                if(isFinal){
+                    $("#artyom-default-output-ro").text("");
+                }else{
+                    $("#artyom-default-output-ro").text(recognized);
+                }
+            });
+            
             $.getJSON("https://api.github.com/repos/sdkcarlos/artyom.js",function(data){
                 var text = "We are already <a href='https://github.com/sdkcarlos/artyom.js/stargazers'><span class='label label-success'>" + data.watchers_count + "</span></a> persons supporting this plugin, Please Join Us !";
                 $("#final-footer-subs").append("<h5>"+text+"</h5>");
@@ -633,6 +674,31 @@ var commands = {
                     
                 $("#table-available-commands-here tbody").append(row);
             }
+        }
+        
+        var dictation = artyom.newDictation({
+            onResult:function(a,b){
+                $("#demo-textcontainer-dictation").val(a);
+            },
+            onStart:function(){
+                $("#dictation-active-button").attr("disabled","disabled");
+                $("#dictation-deactivate-button").removeAttr("disabled");
+            },
+            onEnd:function(){
+                $("#dictation-active-button").removeAttr("disabled");
+                $("#dictation-deactivate-button").attr("disabled","disabled");
+            }
+        });
+            
+        function StartDefaultDictation(){
+            artyom.initialize({
+               lang:"en-GB" 
+            });
+            dictation.start();
+        }
+        
+        function StopDefaultDictation(){
+            dictation.stop();
         }
         
         function randomQuote(){
