@@ -139,6 +139,9 @@ ol li a{color:#fff;}
   <ul id="sticky_notes_container">
   </ul>
     <h3>Commands for create notes in all the languages [English, Italiano, Espanol, Francais, Deutsch] <small>Select a language and search the command in the list below</small></h3>
+    <a href="javascript:void(0);" onclick="RestartDemo()">
+        Restart Original Demo (All notes will be deleted)
+    </a>
     <table id="table-commands" style="width:100%;">
         <thead>
             <tr>
@@ -384,6 +387,12 @@ ol li a{color:#fff;}
                         </tr>';
             $("#table-commands tbody").append(row);
         }
+    }
+    
+    function RestartDemo(){
+        window.localStorage.removeItem("notes");
+        window.localStorage.removeItem("lang");
+        window.location.reload();
     }
     
     function sayNoteContent(dom){
