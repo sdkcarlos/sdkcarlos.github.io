@@ -142,7 +142,7 @@ ol li a{color:#fff;}
     <table id="table-commands" style="width:100%;">
         <thead>
             <tr>
-                <td>Voice commands</td>
+                <td>Voice commands (say according to the initialization language)</td>
                 <td>Description</td>
             </tr>
         </thead>
@@ -184,7 +184,7 @@ ol li a{color:#fff;}
         },
         {
             description:"Remove a note with the identified number! Replace the * With the number of an existing note <br> Example : <b>Remove note number 1</b>",
-            indexes:["Remove note number *","Remove the note number *","Delete the note number *","Delete note number *","eliminare la nota *","Remover nota numero *","supprimer la note *"],
+            indexes:["Remove note number *","Remove the note number *","Delete the note number *","Delete note number *","eliminare la nota *","entfernen Note *","Remover nota numero *","supprimer la note *"],
             smart:true,
             action:function(index,wildcard){
                 var number = wildcard;
@@ -215,7 +215,7 @@ ol li a{color:#fff;}
         },
         {
             description:"Removes all the notes saved in the document",
-            indexes: ["Remove all the notes","Remove everything","Delete all","Delete all the notes","eliminare tutte le note","rimuovere tutte le note","Eliminar todas las notas"],
+            indexes: ["Remove all the notes","Remove everything","Delete all","Delete all the notes","eliminare tutte le note","rimuovere tutte le note","entfernen Sie alle Notizen","Eliminar todas las notas"],
             action:function(){
                 switch(artyom.getLanguage()){
                     case "en-US":
