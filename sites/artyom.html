@@ -421,6 +421,34 @@ var commands = {
         </header>
         <hr/>
         <div class="row">
+            <h5>Create a voice prompt easily - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomnewprompt.html" target="_blank"><code class="language-xml"><span class="tag">artyom.newPrompt</span>();</code></a><br><small> A more interactive voice command</small></h5>
+            <div class="col-md-24">
+                <div style="padding: 1em;"> 
+                    <p>
+                        <b>USE THIS FUNCTION ONLY WITH A HTTPS CONNECTION, otherwise the user will have to click the start button to answer the previous prompt !</b><br>
+                        With artyom, you can create a custom voice prompt which allows you to ask for a value or create a voice confirmation.<br>
+                        <b>ARTYOM MUST BE RUNNING IN CONTINUOUS MODE when a prompt is executed!</b><br>
+                        Set the question,add options, some callbacks and go ahead, when an artyom prompt is executed the user only can answer the given options, the other commands will be  not available till the user answer the previous prompt. The possible options for the next example are : <br>
+                    </p>
+                    <ul>
+                        <li>Yes</li> <li>No</li><li>My answer is [give a random answer ! artyom will get your result]</li>
+                    </ul>
+                    <p><b>The question will be if you want to visit the artyom repository</b></p>
+                    <div class="row text-center">
+                        <div class="col-md-24">
+                            <button class="btn btn-primary btn-block" onclick="startContinuousMode();">
+                                Start artyom in continuous mode
+                            </button>
+                            <button class="btn btn-primary btn-block" onclick="DemoArtyPrompt();">
+                                Execute the default prompt
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
             <h5>See what artyom understand in the window - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomdoinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.redirectRecognizedTextOutput</span>();</code></a><br><small> (Create your visible debug)</small></h5>
             <div class="col-md-24">
                 <div style="padding: 1em;"> 
@@ -685,6 +713,65 @@ var commands = {
                 listen:true,//Otherwise we will save only the configuration but don't start artyom.
                 debug:true,
                 speed:1
+            });
+        }
+        
+        function startContinuousMode(){
+            if(window.location.protocol === "http:"){
+                alert("This demostration is only useful in HTTPS Connection, you will be redirected to the https version of this document, then go to this demo and try again please !");
+                window.location.href = "https://sdkcarlos.github.io/sites/artyom.html";
+                return;
+            }
+            
+            artyom.fatality();// Stop any previous Artyom Instance to prevent any error
+
+            artyom.initialize({
+                lang:"en-GB",
+                continuous:true,// recognize 1 command and stop listening !
+                listen:true,//Otherwise we will save only the configuration but don't start artyom.
+                debug:true,
+                speed:1
+            });
+        }
+        
+        function DemoArtyPrompt(){
+            artyom.newPrompt({
+                smart:true,
+                question:"Do you want to visit the repository of artyom now?",
+                options:["Yes","No","My answer is *"],
+                beforePrompt:function(){
+                    console.log("Before ask");
+                },
+                onStartPrompt:function(){
+                    console.log("The prompt is being executed");
+                },
+                onEndPrompt:function(){
+                    console.log("The prompt has been executed succesfully");
+                },
+                onMatch:function(i,wildcard){
+                    var action;
+
+                    if(i == 0){
+                        action = function(){
+                            alert("You choose Yes ! Thanks for test artyom !");
+                            window.location.href = "https://github.com/sdkcarlos/artyom.js";
+                        }
+                    }
+
+                    if(i == 1){ 
+                        action = function(){
+                            alert("You choose No ! This really makes me sad :(");
+                        }
+                    }
+
+                    if(i == 2){
+                        action = function(){
+                            alert("Your answer was : " + wildcard + ". I dont understand what you mean with that !");
+                        }
+                    }
+
+                    return action;
+                }
             });
         }
 
