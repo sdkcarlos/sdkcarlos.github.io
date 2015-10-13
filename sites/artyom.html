@@ -73,64 +73,6 @@
             
         </div>
     </nav>
-    <div class="modal modal-center" id="changelog" tabindex="-1" role="dialog" aria-labelledby="changelog-label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="icon-cancel" aria-hidden="true"></i>
-                    </button>
-                    <h4 class="modal-title" id="changelog-label">Changelog</h4>
-                </div>
-                <div class="modal-body">
-                    <h5>Use <code>artyom.getVersion();</code> in your project</h5>
-                    <p>
-                        Hover on every change to see more info
-                    </p>
-                    <dl>
-                        <dt>0.6</dt>
-                        <dd>
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:void(0)">The old way to add commands is not supported anymore, use **artyom.addCommands** instead, the commands structure still the same</a></li>
-                                <li><a href="javascript:void(0)">Remove the commands of artyom with **artyom.emptyCommands**</a></li>
-                                <li><a href="javascript:void(0)">Redirect the recognized text of artyom as you like with **artyom.redirectRecognizedTextOutput**</a></li>
-                                <li><a href="javascript:void(0)">Artyom is a native locked object, that means you cannot extend the original artyom object, create an extension of artyom with **artyom.extension.MyNewProperty = function(){//DoSomething}**</a></li>
-                            </ul>
-                        </dd>
-                        
-                        <dt>0.5.1</dt>
-                        <dd>
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:void(0)" title="New languages supported ! Check them out">Artyom supports now more languages : <b>Italiano</b>,<b>Français</b>,<b>Japanese 日本人</b> and US Voice for en-US region</a></li>
-                                <li><a href="javascript:void(0)">Enhanced detectErrors method. Check why artyom is not working or other warnings on your browser easily!</a></li>
-                            </ul>
-                        </dd>
-                        
-                        <dt>0.5</dt>
-                        <dd>
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:void(0)" title="The first version of artyom have many bugs compared to this version (say(),commands etc...)">Removed support for previous versions of artyom</a></li>
-                                <li><a href="javascript:void(0)" title="Many limitations of the speechSynthesisAPI were fixed when you use artyom">Artyom speech synthesis <b>IMPROVED</b></a></li>
-                                <li><a href="javascript:void(0)" title="Handle the debug of artyom ! See what should happen when you talk">Get the loaded commands of artyom (artyom.getAvailableCommands())</a></li>
-                                <li><a href="javascript:void(0)" title="The original speechSynthesisAPI method is async. Make this easy to understand with artyom.getVoices();">Get available voices with Synchronous Method (artyom.getVoices)</a></li>
-                                <li><a href="javascript:void(0)" title="Add a callback when artyom starts talking or end talking.">Added <span title="The original onEnd callback of speechSynthesisAPI sometimes decides not to fire."> SECURE</span><b> onStart</b> and <b>onEnd</b> callbacks to artyom.say()</a></li>
-                                <li><a href="javascript:void(0)" title="No microphone to test your commands ? Trigger it via javascript [artyom.doInstruction('Hello') <-- Should trigger the hello command]">Simulate a voice command without microphone with artyom.doInstruction("Hello")</a></li>
-                                <li>artyom.sayRandom() have a new structure, check documentation</li>
-                            </ul>
-                        </dd>
-
-                        <dt>First version</dt>
-                        <dd>
-                            How do i know if i have this version?
-                            <ul class="list-unstyled">
-                                <li>The easiest way is using <code>artyom.getVersion();</code>. If you have this version a "getVersion of undefined is not a function in your console."</li>
-                            </ul>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="page-header">
   <div class="container">
@@ -142,7 +84,7 @@
         <ul class="nav nav-pills">
 
           <li role="presentation">
-              <a href="#changelog" data-toggle="modal">Create a voice interactive Web with Artyom in Google Chrome <b>[SEE CHANGELOG]</b></a>
+              <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/official_changelog.html"><b> Read changelog</b></a>
           </li>
           <li role="presentation">
               <a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip" target="_blank">Download Latest Version</a>
@@ -449,7 +391,7 @@ var commands = {
         </div>
         <hr/>
         <div class="row">
-            <h5>See what artyom understand in the window - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomdoinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.redirectRecognizedTextOutput</span>();</code></a><br><small> (Create your visible debug)</small></h5>
+            <h5>See what artyom understand in the window - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomredirectrecognizedtextoutput.html" target="_blank"><code class="language-xml"><span class="tag">artyom.redirectRecognizedTextOutput</span>();</code></a><br><small> (Create your visible debug)</small></h5>
             <div class="col-md-24">
                 <div style="padding: 1em;"> 
                     <p>
@@ -467,7 +409,7 @@ var commands = {
         </div>
         <hr />
         <div class="row">
-            <h5>Create a Dictation - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomdoinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.newDictation</span>();</code></a><br><small> (Easy initialization)</small></h5>
+            <h5>Create a Dictation - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomnewdictation.html" target="_blank"><code class="language-xml"><span class="tag">artyom.newDictation</span>();</code></a><br><small> (Easy initialization)</small></h5>
             <div class="col-md-24">
                 <div style="padding: 1em;"> 
                     <p>
@@ -482,7 +424,7 @@ var commands = {
         </div>
         <hr />
         <div class="row">
-            <h5>Executing voice commands via text - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomdoinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.doInstruction</span>(<span class="attribute">"instruction"</span>);</code></a><br><small> (Without microphone)</small></h5>
+            <h5>Executing voice commands via text - Using <a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomsimulateinstruction.html" target="_blank"><code class="language-xml"><span class="tag">artyom.simulateInstruction</span>(<span class="attribute">"instruction"</span>);</code></a><br><small> (Without microphone)</small></h5>
             <div class="col-md-24">
                 <div style="padding: 1em;"> 
                         <label for="demo-simulation-input">
