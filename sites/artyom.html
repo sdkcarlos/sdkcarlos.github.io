@@ -102,6 +102,24 @@
     <div class="row">
         <div class="col-md-19">
             <div class="col-xs-24">
+                <div class="alert alert-success">
+                    <p class="text-uppercase"><b>The upcoming version of artyom 0.8 is almost here and will allow to synthesize text in all the browsers and will add the following languages!</b>
+                    </p>
+                    <ul>
+                        <li>Russian</li>
+                        <li>Portuguese</li>
+                        <li>Dutch (Nederland)</li>
+                    </ul>
+                    Artyom supports already the following languages(<a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomgetlanguage.html" target="_blank">Read more about</a>): 
+                    <ul>
+                        <li>German</li>
+                        <li>Italian</li>
+                        <li>English</li>
+                        <li>French</li>
+                        <li>Spanish</li>
+                        <li>Japanese</li>
+                    </ul>
+                </div>
             <section class="section" id="buttons">
                 
             <header class="section-header ">
@@ -124,9 +142,6 @@
 
                   <div class="col-md-24">
                       <h2>Before continue</h2>
-                      <div class="alert alert-success">
-                          <h4>ATENTION ! The future version 0.8 of artyom will allow the speechSynthesis <br><b>ON ALL BROWSERS WITH SUPPORT FOR Audio API</b>. Follow the repository and watchout for the new update<small>Artyom will <b>talk</b> even in Microsoft Edge </small></h4>
-                      </div>
                   </div>
 
                   <div class="col-md-24">
@@ -446,9 +461,10 @@ var commands = {
                 <div style="padding: 1em;"> 
                     <label for="demo-simulation-textarea">
                         I can read without errors really extense text without get locked.<br>
-                        And respecting onStart and onEnd callbacks (The button will be disabled and enabled respectively)!
+                        And respecting onStart and onEnd callbacks (The button will be disabled and enabled respectively)!.<br>
+                        <b>SINCE V 0.8 Artyom can make All browsers talk if Audio API is supported ! However, the limitation of 100 characters in other browsers still active. This may be fixed in Artyom V0.9</b>
                     </label>
-<textarea class="form-control" id="demo-textcontainer-read" rows="8">This is a very simple demostration of what I can do. Go ahead ! search very long texts and see what happen . I can read text without errors. What do you think about this? Artyom removes the typical limitations of the traditional api, read them below.</textarea>
+<textarea class="form-control" id="demo-textcontainer-read" rows="8">This is a very simple demostration of what I can do. Go ahead ! search very long texts and see what happen.</textarea>
 <button type="button" class="btn btn-primary btn-block"  id="trigger-textreading"><i class="icon-volume"></i> Read text</button>
                 </div>
                 <p>
