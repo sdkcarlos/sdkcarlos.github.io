@@ -44,22 +44,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button">Download Library <i class="icon-flipviewdown"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip">Latest version</a></li>
-                            <li class="divider"></li>
-                            <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source-v0.6.zip">0.6</a></li>
-                            <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source-v0.5.1.zip">0.5.1</a></li>
-                            <li><a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source-v0.5.zip">0.5</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button">Download And See Artyom Demos <b>Download a StartUp for your project !</b><i class="icon-flipviewdown"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="https://github.com/sdkcarlos/sdkcarlos.github.io/raw/master/demo-sites/artyom-continuous-demo.zip">Download Continuous Demo (A very simple Jarvis template)<i class="icon-emoji"></i></a></li>
-                            <li><a href="https://sdkcarlos.github.io/demo-sites/artyom-demo-continuous.html">See Continuous Demo Online<i class="icon-emoji"></i></a></li>
-                        </ul>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button">The Jarvis Web Project</a>
                     </li>
                 </ul>
                    
@@ -99,10 +84,20 @@
     <input type="button" class="btn btn-primary" value="Talk" onclick="talkDemo();" />
 </div>
             <p class="text-center">
-                And try saying some of the following commands to see them in action.<br>
+                And try saying some of the following commands to see them in action.<b>Jarvis is active since you accepted the use of microphone</b><br>
             </p>
+            <table id="table-available-commands-here" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Trigger saying </th>
+                        <th>Description </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
             <p class="text-center">
-                These will be the basic tools for build the Jarvis Web project ! <b>So, what is really the Jarvis Project ?</b>
+                These will be the <b>very basic</b> tools for build the Jarvis Web project ! <b>So, what is really the Jarvis Project ?</b>
             </p>
         </div>
         <div class='col-md-24'>
@@ -195,7 +190,7 @@
                 $("#tag-recognition-supported").text("Artyom cannot listen in this Browser");
             }
             
-            listArtyomCommandsHere();
+            
 
             artyom.when("error",function(data){
                 $('#modal-error').modal('show');
@@ -215,11 +210,14 @@
             artyom.addCommands([
                 {
                     indexes:["hello",'hi','hey'],
+                    description:"Jarvis will say hello buddy !",
                     action:function(i){
                         artyom.say("Hello buddy");
                     }
                 } 
             ]);
+            
+            listArtyomCommandsHere();
         });
         function startContinuousMode(){
             if(window.location.protocol === "http:"){
@@ -255,12 +253,10 @@
                     row =   '<tr>\n\
                                 <td>'+command.indexes+'</td>\n\
                                 <td>'+command.description+'</td>\n\
-                                <td class="text-right">'+isSmart+'</td>\n\
                             </tr>';
                 }else{
                     row =   '<tr>\n\
                                 <td colspan="2">'+command.indexes+'</td>\n\
-                                <td class="text-right">'+isSmart+'</td>\n\
                             </tr>';
                 }
                     
