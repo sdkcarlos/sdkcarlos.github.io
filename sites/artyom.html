@@ -189,7 +189,7 @@
                     </div>
                     <div class="col s12 m3">
                         <ul>
-                            <li><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomredirectrecognizedtextoutput.html">Get recognized text</a></li>
+                            <li><a href="#guide-redirectoutput">Get recognized text</a></li>
                             <li><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomremovecommands.html">Remove commands</a></li>
                             <li><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomgetlanguage.html">Get language</a></li>
                             <li><a href="https://sdkcarlos.gitbooks.io/artyom/content/">... and many more,please read the docs here!</a></li>
@@ -396,6 +396,16 @@ artyom.addCommands(myGroup); </code></pre>
                 </div>
             </div>
             <hr>
+            <div class="section" id="guide-redirectoutput">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomredirectrecognizedtextoutput.html">Redirect recognized output</a></h2>
+                </div>
+                <p>Get the recognized text while you speak, start artyom and test it ! All you talk will appear down here</p>
+                <p class="text-center">
+                    <a href="javascript:void(0);" class="btn-large waves-effect waves-light" id="artyom-default-output-ro">The text will appear here if you talk and artyom is active</a>
+                </p>
+            </div>
+            <hr>
             <div class="section">
                 <div class="text-center" style="width: 100%;min-height:100px;">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -430,7 +440,7 @@ artyom.addCommands(myGroup); </code></pre>
                                 I would really appreciate your support with this plugin 
                                 give a Star <i class="fa fa-star"></i> on the Github Repository !<br>
                             </p>
-                            <a class="waves-effect waves-light btn">We are already <span id="starred-github"></span> persons , Join us !</a>
+                            <a class="waves-effect waves-light btn" href="https://github.com/sdkcarlos/artyom.js/stargazers">We are already <span id="starred-github" class="fa fa-spinner fa-spin"></span> persons , Join us !</a>
                         </div>
                         <div class="card-action text-center">
                             <a href="https://github.com/sdkcarlos/artyom.js/issues">Issues <i class="fa fa-ambulance"></i></a>
@@ -548,7 +558,17 @@ artyom.addCommands(myGroup); </code></pre>
                 listArtyomCommandsHere();
                 
                 $.getJSON("https://api.github.com/repos/sdkcarlos/artyom.js",function(data){
-                    $("#starred-github").html(data.watchers_count);
+                    var sel = $("#starred-github");
+                    sel.removeAttr('class');
+                    sel.html(data.watchers_count);
+                });
+                
+                artyom.redirectRecognizedTextOutput(function(recognized,isFinal){
+                    if(isFinal){
+                        $("#artyom-default-output-ro").text("");
+                    }else{
+                        $("#artyom-default-output-ro").text(recognized);
+                    }
                 });
             });
             
