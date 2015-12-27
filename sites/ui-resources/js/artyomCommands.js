@@ -84,25 +84,7 @@
             }
         },
         {
-            description: "Search the weather in any city of the world !",
-            indexes: ['search the weather in * please','search the weather in *'],
-            smart:true,
-            action : function(i,wildcard,sentence){
-                $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q="+ wildcard.trim() +"&units=metric&lang=en", function( data ) {
-                    if(data.cod === "404"){
-                        artyom.say("I can't find the weather of " + wildcard);
-                        alert(wildcard + " Doesn't exist maybe ?");
-                    }else{
-                        var num = data.main.temp;
-                        var n = num.toFixed(2);
-                        
-                        artyom.say("The weather in " + wildcard + " is " + data.weather[0].description);
-                        alert("Description: "+ data.weather[0].description+" \n Actual temperature : " + n + " Celcius"+" \n Open the console and see the example for more information about this function");
-                    }
-                });
-            }
-        },
-        {
+            description:'No comments ._.',
             indexes:['I love you','I love you so much','do you love me'],
             action:function(i){
                 var snd = new Audio('https://github.com/sdkcarlos/sdkcarlos.github.io/raw/master/sites/artyom-playground-resources/Ha%20GAY!!!.mp3');
