@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Cordova SFTP Plugin for Android</title>
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="ui-resources/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">
+                    Cordova SFTP Plugin
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin"><i class="fa fa-github"></i></a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin"><i class="fa fa-github"></i> Github</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <br><br>
+                <h1 class="header center orange-text">Control your project with the voice</h1>
+                <div class="row center">
+                    <p class="header col s12 light">
+                        Artyom is <b>a Robust Wrapper of the Google Chrome SpeechSynthesis and SpeechRecognition that allows you to create a virtual assistent</b><br>
+                        Make awesome stuff with this plugin ! <br>
+                        Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !   
+                    </p>
+                </div>
+                <div class="row center">
+                    <a href="https://github.com/sdkcarlos/artyom.js" target='_blank' class="btn-large waves-effect waves-light orange">Get Started</a>
+                    <a href="https://sdkcarlos.gitbooks.io/artyom/content/" target='_blank' class="btn-large waves-effect waves-light orange">Read documentation</a>
+                    <a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip" target='_blank' class="btn-large waves-effect waves-light orange">Download latest version <span id='arty-version'></span></a>
+                </div>
+                <br><br>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card">
+                                <div class="card-image text-center">
+                                    <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">
+                                        <img src="http://ourcodeworld.com/resources/apps-resources/ourcodeeditor/ourcodeeditor_logo.png" class="center-block" style='width:50%'>
+                                    </a>
+                                </div>
+                            <div class="card-content text-center">
+                                <p>
+                                    Download <b>for free</b> my new Code Editor for Android. Keep coding wherever you are.
+                                </p>
+                                <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" style="width: 200px;"/></a>
+                            </div>
+                            <div class="card-action text-center">
+                                <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">What are you waiting? Download free here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row text-center" >
+                            <h2 class="light-blue-text text-center" >Content table</h2>
+                            <div class="col s12 m12">
+                                <ul>
+                                    <li><a href="#guide-installation">Installation</a></li>
+                                    <li><a href="#guide-whatoffers">What offers this plugin</a></li>
+                                    <li><a href="#guide-step1">Step 1</a></li>
+                                    <li><a href="#guide-step2">Step 2</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-installation">
+                <div class='row'>
+                    <h2 class="light-blue-text text-center" >How to install</h2>
+                    <p>Include the plugin on your project</p>
+                    <pre><code class="language-batch">cordova plugin add https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin.git</code></pre>
+                    <p>Remember you need an active <b>android platform</b>, this plugin only is available on android. Then in your document a global variable will be accesible with <em><b>OurCodeWorldSFTP</b></em></p>
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-whatoffers">
+                <div class='row text-center'>
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">What offers</a></h2>
+                    <p>This plugin is built on <a href="http://www.jcraft.com/jsch/" target="_blank">JSCH</a>, and offers <b>the basic support</b> of the SFTP client of JSCH,features like :</p>
+                    <ul>
+                        <li><i class='fa fa-check'></i> Secure connection</li>
+                        <li><i class='fa fa-check'></i> List a remote path</li>
+                        <li><i class='fa fa-check'></i> Upload files</li>
+                        <li><i class='fa fa-check'></i> Download files</li>
+                        <li><i class='fa fa-check'></i> Download/Upload progress indicator</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-step1">
+                <div class='row'>
+                    <h2 class="light-blue-text text-center" ><a  href="javascript:void(0);">1) Create a SFTP Client</a></h2>
+                    <p>It's important to understand the structure of the plugin, to start a connection to a sftp server, we need to create a client which will be assigned to a variable.</p>
+                    <pre><code class="language-javascript">// Now we have a sftp client in javascript ! Cool isn't ?
+var client = OurCodeWorldSFTP.createSFTPClient();
+</code></pre>
+                    <p>
+                        We need to execute this code in (or after) the <em><b>deviceready</b></em> event.
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-step2">
+                <div class='row'>
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">2) Set credentials</a></h2>
+                    <p>Without credentials we cannot access any server ! use <b>setCredentials</b> method first.</p>
+                    <pre><code class="language-javascript">// Set the credentials like this : ip-sftp-server , your user, the password
+client.setCredentials("00.000.00.00","user","password");
+
+// If your sftp server doesn't use the port 22 you can change it with setCredentials method
+// in this case we will change the port to the 21
+client.setCredentials("00.000.00.00","user","password","21");
+</code></pre>
+                    <h4 class="text-center">Test artyom in uncontinuous mode now ! Click the microphone button in the bottom corner of your browser and start artyom, these commands are available here, test them !</h4>
+                
+                    <table id="table-available-commands-here">
+                        <thead>
+                            <tr>
+                                <th>Triggers (Saying any of the option when artyom is active)</th>
+                                <th>Description</th>
+                                <th class="text-right" title="If smart, the command accepts wildcards !">Smart</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div class="section" id="guide-simulateinstruction">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomsimulateinstruction.html">Simulating instructions when necessary</a></h2>
+                </div>
+                <p>
+                    For some reasons, if you have a command called "hello" and you want to trigger the function of this command, you can use <em><b>artyom.simulateCommand(&quot;hello&quot;);</b></em> to achieve this.<br>
+                    This function is for testing purposes too. Test it down here
+                </p>
+                <div class="input-field col s6">
+                    <input id="simulation-command" type="text" class="validate" value="I love you">
+                    <label for="simulation-command">Simulate voice instruction</label>
+                    <submit class="btn-large waves-effect waves-light btn-block blue" onclick="artyom.simulateInstruction($('#simulation-command').val())">Simulate</submit>
+                </div>
+            </div>
+            <hr>
+            <div class="section" id="guide-redirectoutput">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomredirectrecognizedtextoutput.html">Redirect recognized output</a></h2>
+                </div>
+                <p>Get the recognized text while you speak, start artyom and test it ! All you talk will appear down here</p>
+                <p class="text-center">
+                    <a href="javascript:void(0);" class="btn-large waves-effect waves-light" id="artyom-default-output-ro">The text will appear here if you talk and artyom is active</a>
+                </p>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                     
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="text-center">
+                    <h2>And many more utilities ! Discover them by yourself<br><small><a href="https://sdkcarlos.gitbooks.io/artyom/content/">Read the Documentation</a></small></h2>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="http://placekitten.com/600/338">
+                          <span class="card-title">Did you like the plugin?</span>
+                        </div>
+                        <div class="card-content text-center">
+                            <p>
+                                I would really appreciate your support with this plugin 
+                                give a Star <i class="fa fa-star"></i> on the Github Repository !<br>
+                            </p>
+                            <a class="waves-effect waves-light btn" href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin/stargazers">We are already <span id="starred-github" class="fa fa-spinner fa-spin"></span> persons , Join us !</a>
+                        </div>
+                        <div class="card-action text-center">
+                            <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin/issues">Issues <i class="fa fa-ambulance"></i></a>
+                            <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin/issues">Official Docs <i class="fa fa-book"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m6 text-center">
+                        <h4>Buy me a coffee <i class="fa fa-smile-o"></i></h4>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="SAWBC868GKKPC">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Boton de accion de artyom -->
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large waves-effect waves-light blue" href='https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin'>
+                    <span class="fa fa-github-square"></span>
+                </a>
+            </div>
+        </div>
+        
+        <footer class="page-footer orange">
+            <div class="container">
+                <div class="row">
+                    <div class="col l9 s12">
+                        <h5 class="white-text">About Artyom</h5>
+                        <p class="grey-text text-lighten-4">
+                            The objective of this plugin is to make an easy sftp implementation of your project, is created because Our Code Editor needed this feature.<br>
+                            By this reason the plugin is available for any android (cordova) developer who need a sftp feature.
+                            (the FTP support is also planned but is not available yet).
+                        </p>
+                        <p class="grey-text text-lighten-4">
+                            You want to know something or contact with me ? Write me to <a class="white-text" href='mailto:dev@ourcodeworld.com?Subject=Hello'>dev@ourcodeworld.com</a>
+                        </p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">More projects</h5>
+                        <ul>
+                            <li><a class="white-text" href="http://ourcodeworld.com/apps/our-code-editor" target="_blank">Our Code Editor (Code editor for android)</a></li>
+                            <li><a class="white-text" href="https://sdkcarlos.github.io/sites/holdon.html" target="_blank">HoldOn.js (Lock the UI on ajax calls)</a></li>
+                            <li><a class="white-text" href="http://sdkcarlos.github.io/sites/artyom.html" target="_blank">Artyom.js (Voice control with Javascript on Chrome)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made with <span class="fa fa-heart"></span> by <a class="orange-text text-lighten-3" href="http://ourcodeworld.com">Our Code World (Carlos Delgado)</a>
+                </div>
+            </div>
+        </footer>
+
+
+        <!--  Scripts-->
+        <script src="ui-resources/js/jquery.min.js"></script>
+        <script src="ui-resources/js/materialize.min.js"></script>
+        <script src="ui-resources/js/init.js"></script>
+        <script src="ui-resources/js/prism.js"></script>
+        <script>
+            $(function(){
+                $.getJSON("https://api.github.com/repos/sdkcarlos/cordova-ourcodeworld-sftpplugin",function(data){
+                    var sel = $("#starred-github");
+                    sel.removeAttr('class');
+                    sel.html(data.watchers_count);
+                });
+            });
+        </script>
+    </body>
+</html>
