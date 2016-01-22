@@ -29,27 +29,6 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">Control your project with the voice</h1>
-                <div class="row center">
-                    <p class="header col s12 light">
-                        Artyom is <b>a Robust Wrapper of the Google Chrome SpeechSynthesis and SpeechRecognition that allows you to create a virtual assistent</b><br>
-                        Make awesome stuff with this plugin ! <br>
-                        Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !   
-                    </p>
-                </div>
-                <div class="row center">
-                    <a href="https://github.com/sdkcarlos/artyom.js" target='_blank' class="btn-large waves-effect waves-light orange">Get Started</a>
-                    <a href="https://sdkcarlos.gitbooks.io/artyom/content/" target='_blank' class="btn-large waves-effect waves-light orange">Read documentation</a>
-                    <a href="https://github.com/sdkcarlos/artyom.js/raw/master/public/artyom-source.zip" target='_blank' class="btn-large waves-effect waves-light orange">Download latest version <span id='arty-version'></span></a>
-                </div>
-                <br><br>
-            </div>
-        </div>
-
-
         <div class="container">
             <div class="section">
                 <div class="row">
@@ -80,6 +59,7 @@
                                     <li><a href="#guide-whatoffers">What offers this plugin</a></li>
                                     <li><a href="#guide-step1">Step 1</a></li>
                                     <li><a href="#guide-step2">Step 2</a></li>
+                                    <li><a href="#guide-step3">Step 3</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -102,9 +82,10 @@
                     <p>This plugin is built on <a href="http://www.jcraft.com/jsch/" target="_blank">JSCH</a>, and offers <b>the basic support</b> of the SFTP client of JSCH,features like :</p>
                     <ul>
                         <li><i class='fa fa-check'></i> Secure connection</li>
-                        <li><i class='fa fa-check'></i> List a remote path</li>
-                        <li><i class='fa fa-check'></i> Upload files</li>
-                        <li><i class='fa fa-check'></i> Download files</li>
+                        <li><i class='fa fa-check'></i> <a href="#guide-listremote">List a remote path</a></li>
+                        <li><i class='fa fa-check'></i> <a href="#guide-uploadfile">Upload files</a></li>
+                        <li><i class='fa fa-check'></i> <a href="#guide-downloadfile">Download files</a></li>
+                        <li><i class='fa fa-check'></i> <a href="#guide-delete">Delete remote file</a></li>
                         <li><i class='fa fa-check'></i> Download/Upload progress indicator</li>
                     </ul>
                 </div>
@@ -112,12 +93,21 @@
             <hr>
             <div class="section">
                 <div class="text-center" style="width: 100%;min-height:100px;">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Our Code World Banner -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-7687344986141325"
+                         data-ad-slot="7923888697"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
             <hr>
             <div class='section' id="guide-step1">
                 <div class='row'>
-                    <h2 class="light-blue-text text-center" ><a  href="javascript:void(0);">1) Create a SFTP Client</a></h2>
+                    <h2 class="light-blue-text text-center" ><a  href="javascript:void(0);">1) Create a SFTP Client</a><br><small>No external call</small></h2>
                     <p>It's important to understand the structure of the plugin, to start a connection to a sftp server, we need to create a client which will be assigned to a variable.</p>
                     <pre><code class="language-javascript">// Now we have a sftp client in javascript ! Cool isn't ?
 var client = OurCodeWorldSFTP.createSFTPClient();
@@ -130,66 +120,186 @@ var client = OurCodeWorldSFTP.createSFTPClient();
             <hr>
             <div class='section' id="guide-step2">
                 <div class='row'>
-                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">2) Set credentials</a></h2>
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">2) Set credentials</a><br><small>No external call</small></h2>
                     <p>Without credentials we cannot access any server ! use <b>setCredentials</b> method first.</p>
                     <pre><code class="language-javascript">// Set the credentials like this : ip-sftp-server , your user, the password
 client.setCredentials("00.000.00.00","user","password");
+// or client.setCredentials("myserver.domain.com","user","password");
 
 // If your sftp server doesn't use the port 22 you can change it with setCredentials method
 // in this case we will change the port to the 21
 client.setCredentials("00.000.00.00","user","password","21");
 </code></pre>
-                    <h4 class="text-center">Test artyom in uncontinuous mode now ! Click the microphone button in the bottom corner of your browser and start artyom, these commands are available here, test them !</h4>
-                
-                    <table id="table-available-commands-here">
-                        <thead>
-                            <tr>
-                                <th>Triggers (Saying any of the option when artyom is active)</th>
-                                <th>Description</th>
-                                <th class="text-right" title="If smart, the command accepts wildcards !">Smart</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
+                    <p>
+                        
+                    </p>
                 </div>
             </div>
             <hr>
-            <div class="section" id="guide-simulateinstruction">
+            <div class="section" id="guide-step3">
                 <div class="row">
-                    <h2 class="light-blue-text text-center" ><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomsimulateinstruction.html">Simulating instructions when necessary</a></h2>
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">3) setPath & getPath</a> <br><small>No external call</small></h2>
                 </div>
                 <p>
-                    For some reasons, if you have a command called "hello" and you want to trigger the function of this command, you can use <em><b>artyom.simulateCommand(&quot;hello&quot;);</b></em> to achieve this.<br>
-                    This function is for testing purposes too. Test it down here
+                    You need to store the remote path (default path will be <b>/root</b> if you don't change the path) in the client, this will be used to execute tasks like <b>list a folder</b>
                 </p>
-                <div class="input-field col s6">
-                    <input id="simulation-command" type="text" class="validate" value="I love you">
-                    <label for="simulation-command">Simulate voice instruction</label>
-                    <submit class="btn-large waves-effect waves-light btn-block blue" onclick="artyom.simulateInstruction($('#simulation-command').val())">Simulate</submit>
-                </div>
-            </div>
-            <hr>
-            <div class="section" id="guide-redirectoutput">
-                <div class="row">
-                    <h2 class="light-blue-text text-center" ><a href="https://sdkcarlos.gitbooks.io/artyom/content/chapters/artyomredirectrecognizedtextoutput.html">Redirect recognized output</a></h2>
-                </div>
-                <p>Get the recognized text while you speak, start artyom and test it ! All you talk will appear down here</p>
-                <p class="text-center">
-                    <a href="javascript:void(0);" class="btn-large waves-effect waves-light" id="artyom-default-output-ro">The text will appear here if you talk and artyom is active</a>
-                </p>
+                <pre><code class="language-javascript">// Set the relative remote path
+client.setPath("/var/www/vhosts/myproject/");
+
+//You can retrieve the active path with
+console.log(client.getPath()); // Output: /var/www/vhosts/myproject/
+</code></pre>
+                 <h4 class="text-center">Now you'll able to execute any of the functions of the plugin</h4>
             </div>
             <hr>
             <div class="section">
                 <div class="text-center" style="width: 100%;min-height:100px;">
-                     
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Our Code World Banner -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-7687344986141325"
+                         data-ad-slot="7923888697"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
             <hr>
+            <div class="section" id="guide-listremote">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">List remote path</a></h2>
+                </div>
+                <p>Get all the folders and files of the client path :</p>
+                <pre><code class="language-javascript">
+var client = OurCodeWorldSFTP.createSFTPClient();
+// Or 
+// client.setCredentials("0000.000.00","myuser","password");
+client.setCredentials("myserver.something.com","myuser","password");
+client.setPath("/var/www/vhosts/myproject");
+
+
+/**
+ * Receives an array with objects with all the content of a path (files and folders)
+ */
+var success = function(data) {
+    console.info(data);
+    /**
+    Outputs : 
+    [
+        {
+            name:"Folder/File name",
+            filepath: "/var/www/vhosts/myproject/something.txt",
+            isDir:false, // is Folder = true, is File = false
+            isLink:false,
+            size:"123", // bytes
+            permissions: "????",
+            permissions_string:"xxxxx",
+        }
+    ];
+    */
+}
+
+// Oops .. something failed :| , may be the path ? or credentials ?
+var failure = function(e) {
+    console.error(e);
+}
+
+client.list(success, failure);
+</code></pre>
+            </div>
+            <hr>
+            <div class="section" id="guide-downloadfile">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">Download a file</a></h2>
+                </div>
+                <p>Download a remote file to your device :</p>
+                <pre><code class="language-javascript">// Do not include file:// to the local path, you can change the local filename if you want
+client.downloadFile("/var/www/vhosts/myproject/file.txt","/storage/emulated/0/file.txt",{
+    success:function(download){
+        // see the object info
+        console.log(download);
+
+        if(download.finished == true){
+            console.info("The file has been succesfully downloaded");
+        }else{
+            //Display the progress
+            console.log("Progress download : "+download.progress+"%. "+ download.bytesprogress +" bytes downloaded of " + download.filesizebytes + "total");
+        }
+    },
+    error:function(er){
+        // snap ! An error :(
+        console.error(er);
+    }
+});
+</code></pre>
+            </div>
+            <hr>
+            <div class="section" id="guide-uploadfile">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">Upload a file</a></h2>
+                </div>
+                <p>Upload a local file to the server :</p>
+                <pre><code class="language-javascript">// Do not include file:// to the local path, you can change the remote filename if you want
+client.uploadFile("/storage/emulated/0/file.txt","/var/www/vhosts/myproject/file.txt",{
+    success:function(download){
+        // see the object info
+        console.log(download);
+
+        if(download.finished == true){
+            console.info("The file has been succesfully uploaded");
+        }else{
+            //Display the progress
+            console.log("Progress upload : "+download.progress+"%. "+ download.bytesprogress +" bytes uploaded of " + download.filesizebytes + "total");
+        }
+    },
+    error:function(er){
+        // snap ! An error :(
+        console.error(er);
+    }
+});
+</code></pre>
+            </div>
+            <hr>
+            <div class="section" id="guide-delete">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">Delete a remote file</a></h2>
+                </div>
+                <p>Delete a remote file:</p>
+                <pre><code class="language-javascript">client.removeFile("/var/www/vhosts/myproject/file.txt",{
+    success:function(removed){
+        // see the object info
+        console.log(removed);
+
+        if(download.deleted == true){
+            console.log("File removed from the server");
+        }
+    },
+    error:function(er){
+        // snap ! An error :( maybe doesnt exist?
+        console.error(er);
+    }
+});
+</code></pre>
+            </div>
+            </hr>
+            <div class="section">
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Our Code World Banner -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-7687344986141325"
+                         data-ad-slot="7923888697"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+            </hr>
             <div class="section">
                 <div class="text-center">
-                    <h2>And many more utilities ! Discover them by yourself<br><small><a href="https://sdkcarlos.gitbooks.io/artyom/content/">Read the Documentation</a></small></h2>
+                    <h2>If you have a questions don't hesitate, report the issue on github</h2>
                 </div>
             </div>
             <hr>
@@ -237,7 +347,7 @@ client.setCredentials("00.000.00.00","user","password","21");
             <div class="container">
                 <div class="row">
                     <div class="col l9 s12">
-                        <h5 class="white-text">About Artyom</h5>
+                        <h5 class="white-text">About this plugin</h5>
                         <p class="grey-text text-lighten-4">
                             The objective of this plugin is to make an easy sftp implementation of your project, is created because Our Code Editor needed this feature.<br>
                             By this reason the plugin is available for any android (cordova) developer who need a sftp feature.
