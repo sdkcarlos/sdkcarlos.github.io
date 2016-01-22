@@ -298,6 +298,18 @@ client.setIdentity("/storage/emulated/0/id_dsa.pub");
 </code></pre>
             </div>
             <hr>
+            <div class="section" id="guide-knownhosts">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">Use a known hosts file</a></h2>
+                </div>
+                <p>It's recommendable to set a Known Hosts file to your sftp connection, otherwise your connection can be victim of a <b>Man In the Middle Attack (MITM)</b>, just use setKnownHosts method giving the path of the local file.
+                    If you don't use this file, the plugin will work anyway, but is better use a known hosts.
+                </p>
+                <pre><code class="language-javascript">// Set local known_hosts file
+client.setKnownHosts("/storage/emulated/0/known_hosts");
+</code></pre>
+            </div>
+            <hr>
             <div class="section">
                 <div class="text-center" style="width: 100%;min-height:100px;">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
