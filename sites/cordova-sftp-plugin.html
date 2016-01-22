@@ -86,6 +86,7 @@
                         <li><i class='fa fa-check'></i> <a href="#guide-uploadfile">Upload files</a></li>
                         <li><i class='fa fa-check'></i> <a href="#guide-downloadfile">Download files</a></li>
                         <li><i class='fa fa-check'></i> <a href="#guide-delete">Delete remote file</a></li>
+                        <li><i class='fa fa-check'></i> <a href="#guide-privatekey">Use private key to connect</a></li>
                         <li><i class='fa fa-check'></i> Download/Upload progress indicator</li>
                     </ul>
                 </div>
@@ -282,7 +283,21 @@ client.uploadFile("/storage/emulated/0/file.txt","/var/www/vhosts/myproject/file
 });
 </code></pre>
             </div>
-            </hr>
+            <hr>
+            <div class="section" id="guide-privatekey">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">Use a private key to connect</a></h2>
+                </div>
+                <p>If your server needs a Private key to connect, you can use setIdentity method, Public key authentication uses a public-private , your private key must use OpenSSH format.</p>
+                <pre><code class="language-javascript">var client = OurCodeWorldSFTP.createSFTPClient();
+client.setCredentials("myserver.something.com","myuser","password");
+client.setPath("/var/www/vhosts/myproject");
+client.setIdentity("/storage/emulated/0/id_dsa.pub");
+
+// Do anything what you want
+</code></pre>
+            </div>
+            <hr>
             <div class="section">
                 <div class="text-center" style="width: 100%;min-height:100px;">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
