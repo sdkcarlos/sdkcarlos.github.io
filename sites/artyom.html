@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
         <title>Artyom.js - A Javascript Voice Commands Handler</title>
-        
+
         <script src="ui-resources/js/artyom.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="ui-resources/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -38,7 +38,7 @@
                     <p class="header col s12 light">
                         Artyom is <b>a Robust Wrapper of the Google Chrome SpeechSynthesis and SpeechRecognition that allows you to create a virtual assistent</b><br>
                         Make awesome stuff with this plugin ! <br>
-                        Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !   
+                        Build your own <a href="https://www.apple.com/es/ios/siri/" target="_blank">Siri</a>,<a href="https://www.google.com/landing/now/" target="_blank">Google Now</a>  or <a href="http://www.windowsphone.com/es-es/how-to/wp8/cortana/meet-cortana" target="_blank">Cortana</a> within your web application !
                     </p>
                 </div>
                 <div class="row center">
@@ -113,14 +113,13 @@
                         <div class="card">
                                 <div class="card-image text-center">
                                     <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">
-                                        <img src="http://ourcodeworld.com/resources/apps-resources/ourcodeeditor/ourcodeeditor_logo.png" class="center-block" style='width:50%'>
+                                        <img src="artyom-resources/images/oce-banner.png" class="center-block" style='width:70%'>
                                     </a>
                                 </div>
                             <div class="card-content text-center">
                                 <p>
                                     Download <b>for free</b> my new Code Editor for Android. Keep coding wherever you are.
                                 </p>
-                                <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" style="width: 200px;"/></a>
                             </div>
                             <div class="card-action text-center">
                                 <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">What are you waiting? Download free here</a>
@@ -208,7 +207,7 @@
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1.0&quot;/&gt;
     &lt;title&gt;Artyom.js - A Javascript Voice Commands Handler&lt;/title&gt;
 
-    &lt;!-- Include first in your head tag to load voices previously --&gt;       
+    &lt;!-- Include first in your head tag to load voices previously --&gt;
     &lt;script src=&quot;ui-resources/js/artyom.min.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;</code></pre>
                     <p>Then a global variable <em><b>artyom</b></em> will be accesible on your document and all the features that artyom have to offer will be available for its use.</p>
@@ -221,7 +220,7 @@
                     <p>Most of the magic happens automatically, however artyom needs to be manually initializated according to your needs</p>
                     <pre><code class="language-javascript"> // This function activates artyom and will listen and execute only 1 command (for http connections)
 function startOneCommandArtyom(){
-    artyom.fatality();// use this to stop any of 
+    artyom.fatality();// use this to stop any of
 
     setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
          artyom.initialize({
@@ -236,7 +235,7 @@ function startOneCommandArtyom(){
 
 // This function activates artyom and will listen all that you say forever (requires https conection, otherwise a dialog will request if you allow the use of the microphone)
 function startContinuousArtyom(){
-    artyom.fatality();// use this to stop any of 
+    artyom.fatality();// use this to stop any of
 
     setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
          artyom.initialize({
@@ -277,7 +276,7 @@ function startContinuousArtyom(){
                             Read more about the native API.
                         </a> With artyom use the following code to talk !
                     </p>
-                    <pre><code class="language-javascript">// Complete example 
+                    <pre><code class="language-javascript">// Complete example
     function MyCustomTalk(myText){
         // you can ignore the callbacks using only artyom.say("my text");
         artyom.say(myText,{
@@ -322,7 +321,7 @@ var commandHello = {
     }
 };
 
-artyom.addCommands(commandHello); // Add the command with addCommands method. Now 
+artyom.addCommands(commandHello); // Add the command with addCommands method. Now
 
 // Or add multiple commands at time
 var myGroup = [
@@ -341,13 +340,13 @@ var myGroup = [
                     artyom.say("I'm a machine, I dont know what is a feeling");
                 }else{
                     artyom.say("I don't know who is " + wildcard + " and i cannot say if is a good person");
-                }   
+                }
             }else{
                 if(database.indexOf(wildcard.trim())){
                     artyom.say("Of course i know who is "+ wildcard + ". A really good person");
                 }else{
                     artyom.say("My database is not big enough, I don't know who is " + wildcard);
-                }   
+                }
             }
         }
     },
@@ -365,7 +364,7 @@ var myGroup = [
 
 artyom.addCommands(myGroup); </code></pre>
                     <h4 class="text-center">Test artyom in uncontinuous mode now ! Click the microphone button in the bottom corner of your browser and start artyom, these commands are available here, test them !</h4>
-                
+
                     <table id="table-available-commands-here">
                         <thead>
                             <tr>
@@ -375,7 +374,7 @@ artyom.addCommands(myGroup); </code></pre>
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -437,7 +436,7 @@ artyom.addCommands(myGroup); </code></pre>
                         </div>
                         <div class="card-content text-center">
                             <p>
-                                I would really appreciate your support with this plugin 
+                                I would really appreciate your support with this plugin
                                 give a Star <i class="fa fa-star"></i> on the Github Repository !<br>
                             </p>
                             <a class="waves-effect waves-light btn" href="https://github.com/sdkcarlos/artyom.js/stargazers">We are already <span id="starred-github" class="fa fa-spinner fa-spin"></span> persons , Join us !</a>
@@ -466,7 +465,7 @@ artyom.addCommands(myGroup); </code></pre>
                 </button>
             </div>
         </div>
-        
+
         <div id="artyom-dialog-unsupported" class="modal">
             <div class="modal-content">
                 <h4>Oops :( Artyom doesn't work in this browser</h4>
@@ -477,8 +476,8 @@ artyom.addCommands(myGroup); </code></pre>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Noticed</a>
             </div>
         </div>
-        
-        
+
+
         <footer class="page-footer orange">
             <div class="container">
                 <div class="row">
@@ -518,7 +517,7 @@ artyom.addCommands(myGroup); </code></pre>
         <script src="ui-resources/js/artyomCommands.js"></script>
         <script src="ui-resources/js/prism.js"></script>
         <script>
-            // Google Analytics 
+            // Google Analytics
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -531,19 +530,19 @@ artyom.addCommands(myGroup); </code></pre>
             $(function(){
                 var statusBar = $('#about-status-container');
                 $('#arty-version').html(artyom.getVersion());
-                
+
                 if(artyom.speechSupported()){
                     statusBar.append('<a class="waves-effect waves-light btn-large green">Synthesis Supported</a>&nbsp;');
                 }else{
                     statusBar.append('<a class="waves-effect waves-light btn-large red">Synthesis Unsupported</a>&nbsp;');
                 }
-                
+
                 if(artyom.recognizingSupported()){
                     statusBar.append('<a class="waves-effect waves-light btn-large green">Recognizing Supported</a>&nbsp;');
                 }else{
                     statusBar.append('<a class="waves-effect waves-light btn-large red">Recognizing Unsupported</a>&nbsp;');
                 }
-                
+
                 if(artyom.device.isChrome){
                     if(artyom.device.isMobile){
                         var ua = navigator.userAgent.toLowerCase();
@@ -555,7 +554,7 @@ artyom.addCommands(myGroup); </code></pre>
                 }else{
                     $('#artyom-dialog-unsupported').openModal();
                 }
-                
+
                 $('#artyom-maintest-trigger').click(function(){
                     artyom.initialize({
                         listen:true,
@@ -564,15 +563,15 @@ artyom.addCommands(myGroup); </code></pre>
                         continuous:false
                     });
                 });
-                
+
                 listArtyomCommandsHere();
-                
+
                 $.getJSON("https://api.github.com/repos/sdkcarlos/artyom.js",function(data){
                     var sel = $("#starred-github");
                     sel.removeAttr('class');
                     sel.html(data.watchers_count);
                 });
-                
+
                 artyom.redirectRecognizedTextOutput(function(recognized,isFinal){
                     if(isFinal){
                         $("#artyom-default-output-ro").text("");
@@ -581,10 +580,10 @@ artyom.addCommands(myGroup); </code></pre>
                     }
                 });
             });
-            
+
             $(window).load(function(){
                 listArtyomVoices();
-                
+
                 if(localStorage.getItem('firstTime') != 'false'){
                     setTimeout(function(){
                         artyom.say("Welcome dear developer thanks for visit this website. Read more about how can you use artyom to give a cool touch to your own projects.",{
