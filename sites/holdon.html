@@ -1,230 +1,308 @@
-<!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>HoldOn.js</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="holdon-resources/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="holdon-resources/css/main.css" />
-                <link rel="stylesheet" href="holdon-resources/css/HoldOn.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="holdon-resources/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>HoldOn.js - Prevent stupid actions on your Asynchronous calls</title>
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-                                    <div class="row">
-                                        <div class="col-md-12" style="width:100%;height:200px;">
-                                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                            <!-- Responsive little -->
-                                            <ins class="adsbygoogle"
-                                                 style="display:block"
-                                                 data-ad-client="ca-pub-7687344986141325"
-                                                 data-ad-slot="3487567897"
-                                                 data-ad-format="auto"></ins>
-                                            <script>
-                                            (adsbygoogle = window.adsbygoogle || []).push({});
-                                            </script>
-                                        </div>
-                                    </div>
-                                    <h1 id="logo"><a href="#">HoldOn.js</a></h1>
-                                    <p>Prevent that your user <br><b>do something stupid</b><br>While something in the background is executed</p>
-				</header>
-				<nav id="nav">
-                                    <ul>
-                                        <li><a href="#one" class="active">How To Use</a></li>
-                                        <li><a href="#two">Quick Demos</a></li>
-                                        <li><a href="#three">Usage</a></li>
-                                    </ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-                                            <li><a href="https://github.com/sdkcarlos/HoldOn.js" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
-					</ul>
-				</footer>
-			</section>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="ui-resources/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" href="holdon-resources/css/HoldOn.css" />
+    </head>
+    <body>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="http://ourcodeworld.com" class="brand-logo">
+                    <img src="http://ourcodeworld.com/ocw-ui/img/logo-single.png" alt="Our Code World" height="29"> HoldOn.js
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="https://github.com/sdkcarlos/holdon.js"><i class="fa fa-github"></i></a></li>
+                </ul>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- One -->
-							<section id="one">
-								<div class="container">
-									<header class="major">
-                                                                            <h2>How to use</h2>
-									</header>
-                                                                        
-                                                                        Include HoldOn.css file !<br>
-                                                                        <code style="font-size: 0.7em;">&lt;link rel=&quot;stylesheet&quot; href=&quot;HoldOn.css&quot;&gt;</code>
-                                                                        <br>Include jQuery !<br>
-                                                                        <code style="font-size: 0.7em;">&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;</code>
-                                                                        <br>Include HoldOn.js 
-                                                                        <br><code style="font-size: 0.7em;">&lt;script src=&quot;HoldOn.js&quot;&gt;&lt;/script&gt;</code>
-                                                                        <p>
-                                                                            We are ready to prevent stupid acts !<br>
-                                                                            <a href="https://github.com/sdkcarlos/HoldOn.js/raw/master/src/download/Holdon.zip" class="special">DOWNLOAD LATEST VERSION HERE</a>
-                                                                        </p>
-								</div>
-							</section>
-
-						<!-- Two -->
-							<section id="two">
-								<div class="container">
-                                                                        <header class="major">
-                                                                            <h2>Quick demos</h2>
-									</header>
-                                                                        <p>
-                                                                            HoldOn.js Uses <a href="https://github.com/tobiasahlin/SpinKit" target="_blank">SpinKit for the animations</a>
-                                                                        </p>
-									<ul class="feature-icons">
-                                                                            <li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Dot Theme" onclick="testHoldon('sk-dot');">
-                                                                                </li>
-                                                                                <li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Rect Theme" onclick="testHoldon('sk-rect');">
-                                                                                </li>
-										<li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Cube Theme" onclick="testHoldon('sk-cube');">
-                                                                                </li>
-										<li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Bounce Theme" onclick="testHoldon('sk-bounce');">
-                                                                                </li>
-										<li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Circle Theme" onclick="testHoldon('sk-circle');">
-                                                                                </li>
-                                                                                <li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Cube Grid Theme" onclick="testHoldon('sk-cube-grid');">
-                                                                                </li>
-                                                                                <li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Folding Cube Theme" onclick="testHoldon('sk-folding-cube');">
-                                                                                </li>
-                                                                                <li class="fa-cubes">
-                                                                                    <input type="submit" class="special" value="Fading Circle Theme" onclick="testHoldon('sk-fading-circle');">
-                                                                                </li>
-									</ul>
-                                                                        <p>
-                                                                            You dont like anything of the previous themes or you want to customize your own theme? No problem !<br>
-                                                                            HoldOn allows you to customize the main content and message ,in the way you want! Test it !
-                                                                        </p>
-                                                                        <ul class="feature-icons">
-                                                                            <li class="fa-cubes">
-                                                                                <input type="submit" class="special" value="Custom Theme" onclick="customHoldon();">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <p>Previous theme achieved with :</p>
-<pre style="font-size:0.7em;">
-    HoldOn.open({
-        theme:&quot;custom&quot;,
-        content:'&lt;img style=&quot;width:80px;&quot; src=&quot;https://www.google.de/images/bran\n\
-        ding/googlelogo/2x/googlelogo_color_272x92dp.png&quot; class=&quot;center-block&quot;&gt;',
-        message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit.\n\
-        &lt;br&gt; &lt;input type=&quot;button&quot; value=&quot;Close this Cover&quot; onclick=&quot;HoldOn.close();&quot;&gt;',
-        backgroundColor:&quot;#1847B1&quot;,
-        textColor:&quot;white&quot;,
-    });
-</pre>
-								</div>
-							</section>
-
-						<!-- Three -->
-							<section id="three">
-								<div class="container">
-									<h3>Usage</h3>
-									<p>HoldOn.js is really easy to use.</p>
-									<div class="features">
-										<article>
-											<div class="col-md-12">
-                                                                                            <h4><code>HoldOn.open(properties);</code></h4>
-                                                                                            <p>
-                                                                                                Initialize hold on without properties locks the ui with the default theme "sk-rect".
-                                                                                                Those are the availables properties that supports HoldOn.<br>
-                                                                                                <b>Only 1 Instance of HoldOn is available in the window.</b><br>
-                                                                                                That means , if you call again the open method, the existing Layout will be deleted.
-                                                                                            </p>
-                                                                                            <pre style="font-size: 0.7em;">
-HoldOn.open({
-    theme:"sk-bounce",//If not given or inexistent theme throws default theme sk-rect
-    message: "&lt;h4&gt; Put your html here too ! &lt;/h4&gt;",
-    content:"Your HTML Content", // If theme is set to "custom", this property is available
-                                 // this will replace the theme by something customized.
-    backgroundColor:"blue",//Change the background color of holdon with javascript
-                           // Keep in mind is necessary the .css file too.
-    textColor:"white" // Change the font color of the message
-});
-                                                                                            </pre>
-											</div>
-										</article>
-										<article>
-											<div class="col-md-12">
-												<h4><code>HoldOn.close();</code></h4>
-                                                                                                <p>
-                                                                                                    Remove the layout that locks the UI. So simple like that !
-                                                                                                </p>
-											</div>
-										</article>
-									</div>
-								</div>
-							</section>
-
-						<!-- Four -->
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="https://github.com/sdkcarlos/holdon.js"><i class="fa fa-github"></i> Github</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <br><br>
+                <h1 class="header center orange-text">Prevent stupid actions with 1 line of code</h1>
+                <div class="row center">
+                    <p class="header col s12 light">
+                        HoldOn.js is a simple plugin that allows you to draw a div that covers all the screen and will prevent that the user clicks on element on the background while something is executed in the background
+                    </p>
+                </div>
+                <div class="row center">
+                    <a href="https://github.com/sdkcarlos/holdon.js" target='_blank' class="btn-large waves-effect waves-light orange">Get Started</a>
+                    <a href="http://ourcodeworld.com/projects/projects-documentation/2/list/hold-on-js" target='_blank' class="btn-large waves-effect waves-light orange">Read documentation</a>
+                </div>
+                <br><br>
+            </div>
+        </div>
 
 
-					</div>
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <div class="col s6" style='margin-left: 25%!important;'>
+                        <div class="card text-center">
+                                <div class="card-image text-center">
+                                    <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">
+                                        <img src="artyom-resources/images/oce-banner.png" class="center-block" style='width:70%'>
+                                    </a>
+                                </div>
+                            <div class="card-content text-center">
+                                <p>
+                                    Download <b>for free</b> my new Code Editor for Android. Keep coding wherever you are.
+                                </p>
+                            </div>
+                            <div class="card-action text-center">
+                                <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">What are you waiting? Download free here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class='col-md-12 text-center'>
+                    <div class="row">
+                        <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">Examples</a></h2>
+                    </div>
+                    <p>
+                        Every button will trigger the respective theme with its name. HoldOn will show and will hide automatically within 2 seconds.
+                    </p>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-rect'>sk-rect Theme</a>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-circle'>sk-circle Theme</a>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-dot'>sk-dot Theme</a>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-cube'>sk-cube Theme</a>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-cube-grid'>sk-cube-grid Theme</a>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-folding-cube'>sk-folding-cube Theme</a>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-bounce'>sk-bounce Theme</a>
+                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-fading-circle'>sk-fading-circle Theme</a><br>
+                    <br><a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='custom'>Customized Theme</a>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <!-- Hide on dev 
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-7687344986141325"
+                         data-ad-slot="3487567897"
+                         data-ad-format="auto"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                -->
+            </div>
+            <hr>
+            <div class="section">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void();">Installation</a></h2>
+                </div>
+<p>HoldOn is a jQuery plugin but the overlay will be handled internally by the plugin, so we will call HoldOn.js with a variable.</p>
+                    <pre><code class="language-xml">&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1.0&quot;/&gt;
+    &lt;title&gt;HoldOn.js Demo&lt;/title&gt;
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; HoldOn.js . All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
+    &lt;!-- Load the css and js file in your document --&gt;
+    &lt;link href=&quot;path-to/HoldOn.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;path-to/HoldOn.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+                    <p>Then a global variable <em><b>HoldOn</b></em> will be accesible on your document and all the features that HoldOn have to offer will be available for its use.</p>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="http://ourcodeworld.com/projects/projects-documentation/26/read-doc/hold-on-open/hold-on-js">Show HoldOn.js</a></h2>
+                </div>
+                <p>
+                    To lock the ui, we will use the <b>HoldOn.open</b> function, this function is ready to use but you can customize it how you want with javascript.
+                </p>
+<pre><code class="language-javascript">var options = {
+    message:"Welcome to the jungle babe"
+};
 
-			</div>
+HoldOn.open(options);
 
-		<!-- Scripts -->
-			<script src="holdon-resources/js/jquery.min.js"></script>
-			<script src="holdon-resources/js/jquery.scrollzer.min.js"></script>
-			<script src="holdon-resources/js/jquery.scrolly.min.js"></script>
-			<script src="holdon-resources/js/skel.min.js"></script>
-			<script src="holdon-resources/js/util.js"></script>
-			<!--[if lte IE 8]><script src="holdon-resources/js/ie/respond.min.js"></script><![endif]-->
-			<script src="holdon-resources/js/main.js"></script>
-                        <script src="holdon-resources/js/HoldOn.js"></script>
-                        <script>
-                            $(function(){
-                               
-                            });
-                            
-                            function customHoldon(){
-                                HoldOn.open({
-                                    theme:"custom",
-                                    content:'<img style="width:80px;" src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="center-block">',
-                                    message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit. <br> <input type="button" value="Close this Cover" onclick="HoldOn.close();">',
-                                    backgroundColor:"#1847B1",
-                                    textColor:"white",
-                                });
-                            }
-                            
-                            function testHoldon(themeName){
-                                HoldOn.open({
-                                    theme:themeName,
-                                    message:"<h4>"+themeName+" Demo. Closing in 2 seconds</h4>"
-                                });
-                                
-                                setTimeout(function(){
-                                    HoldOn.close();
-                                },2000);
-                            }
-                        </script>
-	</body>
+// or well without options to simply show a load div
+// HoldOn.open();</code></pre>
+                <p>
+                    Read the documentation to see more available options like change the font color, background color etc.<br>
+                    Remember that only 1 instance of HoldOn can be opened at once, if you execute a HoldOn.open when an instance is already running, this will be replaced with the new one.
+                </p>
+            </div>
+            <hr>
+            <div class="section" id="guide-simulateinstruction">
+                <div class="row">
+                    <h2 class="light-blue-text text-center" ><a href="http://ourcodeworld.com/projects/projects-documentation/27/read-doc/hold-on-close/hold-on-js">Close HoldOn.js</a></h2>
+                </div>
+                <p>
+                    To close an active instance of HoldOn, we will use the <b>HoldOn.close</b> function, this will close HoldOn overlay allowing again the user interaction.
+                </p>
+<pre><code class="language-javascript">// Really easy isn't?
+HoldOn.close();</code></pre>
+            </div>
+            <hr>
+            <div class="section">
+                <!-- Hide on dev 
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-7687344986141325"
+                         data-ad-slot="3487567897"
+                         data-ad-format="auto"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                -->
+            </div>
+            <hr>
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="http://placekitten.com/600/338">
+                          <span class="card-title">Did you like HoldOn.js?</span>
+                        </div>
+                        <div class="card-content text-center">
+                            <p>
+                                I would really appreciate your support with this plugin
+                                give a Star <i class="fa fa-star"></i> on the Github Repository !<br>
+                            </p>
+                            <a class="waves-effect waves-light btn" href="https://github.com/sdkcarlos/holdon.js/stargazers">We are already <span id="starred-github" class="fa fa-spinner fa-spin"></span> persons , Join us !</a>
+                        </div>
+                        <div class="card-action text-center">
+                            <a href="https://github.com/sdkcarlos/holdon.js/issues">Issues <i class="fa fa-ambulance"></i></a>
+                            <a href="https://github.com/sdkcarlos/holdon.js/issues">Official Docs <i class="fa fa-book"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m6 text-center">
+                        <h4>Buy me a coffee <i class="fa fa-smile-o"></i></h4>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="SAWBC868GKKPC">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <button class="btn-large waves-effect waves-light btn-block red" id="destroy-button" style='display:none;'>
+                    Destroy the project clicking this button in the background <i class='fa fa-smile-o'></i>
+                </button>
+            </div>
+        </div>
+
+
+        <footer class="page-footer orange">
+            <div class="container">
+                <div class="row">
+                    <div class="col l9 s12">
+                        <h5 class="white-text">About HoldOn.js</h5>
+                        <p class="grey-text text-lighten-4">
+                            Humans are stupid by nature, all of us. As a developer, the things that make you most angry is a report of bugs in your code right? Nothing to do, you must write better code.
+                            However there are some situations in which is there so many logic that you need to execute to prevent that the user do an action when something important is running
+                            in the background. Horrible isn't, I wouldn't write so much code to prevent that?  To make the things easier for you and me, HoldOn.js will simply show a loading div to prevent that the user do something stupid while this task is accomplished.<br>
+                            <b>Very simple but functional.</b>
+                        </p>
+                        <p class="grey-text text-lighten-4">
+                            You want to know something or contact with me ? Write me to <a class="white-text" href='mailto:dev@ourcodeworld.com?Subject=Hello'>dev@ourcodeworld.com</a>
+                        </p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">More projects</h5>
+                        <ul>
+                            <li><a class="white-text" href="http://ourcodeworld.com/apps/our-code-editor" target="_blank">Our Code Editor (Code editor for android)</a></li>
+                            <li><a class="white-text" href="https://sdkcarlos.github.io/sites/holdon.html" target="_blank">HoldOn.js (Lock the UI on ajax calls)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made with <span class="fa fa-heart"></span> by <a class="orange-text text-lighten-3" href="http://ourcodeworld.com">Our Code World (Carlos Delgado)</a>
+                </div>
+            </div>
+        </footer>
+
+
+        <!--  Scripts-->
+        <script src="ui-resources/js/jquery.min.js"></script>
+        <script src="ui-resources/js/materialize.min.js"></script>
+        <script src="ui-resources/js/init.js"></script>
+        <script src="holdon-resources/js/HoldOn.js"></script>
+        <script src="ui-resources/js/prism.js"></script>
+        <script>
+            // Google Analytics
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-68362173-1', 'auto');
+            ga('send', 'pageview');
+
+
+            $(function(){
+                $.getJSON("https://api.github.com/repos/sdkcarlos/holdon.js",function(data){
+                    var sel = $("#starred-github");
+                    sel.removeAttr('class');
+                    sel.html(data.watchers_count);
+                });
+                
+                
+                $('.themeviewer').click(function(){
+                    var theme = $(this).attr('data-theme');
+                   
+                    if(theme == 'custom'){
+                        HoldOn.open({
+                            theme:"custom",
+                            // If theme == "custom" , the content option will be available to customize the logo
+                            content:'<img style="width:80px;" src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="center-block">',
+                            message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit.<br> <input type="button" class="btn-large waves-effect waves-light btn-block" value="Close this Cover" onclick="HoldOn.close();">',
+                            backgroundColor:"#1847B1",
+                            textColor:"white"
+                        });
+                        
+                        return true;
+                    } 
+                    
+                    
+                    HoldOn.open({
+                        theme:theme,
+                        message:"<h4>"+theme+" Theme selected. Closing in 2 seconds please wait you impatient user !</h4>"
+                    });
+                    
+                    $('#destroy-button').show();
+
+                    setTimeout(function(){
+                        $('#destroy-button').hide();
+                        HoldOn.close();
+                    },2000);
+                });
+                
+                $('#destroy-button').click(function(){
+                    alert("I don't know how you did this, but you didn't click this with HoldOn.js active :), Have a nice day.");
+                });
+            });
+        </script>
+    </body>
 </html>
