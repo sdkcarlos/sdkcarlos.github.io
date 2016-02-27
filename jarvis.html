@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Material Design Lite</title>
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+        <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#3372DF">
+
+        <link rel="shortcut icon" href="images/favicon.png">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="jarvis-resources/deeppurple.css">
+        <link rel="stylesheet" href="jarvis-resources/styles.min.css">
+        <script>
+            if(window.location.protocol != 'https'){
+                //window.location.href = (window.location.href).replace('http','https');
+            }
+        </script>
+        <script src="jarvis-resources/artyom.min.js"></script>
+        <style>
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+        </style>
+    </head>
+    <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+                <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+                </div>
+                <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+                    <h3>J.A.R.V.I.S <small>Artyom.js continuous demo</small></h3>
+                </div>
+                <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+                </div>
+                <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+                    <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
+                    <a href="#features" class="mdl-layout__tab">Voice commands</a>
+                </div>
+            </header>
+            <main class="mdl-layout__content">
+                <div class="mdl-layout__tab-panel is-active" id="overview">
+                    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="zone-music" style="display:none;">
+                        <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+                            <iframe></iframe>
+                        </header>
+                        <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                            <div class="mdl-card__supporting-text">
+                                <h4>Music source - Spotify</h4>
+                                <span class='songdesc'></span><br>
+                                <img id='zone-music-image' style='height: 130px;width:130px;'>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <a href="#" class="mdl-button" onclick="artyom.simulateInstruction('jarvis stop music');">Close music</a>
+                            </div>
+                        </div>
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+                        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
+                            <li class="mdl-menu__item">Lorem</li>
+                            <li class="mdl-menu__item" disabled>Ipsum</li>
+                            <li class="mdl-menu__item">Dolor</li>
+                        </ul>
+                    </section>
+                    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                        <div class="mdl-card mdl-cell mdl-cell--12-col">
+                            <div class="mdl-card__supporting-text">
+                                <h4>Recognized text</h4>
+                                <b><span id='recognized-text'></span></b><br>
+                                Here will appear the recognized text when you talk.
+                            </div>
+                        </div>
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+                        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
+                            <li class="mdl-menu__item">Lorem</li>
+                            <li class="mdl-menu__item" disabled>Ipsum</li>
+                            <li class="mdl-menu__item">Dolor</li>
+                        </ul>
+                    </section>
+                    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                        <div class="mdl-card mdl-cell mdl-cell--12-col">
+                            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                                <h4 class="mdl-cell mdl-cell--12-col">Details</h4>
+                                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                                </div>
+                                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                    <h5>JARVIS listen forever</h5>
+                                    Just say commands, this demo uses artyom in continuous mode (https connection)
+                                </div>
+                                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                                </div>
+                                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                    <h5>Commands</h5>
+                                    Please refer all the available commands of jarvis in the tab <b>commands</b> in the top of the website.
+                                </div>
+                                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                                </div>
+                                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                    <h5>This demo uses a execution keyword</h5>
+                                    The execution keyword for jarvis is : <b>now</b>, that means for example if you say : <b>jarvis play music</b>, the music will start
+                                    but if you say <b>jarvis stop music</b> while the music is playing will not work until the music stops because the music is talking too ! to prevent
+                                    this jarvis uses the execution keyword <b>now</b>.
+                                    If the music is playing and you want to stop it say : <b>Jarvis stop music now</b>. <a href="http://ourcodeworld.com/projects/projects-documentation/15/read-doc/artyom-initialize/artyom-js"> Refer to the documentation here.</a>
+                                </div>
+                                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                                </div>
+                                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                    <h5>Debug mode active</h5>
+                                    See everything that happens in the javascript console
+                                </div>
+                                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                                </div>
+                                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                    <h5>Test in a quiet place</h5>
+                                    Remember that this technology is not perfect, to play nicely with artyom.js and webkitspeechrecognition is recommendable to use
+                                    in quiet places. If a command doesn't work use the execution keyword "now" : 'please do something <b>now</b>'. This will be helpful in noisy environments.
+                                </div>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <a href="#" class="mdl-button">Read our features</a>
+                            </div>
+                        </div>
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+                        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+                            <li class="mdl-menu__item">Lorem</li>
+                            <li class="mdl-menu__item" disabled>Ipsum</li>
+                            <li class="mdl-menu__item">Dolor</li>
+                        </ul>
+                    </section>
+                    <section class="section--footer mdl-color--white mdl-grid">
+                        <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone" style="text-align:center;">
+                            <img src="http://ourcodeworld.com/resources/img/ocw-logo-main.png" style="max-height:95px;"/>
+                        </div>
+                        <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <h5>Our Code World</h5>
+                            A world of code, closer than you think. <a href="http://ourcodeworld.com"> Read more coding articles in www.ourcodeworld.com</a><br>
+                            
+                        </div>
+                    </section>
+                </div>
+                <div class="mdl-layout__tab-panel" id="features">
+                    <section class="section--center mdl-grid mdl-grid--no-spacing">
+                        <div id='commands-container'>
+                            
+                        </div>
+                    </section>
+                </div>
+                <footer class="mdl-mega-footer">
+                    <div class="mdl-mega-footer--middle-section">
+                        <div class="mdl-mega-footer--drop-down-section">
+                            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                            <h1 class="mdl-mega-footer--heading">Features</h1>
+                            <ul class="mdl-mega-footer--link-list">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Partners</a></li>
+                                <li><a href="#">Updates</a></li>
+                            </ul>
+                        </div>
+                        <div class="mdl-mega-footer--drop-down-section">
+                            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                            <h1 class="mdl-mega-footer--heading">Details</h1>
+                            <ul class="mdl-mega-footer--link-list">
+                                <li><a href="#">Spec</a></li>
+                                <li><a href="#">Tools</a></li>
+                                <li><a href="#">Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="mdl-mega-footer--drop-down-section">
+                            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                            <h1 class="mdl-mega-footer--heading">Technology</h1>
+                            <ul class="mdl-mega-footer--link-list">
+                                <li><a href="#">How it works</a></li>
+                                <li><a href="#">Patterns</a></li>
+                                <li><a href="#">Usage</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Contracts</a></li>
+                            </ul>
+                        </div>
+                        <div class="mdl-mega-footer--drop-down-section">
+                            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                            <h1 class="mdl-mega-footer--heading">FAQ</h1>
+                            <ul class="mdl-mega-footer--link-list">
+                                <li><a href="http://ourcodeworld.com/projects/projects-faq/1/list/artyom-js">Questions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mdl-mega-footer--bottom-section">
+                        <div class="mdl-logo">
+                            More Information
+                        </div>
+                        <ul class="mdl-mega-footer--link-list">
+                            <li><a href="http://sdkcarlos.github.io/sites/artyom.html">Artyom.js Voice commands plugin</a></li>
+                            <li><a href="http://ourcodeworld.com/privacy-policy">Privacy and Terms</a></li>
+                        </ul>
+                    </div>
+                </footer>
+            </main>
+        </div>
+        <a href="https://github.com/google/material-design-lite/blob/master/templates/text-only/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Loading ...</a>
+        <script src="jarvis-resources/material.min.js"></script>
+        <script src="sites/ui-resources/js/jquery.min.js"></script>
+        <script>
+            artyom.addCommands([
+                {
+                    description:"Play random music in a iframe",
+                    indexes:["Jarvis Play some music",'play music','play some music'],
+                    action: function(){
+                        var musicGroup = [
+                            {
+                                desc:'Muse - Time is Running Out',
+                                url:'https://p.scdn.co/mp3-preview/b326e03624cb098d8387e17aa46669edac0d025a',
+                                img:'https://i.scdn.co/image/d90926f8a2c6c407a7140b4a38688cff7a28ecba',
+                            },
+                            {
+                                desc:'Slipknot - Snuff',
+                                url:'https://p.scdn.co/mp3-preview/90ae4a9672a3030f19ddfda4498492bb1ff5dfb6',
+                                img:'https://i.scdn.co/image/a7049dcc2f66fe38a36fec7b51633f4512345927',
+                            },
+                            {
+                                desc:'A-ha - Forest fire',
+                                url:'https://p.scdn.co/mp3-preview/ebee4f7854959e720675b028813a2cb3b04c8775',
+                                img:'https://i.scdn.co/image/b902e7d71515a2aa60cef6300f95c756c702a83b',
+                            },
+                            {
+                                desc:"Us- Regina spektor (500 days of summer)",
+                                url:'https://p.scdn.co/mp3-preview/1a437724c510358058a71c4cac11b2fd1d42acf8',
+                                img:'https://i.scdn.co/image/4a8139e72ad0f199a1fdae5ac878977450b37784'
+                            },
+                            {
+                                desc:'Daryl hall & John Oates - You make my dreams (500 days of summer)',
+                                url:'https://p.scdn.co/mp3-preview/bc32bb9e556ef8f9d27564f3a995e02d9efdbc24',
+                                img:'https://i.scdn.co/image/4a8139e72ad0f199a1fdae5ac878977450b37784'
+                            }
+                        ];
+                        
+                        var item = musicGroup[Math.floor(Math.random()*musicGroup.length)];
+                        var div = $('#zone-music');
+                        div.show().find('iframe').attr('src',(item.url));
+                        div.find('.songdesc').html(item.desc);
+                        $('#zone-music-image').attr('src',item.img)
+                    }
+                },
+                {
+                    description:"Say : 'Jarvis stop the music now' if the music is playing",
+                    indexes:["Jarvis stop the music",'stop music'],
+                    action: function(){
+                        $('#zone-music').hide().find('iframe').attr('src','');
+                    }
+                },
+                {
+                    description:"Jarvis will translate all that you say into another language (allow popups for open google translate)",
+                    indexes: ["translate * in Spanish","translate * in german"],
+                    smart:true,
+                    action : function(i,wildcard,sentence){
+                        switch(i){
+                            case 0:
+                                window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                            break;
+                            case 1:
+                                window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                            break;
+                        }
+                    }
+                },
+                {
+                    description:"Ask the mood of jarvis or simply say hello",
+                    indexes: ['hello how are','how are you','hello'],
+                    action : function(i){
+                        var forHowareyou = [
+                            'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
+                            'Cool as a cucumber',"I don't want to be rude but, is not of your interest",
+                            'I am doing so fabulous today! I can hardly control myself from dancing.',
+                            'From what I hear, I am very good.',
+                            "I can't complain, I've tried, but no one listens.",
+                            "As long as I can keep the kitten I found today, I'll be fine!"
+                        ];
+
+                        var forHello = [
+                            "Ring a ding ding, you're talking to the king.",
+                            "Hi, is John there?","Chuck norris is indestructible",
+                            'How goes it?',"Are you a girl?",
+                            "I'm getting bored",
+                        ];
+
+                        // var i = the index in the array of the given options.
+                        switch(i){
+                            case 0:
+                            case 1:
+                                var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
+                                artyom.say(frase);
+                            break;
+                            case 2:
+                                var frase = forHello[Math.floor(Math.random() * forHello.length)];
+                                artyom.say(frase);
+                            break;
+                        }
+                    }
+                },
+                {
+                    description:"Jarvis knows some jokes",
+                    indexes:['tell me a joke','jarvis tell me a joke'],
+                    action:function(){
+                        var jokes = [
+                            'What do you get when you cross a bear with a deer?. A Beer',
+                            'What do you get when you cross a dog with a telephone?.  A golden receiver.',
+                            'Why are dogs such bad dancers?. They have two left feet.'
+                        ];
+                        
+                        var joke = jokes[Math.floor(Math.random() * jokes.length)];
+                        artyom.say(joke);
+                    }
+                },
+                {
+                    description:"If jarvis talk too much, say shut up !",
+                    indexes:['Shut up jarvis','Jarvis please shut up'],
+                    action:function(){
+                        artyom.shutUp();
+                    }
+                },
+            ]);
+            
+            $(function(){
+                
+            });
+            
+            artyom.redirectRecognizedTextOutput(function(text,isFinal){
+                var sel = $('#recognized-text');
+                if(isFinal){
+                    sel.html('');
+                }else{
+                    sel.html(text);
+                }
+            });
+            
+            function startArtyom(){
+                /**
+                 *  Initialization of artyom
+                 */
+                artyom.initialize({
+                    lang:'en-GB',
+                    debug:true,
+                    //continuous:true,
+                    listen:true,
+                    executionKeyword:'now'
+                });
+            }
+            
+            $(window).load(function(){
+                $('#view-source').text("this demo is running artyom.js v."+artyom.getVersion());
+                startArtyom();
+                
+                var commands = artyom.getAvailableCommands();
+                var html = '';
+                
+                for(var i = 0;i < commands.length;i++){
+                    var comm = commands[i];
+                    html += '<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">';
+                    html += '<h5>'+comm.indexes.toString()+'</h5>';
+                    html +=  comm.description;
+                    html += '</div>'
+                }
+                
+                $('#commands-container').html(html);
+            });
+        </script>
+    </body>
+</html>
