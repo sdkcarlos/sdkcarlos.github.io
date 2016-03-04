@@ -861,6 +861,22 @@
                 }
             };
             
+            var getWordAt = function(str, pos) {
+
+                // Search for the word's beginning and end.
+                var left = str.slice(0, pos + 1).search(/\S+$/),
+                    right = str.slice(pos).search(/\s/);
+
+                // The last word in the string is a special case.
+                if (right < 0) {
+                    return str.slice(left);
+                }
+
+                // Return the word, using the located bounds to extract it from the string.
+                return str.slice(left, right + pos);
+
+            };
+            
             /**
              * Returns an object with data of the matched element
              * 
@@ -891,6 +907,15 @@
                         if(opcion.indexOf("*") != -1){
                             ///LOGIC HERE
                             var grupo = opcion.split("*");
+                            var total_wildcards = opcion.replace(/[^*]/g, "").length;
+                            
+                            
+                            
+                            var str = "disable the windows in * if the door is *";
+                            var indices = [];
+                            for(var i=0; i<str.length;i++) {
+                                if (str[i] === "*") indices.push(i);
+                            }
                             
                             if(grupo.length > 2){
                                 console.warn("Artyom found a smart command with "+(grupo.length - 1)+" wildcards. Artyom only support 1 wildcard for each command. Sorry");
@@ -1277,7 +1302,8 @@
             
             /**
              * This function will return the webkitSpeechRecognition object used by artyom
-             * retrieve it only to debug on it or get some values, do not make changes directly
+             * retrieve it only to debug on it or get some values, do not make changes directly to this object
+             * or artyom will not work properly
              * 
              * @warning do not change values of this variable
              * @returns {window.artyom.min_L12.reconocimiento|webkitSpeechRecognition|artyom.min_L12.reconocimiento}
