@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Our Context Menu - A minimalist context menu with jQuery</title>
+
+        <script src="ui-resources/js/artyom.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="ui-resources/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/ourcontextmenu.youtube.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <ul class="our-context-menu" id="context-menu-demo-1">
+            <li data-action="1">An awesome option</li>
+            <li data-action="2">Another option</li>
+            <li data-action="3">None of this options do anything, but this yes
+            </li>
+        </ul>
+        <ul class="our-context-menu" id="context-menu-demo-2">
+            <li data-action="1">You can't choose this option</li>
+            <li data-action="2">This neither</li>
+            <li data-action="3"><i class='fa fa-warning'></i> Only this option is available, destroy the world !</li>
+        </ul>
+        <ul class="our-context-menu" id="context-menu-demo-3">
+            <li data-action="1">An awesome option</li>
+            <li data-action="2">Another option</li>
+            <li data-action="3">None of this options do anything, but this yes</li>
+        </ul>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="http://ourcodeworld.com" class="brand-logo">
+                    <img src="http://ourcodeworld.com/ocw-ui/img/logo-single.png" alt="Our Code World" height="29"> Our Context Menu
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="https://github.com/sdkcarlos/artyom.js"><i class="fa fa-github"></i></a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="https://github.com/sdkcarlos/artyom.js"><i class="fa fa-github"></i> Github</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <br><br>
+                <h1 class="header center orange-text">A context menu from another world</h1>
+                <div class="row center">
+                    <p class="header col s12 light">
+                        This plugin is a quick solution for a customized Lightweight context menu for your website. 
+                    </p>
+                </div>
+                <div class="row center">
+                    <a href="https://github.com/sdkcarlos/our-context-menu" target='_blank' class="btn-large waves-effect waves-light orange">Get Started</a>
+                    <a href="http://ourcodeworld.com/projects/projects-documentation/1/list/artyom-js" target='_blank' class="btn-large waves-effect waves-light orange">Read documentation</a>
+                    <a href="https://sdkcarlos.github.io/jarvis.html" target='_blank' class="btn-large waves-effect waves-light orange">Test JARVIS here (continuous mode)</a>
+                </div>
+                <br><br>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <hr>
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card blue"  id='context-demo-1'>
+                            <div class="card-content">
+                                <h4 class='text-center white-text'>Right Click on this Card !</h4>
+                                <div class='text-center'>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card yellow"  id='context-demo-2'>
+                            <div class="card-content">
+                                <h4 class='text-center black-text'>Or right click in this</h4>
+                                <div class='text-center'>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="card">
+                                <div class="card-image text-center">
+                                    <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">
+                                        <img src="artyom-resources/images/oce-banner.png" class="center-block" style='width:70%'>
+                                    </a>
+                                </div>
+                            <div class="card-content text-center">
+                                <p>
+                                    Download <b>for free</b> my new Code Editor for Android. Keep coding wherever you are.
+                                </p>
+                            </div>
+                            <div class="card-action text-center">
+                                <a href="https://play.google.com/store/apps/details?id=com.ourcodeworld.ourcodeeditorfree">What are you waiting? Download free here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="text-center">
+                    <h2>More themes available in the repository</h2>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="http://placekitten.com/600/338">
+                          <span class="card-title black-text">Did you like Our Context Menu?</span>
+                        </div>
+                        <div class="card-content text-center">
+                            <p>
+                                I would really appreciate your support with this plugin
+                                give a Star <i class="fa fa-star"></i> on the Github Repository !<br>
+                            </p>
+                            <a class="waves-effect waves-light btn" href="https://github.com/sdkcarlos/our-context-menu/stargazers">We are already <span id="starred-github" class="fa fa-spinner fa-spin"></span> persons , Join us !</a>
+                        </div>
+                        <div class="card-action text-center">
+                            <a href="https://github.com/sdkcarlos/our-context-menu/issues">Issues <i class="fa fa-ambulance"></i></a>
+                            <a href="https://github.com/sdkcarlos/artyom.js/issues">Official Docs <i class="fa fa-book"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m6 text-center">
+                        <h4>Support me <i class="fa fa-smile-o"></i></h4>
+                        <a href="http://ourcodeworld.com/about" target="_blank">
+                            <img src="artyom-resources/images/donation.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer orange">
+            <div class="container">
+                <div class="row">
+                    <div class="col l9 s12">
+                        <h5 class="white-text">About Our Context Menu</h5>
+                        <p class="grey-text text-lighten-4">
+                            This plugin is really easy to implement and very customizable
+                        </p>
+                        <p class="grey-text text-lighten-4">
+                            You want to know something or contact with me ? Write me to <a class="white-text" href='mailto:dev@ourcodeworld.com?Subject=Hello'>dev@ourcodeworld.com</a>
+                        </p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">More projects</h5>
+                        <ul>
+                            <li><a class="white-text" href="http://ourcodeworld.com/apps/our-code-editor" target="_blank">Our Code Editor (Code editor for android)</a></li>
+                            <li><a class="white-text" href="https://sdkcarlos.github.io/sites/holdon.html" target="_blank">HoldOn.js (Lock the UI on ajax calls)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made with <span class="fa fa-heart"></span> by <a class="orange-text text-lighten-3" href="http://ourcodeworld.com">Our Code World (Carlos Delgado)</a>
+                </div>
+            </div>
+        </footer>
+
+
+        <!--  Scripts-->
+        <script src="ui-resources/js/jquery.min.js"></script>
+        <script src="ui-resources/js/materialize.min.js"></script>
+        <script src="ui-resources/js/init.js"></script>
+        <script src="ui-resources/js/wrappers.js"></script>
+        <script src="ui-resources/js/artyomCommands.js"></script>
+        <script src="ui-resources/js/prism.js"></script>
+        <script src="ui-resources/js/ourcontextmenu.js"></script>
+        <script>
+            // Google Analytics
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-68362173-1', 'auto');
+            ga('send', 'pageview');
+
+
+            $(function(){
+                $.getJSON("https://api.github.com/repos/sdkcarlos/our-context-menu",function(data){
+                    var sel = $("#starred-github");
+                    sel.removeAttr('class');
+                    sel.html(data.watchers_count);
+                });
+                
+                $('#context-menu-demo-1').ourcontextmenu({
+                    target: $('#context-demo-1'),
+                    onAction: function(dom){
+                        switch(dom.attr('data-action')){
+                            case "3":
+                                alert("I told you :3");
+                            break;
+                        }
+                    }
+                });
+                
+                $('#context-menu-demo-2').ourcontextmenu({
+                    target: $('#context-demo-2'),
+                    onAction: function(dom){
+                        switch(dom.attr('data-action')){
+                            case "1":case "2":
+                            return false;
+                            case '4':
+                                alert("This options has been dinamically added :3");
+                            break;
+                        }
+                        
+                        return true;
+                    },
+                    beforeShow: function(){
+                        $('#context-menu-demo-2').append('<li data-action="4">Everytime you open this dialog an option like this will be dinamically added</li>');
+                    }
+                });
+            });
+
+        </script>
+    </body>
+</html>
