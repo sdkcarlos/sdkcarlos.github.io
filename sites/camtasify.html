@@ -262,7 +262,7 @@ $(&quot;#container&quot;).camtasify({
             $(window).load(function(){
                 $('#camtasify-main-demo').camtasify({
                     onUnsupported:function(){
-                        console.log("You need to find a solution with flash :(");
+                        alert("You need to find a solution with flash :(. This browser doesn't support getUserMedia");
                     },
                     onSuccess:function(camtasifyInstance){
                         $('#main-snap-action').click(function(){
