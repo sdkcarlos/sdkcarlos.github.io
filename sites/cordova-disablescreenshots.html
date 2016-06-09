@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Cordova Prevent Screenshots Plugin for Android</title>
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="ui-resources/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="ui-resources/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">
+                    Cordova Disable Screenshots Plugin
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots"><i class="fa fa-github"></i></a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots"><i class="fa fa-github"></i> Github</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card-image text-center">
+                            <a href="http://bit.ly/OurCodeEditorFree">
+                                <img src="http://ourcodeworld.com/public-media/advertising/ourcodeeditor_quad_banner.png" class="center-block" style='width:70%'>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row text-center" >
+                            <h2 class="light-blue-text text-center" >Content table</h2>
+                            <div class="col s12 m12">
+                                <ul>
+                                    <li><a href="#guide-installation">Installation</a></li>
+                                    <li><a href="#guide-whatoffers">What offers this plugin</a></li>
+                                    <li><a href="#guide-step1">Enable</a></li>
+                                    <li><a href="#guide-step2">Disable</a></li>
+                                    <li><a href="#guide-step3">isEnabled</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-installation">
+                <div class='row'>
+                    <h2 class="light-blue-text text-center" >How to install</h2>
+                    <p>Include the plugin on your project</p>
+                    <pre><code class="language-batch">cordova plugin add https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots.git</code></pre>
+                    <p>Remember you need an active <b>android platform</b>, this plugin only is available on android. Then in your document a global variable will be accesible with <em><b>OurCodeWorldpreventscreenshots</b></em></p>
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-whatoffers">
+                <div class='row text-center'>
+                    <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">What offers</a></h2>
+                    <ul>
+                        <li><i class='fa fa-check'></i> Allow the creation of screenshots dinamically with JS</li>
+                        <li><i class='fa fa-check'></i> Disable the creation of screenshots dinamically with JS</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Responsive little -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-7687344986141325"
+                         data-ad-slot="3487567897"
+                         data-ad-format="auto"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-step1">
+                <div class='row'>
+                    <h2 class="light-blue-text text-center" ><a  href="javascript:void(0);">Enable</a><br><small>Allow the creation of screenshots</small></h2>
+                    <p>The use of the plugin is pretty simple. The enable method allow the use of screenshots. You can dinamically enable or disable the screenshots feature with javascript easily.</p>
+                    <pre><code class="language-javascript">// Pretty simple :)
+var success = function(){
+    // Do something on success
+};
+
+var error = function(msg){
+    // Do something on error
+};
+
+OurCodeWorldpreventscreenshots.enable(success,error);
+
+// Or
+
+OurCodeWorldpreventscreenshots.enable(function(s){
+    console.info("The screenshots are ALLOWED again >:( ");
+},function(e){
+    // Oops ...
+    console.error(e);
+});
+</code></pre>
+                    <p>
+                        We need to execute this code in (or after) the <em><b>deviceready</b></em> event.<br>
+                    </p>
+                </div>
+            </div>
+            <hr>
+                <div class="section">
+                    <div class="text-center" style="width: 100%;min-height:100px;">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Responsive little -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-7687344986141325"
+                             data-ad-slot="3487567897"
+                             data-ad-format="auto"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            <hr>
+            <div class='section' id="guide-step2">
+                <div class='row'>
+                    <h2 class="light-blue-text text-center" ><a  href="javascript:void(0);">Disable</a><br><small>Disallow the creation of screenshots</small></h2>
+                    <p>This is the method that you need if you're looking for the plugin. Prevent that the users takes a screenshot on your app.
+                        <br>The disable method disallow the use of screenshots. You can dinamically enable or disable the screenshots feature with javascript easily.</p>
+                    <pre><code class="language-javascript">// Pretty simple :)
+var success = function(){
+    // Do something on success
+};
+
+var error = function(msg){
+    // Do something on error
+};
+
+OurCodeWorldpreventscreenshots.disable(success,error);
+
+// Or
+
+OurCodeWorldpreventscreenshots.disable(function(s){
+    console.info("The screenshots are NOT allowed anymore :) ");
+},function(e){
+    // Oops ...
+    console.error(e);
+});
+</code></pre>
+                    <p>
+                        We need to execute this code in (or after) the <em><b>deviceready</b></em> event.<br> On the multiview menu, the app will have a gray background and if you try to take a screenshot while is disabled a message will appear.
+                    </p>
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <img src="resources/images/cdv-prv-scr-1.png" class="img img-responsive center-block">
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <img src="resources/images/cdv-prv-scr-2.png" class="img img-responsive center-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class='section' id="guide-step3">
+                <div class='row'>
+                    <h2 class="light-blue-text text-center" ><a  href="javascript:void(0);">isEnabled</a><br><small>Know if you're able to take screenshots</small></h2>
+                    <p>Note that this method is handled by a flag in javascript (changes everytime you execute a method on the success callback).</p>
+                    <pre><code class="language-javascript">var canTakeScreenshots = OurCodeWorldpreventscreenshots.isEnabled();
+
+if(canTakeScreenshots){
+    // Disable if you want
+}else{
+    // Enable if you want
+}
+</code></pre>
+                    <p>
+                        We need to execute this code in (or after) the <em><b>deviceready</b></em> event.<br>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                    <div class="text-center" style="width: 100%;min-height:100px;">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Responsive little -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-7687344986141325"
+                             data-ad-slot="3487567897"
+                             data-ad-format="auto"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="text-center" style="width: 100%;min-height:100px;">
+                     
+                </div>
+            </div>
+            </hr>
+            <div class="section">
+                <div class="text-center">
+                    <h2>If you have a questions don't hesitate, report the issue on github</h2>
+                </div>
+            </div>
+            <hr>
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="http://placekitten.com/600/338">
+                          <span class="card-title">Did you like the plugin?</span>
+                        </div>
+                        <div class="card-content text-center">
+                            <p>
+                                I would really appreciate your support with this plugin 
+                                give a Star <i class="fa fa-star"></i> on the Github Repository !<br>
+                            </p>
+                            <a class="waves-effect waves-light btn" href="https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots/stargazers">We are already <span id="starred-github" class="fa fa-spinner fa-spin"></span> persons , Join us !</a>
+                        </div>
+                        <div class="card-action text-center">
+                            <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots/issues">Issues <i class="fa fa-ambulance"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m6 text-center">
+                        <a href="http://ourcodeworld.com/about" target="_blank">
+                            <img src="artyom-resources/images/donation.png" class="img img-responsive"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Boton de accion de artyom -->
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large waves-effect waves-light blue" href='https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots'>
+                    <span class="fa fa-github-square"></span>
+                </a>
+            </div>
+        </div>
+        
+        <footer class="page-footer orange">
+            <div class="container">
+                <div class="row">
+                    <div class="col l9 s12">
+                        <h5 class="white-text">About this plugin</h5>
+                        <p class="grey-text text-lighten-4">
+                            Prevent the creation of screenshots from your app with javascript dinamically.
+                        </p>
+                        <p class="grey-text text-lighten-4">
+                            You want to know something or contact with me ? Write me to <a class="white-text" href='mailto:dev@ourcodeworld.com?Subject=Hello'>dev@ourcodeworld.com</a>
+                        </p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">More projects</h5>
+                        <ul>
+                            <li><a class="white-text" href="http://ourcodeworld.com/apps/our-code-editor" target="_blank">Our Code Editor (Code editor for android)</a></li>
+                            <li><a class="white-text" href="https://sdkcarlos.github.io/sites/holdon.html" target="_blank">HoldOn.js (Lock the UI on ajax calls)</a></li>
+                            <li><a class="white-text" href="http://sdkcarlos.github.io/sites/artyom.html" target="_blank">Artyom.js (Voice control with Javascript on Chrome)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made with <span class="fa fa-heart"></span> by <a class="orange-text text-lighten-3" href="http://ourcodeworld.com">Our Code World (Carlos Delgado)</a>
+                </div>
+            </div>
+        </footer>
+
+
+        <!--  Scripts-->
+        <script src="ui-resources/js/jquery.min.js"></script>
+        <script src="ui-resources/js/materialize.min.js"></script>
+        <script src="ui-resources/js/init.js"></script>
+        <script src="ui-resources/js/prism.js"></script>
+        <script>
+            $(function(){
+                $.getJSON("https://api.github.com/repos/sdkcarlos/cordova-ourcodeworld-preventscreenshots",function(data){
+                    var sel = $("#starred-github");
+                    sel.removeAttr('class');
+                    sel.html(data.watchers_count);
+                });
+            });
+        </script>
+    </body>
+</html>
