@@ -836,16 +836,18 @@ artyom.initialize({
             });
 
             $(window).load(function () {
-                listArtyomVoices();
+                if(artyom.speechSupported()){
+                    listArtyomVoices();
 
-                if (localStorage.getItem('firstTime') != 'false') {
-                    setTimeout(function () {
-                        artyom.say("Welcome dear developer thanks for visit this website. Read more about how can you use artyom to give a cool touch to your own projects.", {
-                            onEnd: function () {
-                                localStorage.setItem('firstTime', 'false');
-                            }
-                        });
-                    }, 500);
+                    if (localStorage.getItem('firstTime') != 'false') {
+                        setTimeout(function () {
+                            artyom.say("Welcome dear developer thanks for visit this website. Read more about how can you use artyom to give a cool touch to your own projects.", {
+                                onEnd: function () {
+                                    localStorage.setItem('firstTime', 'false');
+                                }
+                            });
+                        }, 500);
+                    }
                 }
             });
         </script>
