@@ -370,13 +370,13 @@ function startContinuousArtyom(){
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="row p-t-2">
-                                                <div class="col-md-2"  data-toggle="tooltip" title="ru or ru-RU"> 
+                                                <div class="col-md-2"  data-toggle="tooltip" title="ru or ru-RU">
                                                     <img src="https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.github.io/master/sites/artyom-resources/images/flag-russia.png" alt="Russian русский" title="Russian русский" class="img-thumbnail">
                                                 </div>
-                                                <div class="col-md-2"  data-toggle="tooltip" title="jp or ja-JP"> 
+                                                <div class="col-md-2"  data-toggle="tooltip" title="jp or ja-JP">
                                                     <img src="https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.github.io/master/sites/artyom-resources/images/flag-japan.png" alt="Japanese 日本人" title="Japanese 日本人" class="img-thumbnail">
                                                 </div>
-                                                <div class="col-md-2"  data-toggle="tooltip" title="nl or nl-NL"> 
+                                                <div class="col-md-2"  data-toggle="tooltip" title="nl or nl-NL">
                                                     <img src="https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.github.io/master/sites/artyom-resources/images/flag-netherlands.png" alt="Dutch" title="Dutch" class="img-thumbnail">
                                                 </div>
                                                 <div class="col-md-2"  data-toggle="tooltip" title="id or id-ID">
@@ -396,10 +396,10 @@ function startContinuousArtyom(){
                                                 <div class="col-md-2" data-toggle="tooltip" title="pt or pt-PT">
                                                     <img src="https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.github.io/master/sites/artyom-resources/images/flag-brasil.png" alt="Português" title="Português" class="img-thumbnail">
                                                 </div>
-                                                <div class="col-md-2"  data-toggle="tooltip" title="it-IT"> 
+                                                <div class="col-md-2"  data-toggle="tooltip" title="it-IT">
                                                     <img src="https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.github.io/master/sites/artyom-resources/images/flag-italy.png" alt="Italiano" title="Italiano" class="img-thumbnail" class="img-thumbnail">
                                                 </div>
-                                                <div class="col-md-2"  data-toggle="tooltip" title="es or es-ES"> 
+                                                <div class="col-md-2"  data-toggle="tooltip" title="es or es-ES">
                                                     <img src="https://raw.githubusercontent.com/sdkcarlos/sdkcarlos.github.io/master/sites/artyom-resources/images/flag-spanish.png" alt="Español" title="Español" class="img-thumbnail" class="img-thumbnail">
                                                 </div>
                                                 <div class="col-md-2"  data-toggle="tooltip" title="de or de-DE">
@@ -569,7 +569,7 @@ artyom.dontObey();
 // but in 10 seconds, the command recognition will be available again
 setTimeout(function(){
     artyom.obey();
-    
+
     // execute the say hi command and then it will work !
 }, 10000);
 </code></pre>
@@ -592,7 +592,7 @@ artyom.initialize({
 });
 // obeyKeyword
 // command : &#x22;play some music&#x22;
-// To execute immediately though you can still talking, say : 
+// To execute immediately though you can still talking, say :
 // play some music and do it now
 artyom.initialize({
     continuous:true,
@@ -861,6 +861,16 @@ artyom.initialize({
                             });
                         }, 500);
                     }
+                }
+
+                if(artyom.recognizingSupported()){
+                    artyom.initialize({
+                        executionKeyword:"and do it now",
+                        debug:true,
+                        continuous:true,
+                        lang:"en-GB",
+                        listen:true
+                    });
                 }
             });
         </script>
