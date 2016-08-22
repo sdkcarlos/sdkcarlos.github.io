@@ -5,7 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Artyom.js | A speech recognition, voice commands and speech synthesis javascript library</title>
-
+        <meta name="description" content="Artyom is a JavaScript SpeechRecognition library that allow you to add voice commands and speech synthesis to your website easily." />
+        <meta property="og:site_name" content="SDkCarlos Github"/>
+        <meta property="og:title" content="Artyom.js"/>
+        <meta property="og:image" content="https://sdkcarlos.github.io/material/images/artyomjs-logo.png"/>
+        <meta property="og:url" content="https://sdkcarlos.github.io/sites/artyom.html"/>
+        <meta property="og:description" content="A speech recognition, voice commands and speech synthesis javascript library"/>
+        <meta name="keywords" content="voice commands,speech synthesis, speech recognition, library, voice control, commands, javascript, library, voice, synthesis">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@sdkcarlos1911">
+        <meta name="twitter:creator" content="@sdkcarlos1911">
+        <meta name="twitter:title" content="Artyom.js">
+        <meta name="twitter:description" content="A speech recognition, voice commands and speech synthesis javascript library.">
+        <meta name="twitter:image:src" content="https://sdkcarlos.github.io/material/images/artyomjs-logo.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
         <link href="../material/css/bootstrap.min.css" rel="stylesheet">
         <link href="../material/css/mdb.min.css" rel="stylesheet">
@@ -20,7 +32,7 @@
 
             ga('create', 'UA-68362173-1', 'auto');
             ga('send', 'pageview');
-            
+
             if (window.location.protocol != "https:"){
                 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
             }
@@ -179,12 +191,12 @@
                             <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <ins class="adsbygoogle"
-                                    style="display:block"
-                                    data-ad-client="ca-pub-7687344986141325"
-                                    data-ad-slot="3487567897"
-                                    data-ad-format="auto"></ins>
+                                     style="display:block"
+                                     data-ad-client="ca-pub-7687344986141325"
+                                     data-ad-slot="3487567897"
+                                     data-ad-format="auto"></ins>
                                 <script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
                                 </script>
                             </div>
                         </div>
@@ -284,12 +296,12 @@ artyom.addCommands(myGroup); </code></pre>
                             <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <ins class="adsbygoogle"
-                                    style="display:block"
-                                    data-ad-client="ca-pub-7687344986141325"
-                                    data-ad-slot="3487567897"
-                                    data-ad-format="auto"></ins>
+                                     style="display:block"
+                                     data-ad-client="ca-pub-7687344986141325"
+                                     data-ad-slot="3487567897"
+                                     data-ad-format="auto"></ins>
                                 <script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
                                 </script>
                             </div>
                         </div>
@@ -409,12 +421,12 @@ function startContinuousArtyom(){
                             <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <ins class="adsbygoogle"
-                                    style="display:block"
-                                    data-ad-client="ca-pub-7687344986141325"
-                                    data-ad-slot="3487567897"
-                                    data-ad-format="auto"></ins>
+                                     style="display:block"
+                                     data-ad-client="ca-pub-7687344986141325"
+                                     data-ad-slot="3487567897"
+                                     data-ad-format="auto"></ins>
                                 <script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
                                 </script>
                             </div>
                         </div>
@@ -682,7 +694,7 @@ artyom.initialize({
                     <div class="col-md-3 col-md-offset-1">
                         <h5 class="title">About Artyom.js</h5>
                         <p>Artyom is a robust but easy to use wrappers of the speechSynthesis and webkitSpeechRecognition APIs.</p>
-                        
+
                         <p>Add commands, start artyom, give orders and await for a result in real time , in the same way that the famous J.A.R.V.I.S does.</p>
                     </div>
 
@@ -829,14 +841,14 @@ artyom.initialize({
                 } else {
                     statusBar.append('<a class="btn btn-danger btn-block">Recognizing Unsupported</a>&nbsp;');
                 }
-                
-                sdkcarlos.crossOrigin.getJSON("https://api.github.com/repos/sdkcarlos/artyom.js",function(data){
-                    $('#artyom-ending-starred').html("<b>"+data.watchers_count+"</b>");
+
+                sdkcarlos.crossOrigin.getJSON("https://api.github.com/repos/sdkcarlos/artyom.js", function (data) {
+                    $('#artyom-ending-starred').html("<b>" + data.watchers_count + "</b>");
                 });
             });
 
             $(window).load(function () {
-                if(artyom.speechSupported()){
+                if (artyom.speechSupported()) {
                     listArtyomVoices();
 
                     if (localStorage.getItem('firstTime') != 'false') {
