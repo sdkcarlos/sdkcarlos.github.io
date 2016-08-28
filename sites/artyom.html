@@ -538,7 +538,7 @@ artyom.simulateInstruction(&#x22;Hello&#x22;); //Simulate a voice  command with 
                                         </div>
                                         <input type='submit' class='btn btn-primary' value='Simulate '/>
                                     </form>
-
+                                    
                                     <hr>
                                     <h4 class="card-title">Get spoken text while artyom is active</h4>
                                     <p class="card-text">
@@ -551,6 +551,10 @@ artyom.simulateInstruction(&#x22;Hello&#x22;); //Simulate a voice  command with 
         console.log(recognized);
     }
 });</code></pre>
+                                    <p>All that you say on this website will be shown in the following box:</p>
+                                    <a href="javascript:void(0);" role="button" class="btn btn-primary-outline waves-effect">
+                                        Recognized : <span id="artyom-redirect-output"></span>
+                                    </a>
                                     <hr>
                                     <h4 class="card-title">Pause and resume commands recognition</h4>
                                     <p class="card-text">
@@ -864,6 +868,14 @@ artyom.initialize({
                 }
 
                 if(artyom.recognizingSupported()){
+                    artyom.redirectRecognizedTextOutput(function(recognized,isFinal){
+                        if(isFinal){
+                            $("#artyom-redirect-output").text("");//Nothing
+                        }else{
+                            $("#artyom-redirect-output").text(recognized);
+                        }
+                    });
+                    
                     artyom.initialize({
                         executionKeyword:"and do it now",
                         debug:true,
