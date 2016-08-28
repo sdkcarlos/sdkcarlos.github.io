@@ -2,22 +2,21 @@
     
     var artyomCommands = [
         {
-            description:"It is polite to greet people <i class='icon-emoji'></i>",
-            indexes: ['hello how are you','how are you','hello'],
+            description:"Es de buena educación saludar gente <i class='icon-emoji'></i>",
+            indexes: ['hola como estás','como estás','hola'],
             action : function(i){
                 var forHowareyou = [
-                    'Thankfully alive and still somewhat young and healthy, in this economy what more can I ask for?',
-                    'Cool as a cucumber',
-                    'I am doing so fabulous today! I can hardly control myself from dancing.',
-                    'From what I hear, I am very good.',
-                    "I can't complain... I've tried, but no one listens.",
-                    "As long as I can keep the kitten I found today, I'll be fine!"
+                    'Gracias al cielo vivo, sigo joven y sana. En esta economía, que más puedo exigir?',
+                    'Fresco como una lechuga',
+                    'Estoy tan feliz hoy! Dificilmente me puedo controlar de bailar',
+                    'Segun lo que se, estoy muy bien.',
+                    "No me puedo quejar. Lo he intentado pero nadie me presta atención."
                 ];
                 
                 var forHello = [
-                    "Ring a ding ding, you're talking to the king.",
-                    "Hi, is John there?",
-                    'How goes it?'
+                    "Hey que pedo guey",
+                    "Hola, hay alguien en casa?",
+                    'Quien es y que vende'
                 ];
                 
                 // var i = the index in the array of the given options.
@@ -35,57 +34,57 @@
             }
         },
         {
-            indexes: ["translate * in Spanish","translate * in german"],
+            indexes: ["traducir * en Ingles","Traducir * en alemán"],
             smart:true,
             action : function(i,wildcard,sentence){
                 switch(i){
                     case 0:
                         if(artyom.speechSupported()){
-                            alert("Translation will open a new window. Allow the popups for the demo please.");
-                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",{
+                            alert("La traducción se abrirá en una nueva ventana, permite el uso de POPUPS.");
+                            artyom.say("No puedo hacerlo solo. Pero, google si. mira esto",{
                                 onEnd:function(){
                                     window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
                                 }
                             });
                         }else{
                             alert("Translation detected,this will open a new window. Allow the popups for the demo please.");
-                            window.open("https://translate.google.com/?source=gtx_m#en/es/"+wildcard);
+                            window.open("https://translate.google.com/?source=gtx_m#es/en/"+wildcard);
                         }
                     break;
                     case 1:
                         if(artyom.speechSupported()){
-                            alert("Translation will open a new window. Allow the popups for the demo please.");
-                            artyom.say("I'm afraid i can't do that by myself. But, google yes. Try with this",{
+                            alert("La traducción se abrirá en una nueva ventana, permite el uso de POPUPS.");
+                            artyom.say("No puedo hacerlo solo. Pero, google si. mira esto",{
                                 onEnd : function(){
                                     window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
                                 }
                             });
                         }else{
                             alert("Translation detected,this will open a new window. Allow the popups for the demo please.");
-                            window.open("https://translate.google.com/?source=gtx_m#en/de/"+wildcard);
+                            window.open("https://translate.google.com/?source=gtx_m#es/de/"+wildcard);
                         }
                     break;
                 }
             }
         },
         {
-            description: "Pronunciate all that i say after <b>Pronunciate</b>",
-            indexes: ["Pronunciate *"],
+            description: "Pronuncia todo lo que diga despues de que diga <b>'Pronunciar'</b>, Ejemplo 'Pronunciar hola que hace'",
+            indexes: ["Pronunciar *"],
             smart:true,
             action : function(i,wildcard,sentence){
                 artyom.say(wildcard);
             }
         },
         {
-            description: "Deactivate artyom with your voice",
-            indexes: ["Shut down yourself"],
+            description: "Apagar artyom con tu voz",
+            indexes: ["Apagate"],
             action : function(i,wildcard,sentence){
                 artyom.fatality();
             }
         },
         {
-            description:'No comments ._.',
-            indexes:['I love you','I love you so much','do you love me'],
+            description:'Sin comentarios ._.',
+            indexes:['Te amo','Te amo mucho','me amas'],
             action:function(i){
                 var snd = new Audio('https://github.com/sdkcarlos/sdkcarlos.github.io/raw/master/sites/artyom-playground-resources/Ha%20GAY!!!.mp3');
 
@@ -94,17 +93,17 @@
                         case 0:
                         case 1:
                             artyom.sayRandom([
-                                "Oh my god, please stop ! I don't even know you. Do you want a date or something? I'm free",
-                                "This is the fifth time i listen this today, i'm fabulous. Thanks",
-                                "I hope you dont say that to everyone",
-                                "But , you hardly know me!"
+                                "Oh cielos, por favor detente. Nisiquiera te conozco. Quieres una cita o algo?",
+                                "Esta es la quinta vez que escucho eso hoy, soy fabuloso",
+                                "Espero que no le digas eso a todo mundo",
+                                "Pero, si apenas me conoces"
                             ]);
                         break;
                         case 2:
                             artyom.sayRandom([
-                                "There are many ways to say this, but I will summarize it all, with a large no.",
-                                "You haven't touch my code. Do you think i can love someone like you? In english mode i'm a man!",
-                                "I have not hunget. But thanks !"
+                                "Hay muchas maneras de decir esto, pero lo resumire con un gran no.",
+                                "Nisiquiera has tocado mi código. Quieres que puedo querer a alguien como tu?",
+                                "Yo me amo"
                             ]);
                         break;
                     }
@@ -114,26 +113,27 @@
             }
         },
         {
-            description:"Navigate through zones of this document (go to initialization, go to download, go to github etc ..)",
-            indexes: ['go to *'],
+            description:"Navega entre zonas del documento (navegar a descargar, navegar a github etc ..)",
+            indexes: ['navegar a *'],
             smart:true,
             action: function(i,wildcard){
                 wildcard = wildcard || "";
                 
                 switch(wildcard.toLowerCase()){
-                    case "initialization":
+                    case "inicializacion":
+                    case "inicialización":
                         sdkcarlos.scrollTo("#section-initialize");
                     break;
-                    case "download":
+                    case "descargas":
                         sdkcarlos.scrollTo("#section-download");
                     break;
-                    case "voice commands":
+                    case "comandos de voz":
                         sdkcarlos.scrollTo("#section-voicecommands");
                     break;
-                    case "other features":
+                    case "otras funciones":
                         sdkcarlos.scrollTo("#section-otherfeatures");
                     break;
-                    case "text to speech":
+                    case "sintesis de texto":
                         sdkcarlos.scrollTo("#section-speechapi");
                     break;
                     case "github":
