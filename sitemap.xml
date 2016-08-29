@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <!-- Start SDkCarlos Projects -->
     <url>
-        <loc>https://sdkcarlos.github.com/sites/artyom.html</loc>
+        <loc>https://sdkcarlos.github.io/sites/artyom.html</loc>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://sdkcarlos.github.com/sitios/artyom.html</loc>
+        <loc>https://sdkcarlos.github.io/sitios/artyom.html</loc>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://sdkcarlos.github.com/sites/holdon.js</loc>
+        <loc>https://sdkcarlos.github.io/sites/holdon.js</loc>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://sdkcarlos.github.com/sites/cordova/sftp-plugin.html</loc>
+        <loc>https://sdkcarlos.github.io/sites/cordova/sftp-plugin.html</loc>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
@@ -25,12 +25,12 @@
     
     <!-- Start Cordova Projects -->
     <url>
-        <loc>https://sdkcarlos.github.com/sites/cordova/sftp-plugin.html</loc>
+        <loc>https://sdkcarlos.github.io/sites/cordova/sftp-plugin.html</loc>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://sdkcarlos.github.com/sites/cordova/disable-screenshots.html</loc>
+        <loc>https://sdkcarlos.github.io/sites/cordova/disable-screenshots.html</loc>
         <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
