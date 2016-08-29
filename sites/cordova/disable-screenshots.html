@@ -4,34 +4,41 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Cordova SFTP Plugin | Add the SFTP to your Android Cordova App</title>
+        <title>Cordova Disable Screenshots Plugin | Add privacy flag in your cordova android app</title>
         <meta name="theme-color" content="#4285f4">
-        <meta name="description" content="Add support for SFTP connections with server from your device in your cordova android app." />
         <meta property="og:site_name" content="SDkCarlos Github"/>
-        <meta property="og:title" content="Our Code World Cordova SFTP Plugin"/>
-        <meta property="og:url" content="https://sdkcarlos.github.io/sites/cordova/sftp-plugin.html"/>
-        <meta property="og:description" content="Add support for SFTP connections with server from your device in your cordova android app."/>
-        <meta name="keywords" content="cordova,sftp,ssh,plugin">
+        <meta name="description" content="Disable the screenshots in your cordova android app." />
+        <meta property="og:title" content="Our Code World Cordova Disable Screenshots Plugin"/>
+        <meta name="twitter:title" content="Our Code World Disable screenshots Plugin">
+        <meta name="twitter:description" content="Disable the screenshots in your cordova android app">
+        <meta property="og:url" content="https://sdkcarlos.github.io/sites/cordova/disable-screenshots.html"/>
+        <meta property="og:description" content="Disable the screenshots in your cordova android app"/>
+        <meta name="keywords" content="cordova,screenshots,enable,disable,plugin">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@sdkcarlos1911">
         <meta name="twitter:creator" content="@sdkcarlos1911">
-        <meta name="twitter:title" content="Our Code World Cordova SFTP Plugin">
-        <meta name="twitter:description" content="Add support for SFTP connections with server from your device in your cordova android app.">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
         <link href="../../material/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../material/css/mdb.min.css" rel="stylesheet">
         <link href="../../material/css/style.css" rel="stylesheet">
         <link href="../../libs/prismjs/prism.css" rel="stylesheet">
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
             ga('create', 'UA-68362173-1', 'auto');
             ga('send', 'pageview');
 
-            if (window.location.protocol != "https:"){
+            if (window.location.protocol != "https:") {
                 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
             }
         </script>
@@ -43,7 +50,7 @@
                     <i class="fa fa-bars"></i></button>
                 <div class="container">
                     <div class="collapse navbar-toggleable-xs" id="collapseEx">
-                        <a class="navbar-brand" href="javascript:void(0);" target="_blank">Cordova SFTP</a>
+                        <a class="navbar-brand" href="javascript:void(0);" target="_blank">Cordova Disable Screenshots</a>
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link scroll-to" href="#section-home">Home <span class="sr-only">(current)</span></a>
@@ -52,19 +59,10 @@
                                 <a class="nav-link scroll-to" href="#section-installation">Installation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll-to" href="#section-list">List folder and files</a>
+                                <a class="nav-link scroll-to" href="#section-enable">Enable</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll-to" href="#section-download-file">Download file</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scroll-to" href="#section-upload-file">Upload file</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scroll-to" href="#section-delete-file">Delete file</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scroll-to" href="#section-security">Security extra</a>
+                                <a class="nav-link scroll-to" href="#section-disable">Disable</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav nav-flex-icons">
@@ -75,7 +73,7 @@
                                 <a href="https://twitter.com/ourcodeworld" target="_blank" class="nav-link"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin" target="_blank" class="nav-link"><i class="fa fa-github"></i></a>
+                                <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots" target="_blank" class="nav-link"><i class="fa fa-github"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -87,11 +85,11 @@
                 <section id="section-home">
                     <div class="row">
                         <div class="col-md-7 text-xs-center">
-                            <h2 class="h2-responsive">SFTP Connection for Cordova Android</h2>
+                            <h2 class="h2-responsive">Cordova Disable Screenshots</h2>
                             <hr>
-                            <p>This plugin is built on <a href="http://www.jcraft.com/jsch/" target="_blank" rel="nofollow">JSCH</a>, and supports almost all <b>the basic features</b> of a SFTP client.</p>
+                            <p>Allow/Disallow the creation of screenshots dinamically with JS. It will make your app gray in the recent apps view.</p>
                             <p>The documentation is basically based in examples and all can be found here in this website.</p>
-                            <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin" target="_blank" class="btn btn-primary"><i class='fa fa-github'></i> Github repository</a>
+                            <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots" target="_blank" class="btn btn-primary"><i class='fa fa-github'></i> Github repository</a>
                         </div>
                         <div class="col-md-5">
                             <div class="card card-dark">
@@ -116,8 +114,8 @@
                                 <div class="card-block">
                                     <h2 class="blue-text text-center" >How to install</h2>
                                     <p>Include the plugin on your project executing the following command in the CLI</p>
-                                    <pre><code class="language-batch">cordova plugin add https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin.git</code></pre>
-                                    <p>Remember that you need an active <b>android platform</b>, this plugin only is available on android. Then in your document a global variable will be accesible with <em><b>OurCodeWorldSFTP</b></em></p>
+                                    <pre><code class="language-batch">cordova plugin add https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots.git</code></pre>
+                                    <p>Remember that you need an active <b>android platform</b>, this plugin only is available on android. Then in your document a global variable will be accesible with <em><b>OurCodeWorldpreventscreenshots</b></em></p>
                                 </div>
                             </div>
                         </div>
@@ -140,66 +138,41 @@
                         </div>
                     </div>
                 </div>
-                <section id="section-step1">
+                <section id="section-enable">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-block">
-                                    <h2 class="blue-text text-center" >1) Create a SFTP Client</h2>
-                                    <p>It's important to understand the structure of the plugin, to start a connection to a sftp server, we need to create a client which will be assigned to a variable.</p>
-                    <pre><code class="language-javascript">// Now we have a sftp client in javascript ! Cool isn't ?
-var client = OurCodeWorldSFTP.createSFTPClient();
+                                    <h2 class="blue-text text-xs-center" ><a  href="javascript:void(0);">Enable</a><br><small>Allow the creation of screenshots</small></h2>
+                                    <p>The use of the plugin is pretty simple. The enable method allow the use of screenshots. You can dinamically enable or disable the screenshots feature with javascript easily.</p>
+                                    <pre><code class="language-javascript">// Pretty simple :)
+var success = function(){
+    // Do something on success
+};
+
+var error = function(msg){
+    // Do something on error
+};
+
+OurCodeWorldpreventscreenshots.enable(success,error);
+
+// Or
+
+OurCodeWorldpreventscreenshots.enable(function(s){
+    console.info("The screenshots are ALLOWED again >:( ");
+},function(e){
+    // Oops ...
+    console.error(e);
+});
 </code></pre>
                                     <p>
-                                        We need to execute this code in (or after) the <em><b>deviceready</b></em> event.
+                                        We need to execute this code in (or after) the <em><b>deviceready</b></em> event.<br>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section id="section-step2">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h2 class="blue-text text-center" >2) Set authentication credentials</h2>
-                                    <p>Without credentials we cannot access any server ! use <b>setCredentials</b> method first.</p>
-                    <pre><code class="language-javascript">// Set the credentials like this : ip-sftp-server , your user, the password
-client.setCredentials("00.000.00.00","user","password");
-// or client.setCredentials("myserver.domain.com","user","password");
-
-// If your sftp server doesn't use the port 22 you can change it with setCredentials method
-// in this case we will change the port to the 21
-client.setCredentials("00.000.00.00","user","password","21");
-</code></pre>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="section-step3">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h2 class="blue-text text-center" >3) setPath & getPath</h2>
-                                    <p>
-                    You need to store the remote path (default path will be <b>/root</b> if you don't change the path) in the client, this will be used to execute tasks like <b>list a folder</b>
-                </p>
-                <pre><code class="language-javascript">// Set the relative remote path
-client.setPath("/var/www/vhosts/myproject/");
-
-//You can retrieve the active path with
-console.log(client.getPath()); // Output: /var/www/vhosts/myproject/
-</code></pre>
-                 <h4 class="blue-text text-xs-center">Now you'll able to execute any of the functions of the plugin</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -217,185 +190,45 @@ console.log(client.getPath()); // Output: /var/www/vhosts/myproject/
                         </div>
                     </div>
                 </div>
-                <section id="section-list">
+                <section id="section-disable">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-block">
-                                    <h2 class="blue-text text-center" >List remote path</h2>
-                                    <p>Get all the folders and files of the client path :</p>
-                <pre><code class="language-javascript">
-var client = OurCodeWorldSFTP.createSFTPClient();
-// Or 
-// client.setCredentials("0000.000.00","myuser","password");
-client.setCredentials("myserver.something.com","myuser","password");
-client.setPath("/var/www/vhosts/myproject");
+                                    <h2 class="light-blue-text text-xs-center" ><a  href="javascript:void(0);">Disable</a><br><small>Disallow the creation of screenshots</small></h2>
+                                    <p>This is the method that you need if you're looking for the plugin. Prevent that the users takes a screenshot on your app.
+                                        <br>The disable method disallow the use of screenshots. You can dinamically enable or disable the screenshots feature with javascript easily.</p>
+                                    <pre><code class="language-javascript">// Pretty simple :)
+var success = function(){
+    // Do something on success
+};
 
+var error = function(msg){
+    // Do something on error
+};
 
-/**
- * Receives an array with objects with all the content of a path (files and folders)
- */
-var success = function(data) {
-    console.info(data);
-    /**
-    Outputs : 
-    [
-        {
-            name:"Folder/File name",
-            filepath: "/var/www/vhosts/myproject/something.txt",
-            isDir:false, // is Folder = true, is File = false
-            isLink:false,
-            size:"123", // bytes
-            permissions: "????",
-            permissions_string:"xxxxx",
-        }
-    ];
-    */
-}
+OurCodeWorldpreventscreenshots.disable(success,error);
 
-// Oops .. something failed :| , may be the path ? or credentials ?
-var failure = function(e) {
+// Or
+
+OurCodeWorldpreventscreenshots.disable(function(s){
+    console.info("The screenshots are NOT allowed anymore :) ");
+},function(e){
+    // Oops ...
     console.error(e);
-}
-
-client.list(success, failure);
-</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section id="section-download-file">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h2 class="blue-text text-center" >Download a file</h2>
-                                    <p>Download a remote file to your device :</p>
-                <pre><code class="language-javascript">// Do not include file:// to the local path, you can change the local filename if you want
-client.downloadFile("/var/www/vhosts/myproject/file.txt","/storage/emulated/0/file.txt",{
-    success:function(download){
-        // see the object info
-        console.log(download);
-
-        if(download.finished == true){
-            console.info("The file has been succesfully downloaded");
-        }else{
-            //Display the progress
-            console.log("Progress download : "+download.progress+"%. "+ download.bytesprogress +" bytes downloaded of " + download.filesizebytes + "total");
-        }
-    },
-    error:function(er){
-        // snap ! An error :(
-        console.error(er);
-    }
 });
 </code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
-                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-7687344986141325"
-                                     data-ad-slot="3487567897"
-                                     data-ad-format="auto"></ins>
-                                <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <section id="section-upload-file">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h2 class="blue-text text-center" >Upload a file</h2>
-                                    <p>Upload a local file to the server :</p>
-                <pre><code class="language-javascript">// Do not include file:// to the local path, you can change the remote filename if you want
-client.uploadFile("/storage/emulated/0/file.txt","/var/www/vhosts/myproject/file.txt",{
-    success:function(download){
-        // see the object info
-        console.log(download);
-
-        if(download.finished == true){
-            console.info("The file has been succesfully uploaded");
-        }else{
-            //Display the progress
-            console.log("Progress upload : "+download.progress+"%. "+ download.bytesprogress +" bytes uploaded of " + download.filesizebytes + "total");
-        }
-    },
-    error:function(er){
-        // snap ! An error :(
-        console.error(er);
-    }
-});
-</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section id="section-delete-file">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h2 class="blue-text text-center" >Delete a remote file</h2>
-                                    <p>Delete a remote file:</p>
-                <pre><code class="language-javascript">client.removeFile("/var/www/vhosts/myproject/file.txt",{
-    success:function(removed){
-        // see the object info
-        console.log(removed);
-
-        if(download.deleted == true){
-            console.log("File removed from the server");
-        }
-    },
-    error:function(er){
-        // snap ! An error :( maybe doesnt exist?
-        console.error(er);
-    }
-});
-</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section id="section-security">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h2 class="blue-text text-center" >Using a private key to connect</h2>
-                                    <p>If your server needs a Private key to connect, you can use setIdentity method, Public key authentication uses a public-private , your private key must use OpenSSH format.</p>
-                <pre><code class="language-javascript">var client = OurCodeWorldSFTP.createSFTPClient();
-client.setCredentials("myserver.something.com","myuser","password");
-client.setPath("/var/www/vhosts/myproject");
-client.setIdentity("/storage/emulated/0/id_dsa.pub");
-
-// Do anything what you want
-</code></pre>
-                                    <hr>
-                                    <h2 class="blue-text text-center" >Using a private key to connect</h2>
-                                    <p>It's recommendable to set a Known Hosts file to your sftp connection, otherwise your connection can be victim of a <b>Man In the Middle Attack (MITM)</b>, just use setKnownHosts method giving the path of the local file.
-                    If you don't use this file, the plugin will work anyway, but is better use a known hosts.
-                </p>
-                <pre><code class="language-javascript">// Set local known_hosts file
-client.setKnownHosts("/storage/emulated/0/known_hosts");
-</code></pre>
+                                    <p>
+                                        We need to execute this code in (or after) the <em><b>deviceready</b></em> event.<br> On the multiview menu, the app will have a gray background and if you try to take a screenshot while is disabled a message will appear.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="../resources/images/cdv-prv-scr-1.png" class="img img-responsive center-block">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <img src="../resources/images/cdv-prv-scr-2.png" class="img img-responsive center-block">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -463,7 +296,7 @@ client.setKnownHosts("/storage/emulated/0/known_hosts");
                                         <h3>Did you like this project?</h3>
                                         <p>If you did, please consider in give a star on the github repository and share this project with your developer friends !</p>
                                         <p>We are already <span id="artyom-ending-starred"><i class="fa fa-spinner fa-spin"></i></span> persons supporting this project</p>
-                                        <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin/stargazers" class="btn btn-lg btn-white-outline waves-effect waves-light" target="_blank"><i class="fa fa-star-o left"></i> Star project</a>
+                                        <a href="https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots/stargazers" class="btn btn-lg btn-white-outline waves-effect waves-light" target="_blank"><i class="fa fa-star-o left"></i> Star project</a>
                                     </div>
                                 </div>
                             </div>
@@ -475,7 +308,7 @@ client.setKnownHosts("/storage/emulated/0/known_hosts");
                                         <h5 class="cyan-text"><i class="fa fa-support"></i> I'm here to help you</h5>
                                         <h3>Issues and troubleshooting</h3>
                                         <p>If you need help while you're trying to implement this project and something is not working, or you have suggestions please report a ticket in the issues are on github and i'll try to help you ASAP.</p>
-                                        <a href='https://github.com/sdkcarlos/cordova-ourcodeworld-sftpplugin/issues' target="_blank" class="btn btn-lg btn-white-outline waves-effect waves-light"><i class="fa fa-clone left"></i> See issues</a>
+                                        <a href='https://github.com/sdkcarlos/cordova-ourcodeworld-preventscreenshots/issues' target="_blank" class="btn btn-lg btn-white-outline waves-effect waves-light"><i class="fa fa-clone left"></i> See issues</a>
                                     </div>
                                 </div>
                             </div>
@@ -550,7 +383,7 @@ client.setKnownHosts("/storage/emulated/0/known_hosts");
                     sdkcarlos.scrollTo(el.attr('href'));
                 });
 
-                sdkcarlos.crossOrigin.getJSON("https://api.github.com/repos/sdkcarlos/cordova-ourcodeworld-sftpplugin", function (data) {
+                sdkcarlos.crossOrigin.getJSON("https://api.github.com/repos/sdkcarlos/cordova-ourcodeworld-preventscreenshots", function (data) {
                     $('#artyom-ending-starred').html("<b>" + data.watchers_count + "</b>");
                 });
             });
