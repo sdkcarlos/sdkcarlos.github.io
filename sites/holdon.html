@@ -1,116 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-        <title>HoldOn.js - Prevent stupid actions on your Asynchronous calls</title>
-
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="ui-resources/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="ui-resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="ui-resources/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="ui-resources/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>HoldOn.js | Lock the UI to prevent stupid actions on asynchronous requests</title>
+        <meta name="theme-color" content="#4285f4">
+        <meta name="description" content="HoldOn is a tiny JS library to create an overlay dinamically with Javascript to prevent the access to the user interface." />
+        <meta property="og:site_name" content="SDkCarlos Github"/>
+        <meta property="og:title" content="HoldOn.js"/>
+        <meta property="og:image" content="https://sdkcarlos.github.io/material/images/holdonjs-logo.png"/>
+        <meta property="og:url" content="https://sdkcarlos.github.io/sites/holdon.html"/>
+        <meta property="og:description" content="HoldOn is a tiny JS library to create an overlay dinamically with Javascript to prevent the access to the user interface."/>
+        <meta name="keywords" content="Overlay,jQuery plugin, Loading, jQuery lib, layout">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@sdkcarlos1911">
+        <meta name="twitter:creator" content="@sdkcarlos1911">
+        <meta name="twitter:title" content="HoldOn.js">
+        <meta name="twitter:description" content="A.">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+        <link href="../material/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../material/css/mdb.min.css" rel="stylesheet">
+        <link href="../material/css/style.css" rel="stylesheet">
+        <link href="../libs/prismjs/prism.css" rel="stylesheet">
         <link rel="stylesheet" href="holdon-resources/css/HoldOn.css" />
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-68362173-1', 'auto');
+            ga('send', 'pageview');
+
+            if (window.location.protocol != "https:"){
+                window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+            }
+        </script>
     </head>
     <body>
-        <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container">
-                <a id="logo-container" href="http://ourcodeworld.com" class="brand-logo">
-                    <img src="http://ourcodeworld.com/ocw-ui/img/logo-single.png" alt="Our Code World" height="29"> HoldOn.js
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="https://github.com/sdkcarlos/holdon.js"><i class="fa fa-github"></i></a></li>
-                </ul>
-
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="https://github.com/sdkcarlos/holdon.js"><i class="fa fa-github"></i> Github</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>
-        <div class="section no-pad-bot" id="index-banner">
+        <header>
+            <nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar primary-color">
+                <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
+                    <i class="fa fa-bars"></i></button>
+                <div class="container">
+                    <div class="collapse navbar-toggleable-xs" id="collapseEx">
+                        <a class="navbar-brand" href="javascript:void(0);" target="_blank">HoldOn.js</a>
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link scroll-to" href="#section-home">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll-to" href="#section-download">Download</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll-to" href="#section-demo">Test HoldOn</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll-to" href="#section-open">Open overlay</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll-to" href="#section-close">Close overlay</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav nav-flex-icons">
+                            <li class="nav-item">
+                                <a href="https://www.facebook.com/ourcodeworld" target="_blank" class="nav-link"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://twitter.com/ourcodeworld" target="_blank" class="nav-link"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/sdkcarlos/holdon.js" target="_blank" class="nav-link"><i class="fa fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="p-t-6">
             <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">Prevent stupid actions with 1 line of code</h1>
-                <div class="row center">
-                    <p class="header col s12 light">
-                        HoldOn.js is a simple plugin that allows you to draw a div that covers all the screen and will prevent that the user clicks on element on the background while something is executed in the background
-                    </p>
-                </div>
-                <div class="row center">
-                    <a href="https://github.com/sdkcarlos/holdon.js" target='_blank' class="btn-large waves-effect waves-light orange">Get Started</a>
-                    <a href="http://ourcodeworld.com/projects/projects-documentation/2/list/hold-on-js" target='_blank' class="btn-large waves-effect waves-light orange">Read documentation</a>
-                </div>
-                <br><br>
-            </div>
-        </div>
-
-
-        <div class="container">
-            <div class="section">
-                <div class="row">
-                    <div class="col s6" style='margin-left: 25%!important;'>
-                        <div class="card text-center">
-                                <div class="card-image text-center">
-                                    <a href="http://bit.ly/OurCodeEditorFree">
-                                        <img src="http://ourcodeworld.com/public-media/advertising/ourcodeeditor_quad_banner.png" class="center-block" style='width:70%'>
-                                    </a>
+                <section id="section-home">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="view overlay hm-white-light">
+                                <img style="max-width: 300px;" src="../material/images/holdonjs-logo.png" class="center-block img-fluid" alt="">
+                                <div class="mask">
                                 </div>
-                            <div class="card-content text-center">
-                                <p>
-                                    Download <b>for free</b> my new Code Editor for Android. Keep coding wherever you are.
-                                </p>
                             </div>
-                            <div class="card-action text-center">
-                                <a href="http://bit.ly/OurCodeEditorFree">What are you waiting? Download free here</a>
+                            <br>
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="h2-responsive">Prevent user interaction with an unremovable layout</h2>
+                            <hr>
+                            <p>HoldOn.js is an useful plugin that allow you to create an unremovable (by the user) overlay with Javascript easily.</p>
+                            <p>Prevent stupid behaviours from your users disallowing the use from your app with an overlay.</p>
+                            <a href="https://github.com/sdkcarlos/holdon.js" class="btn btn-primary"><i class='fa fa-github'></i> Github repository</a>
+                            <a href="http://ourcodeworld.com/projects/projects-documentation/2/list/hold-on-js" class="btn btn-primary">
+                                Read the documentation
+                            </a>
+                            <a href="#section-download" class="btn btn-primary scroll-to">
+                                Get HoldOn.js (latest version)
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section id="section-download">
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-4">
+                            <div class="jumbotron">
+                                <h2 class="h2-responsive">Download</h2>
+                                <br>
+                                <a target="_blank" href="https://github.com/sdkcarlos/HoldOn.js/tree/master/src/download" type="button" class="btn btn-block btn-primary btn-stc waves-effect waves-light">Download <i class="fa fa-download right"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <hr>
-            <div class="section">
-                <div class='col-md-12 text-center'>
                     <div class="row">
-                        <h2 class="light-blue-text text-center" ><a href="javascript:void(0);">Examples</a></h2>
-                    </div>
-                    <p>
-                        Every button will trigger the respective theme with its name. HoldOn will show and will hide automatically within 2 seconds.
-                    </p>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-rect'>sk-rect Theme</a>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-circle'>sk-circle Theme</a>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-dot'>sk-dot Theme</a>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-cube'>sk-cube Theme</a>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-cube-grid'>sk-cube-grid Theme</a>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-folding-cube'>sk-folding-cube Theme</a>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-bounce'>sk-bounce Theme</a>
-                    <a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='sk-fading-circle'>sk-fading-circle Theme</a><br>
-                    <br><a class="waves-effect waves-light btn themeviewer" href='javascript:void(0);' data-theme='custom'>Customized Theme</a>
-                </div>
-            </div>
-            <hr>
-            <div class="section">
-                <!-- Hide on dev -->
-                <div class="text-center" style="width: 100%;min-height:100px;">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-7687344986141325"
-                         data-ad-slot="3487567897"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
-            <hr>
-            <div class="section">
-                <div class="row">
-                    <h2 class="light-blue-text text-center" ><a href="javascript:void();">Installation</a></h2>
-                </div>
-<p>HoldOn is a jQuery plugin but the overlay will be handled internally by the plugin, so we will call HoldOn.js with a variable.</p>
-                    <pre><code class="language-xml">&lt;head&gt;
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <h4 class="card-title">Installation</h4>
+                                    <p class="card-text">HoldOn is a jQuery plugin but the overlay will be handled internally by the plugin, so we will call HoldOn.js with a variable.</p>
+                                    <pre><code class="lang-html">&lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
     &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1.0&quot;/&gt;
@@ -120,183 +131,307 @@
     &lt;link href=&quot;path-to/HoldOn.min.css&quot; rel=&quot;stylesheet&quot;&gt;
     &lt;script src=&quot;path-to/HoldOn.min.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;</code></pre>
-                    <p>Then a global variable <em><b>HoldOn</b></em> will be accesible on your document and all the features that HoldOn have to offer will be available for its use.</p>
-            </div>
-            <hr>
-            <div class="section">
+                                    <p>Then a global variable HoldOn will be accesible on your document and all the features that HoldOn have to offer will be available for its use.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <div class="row">
-                    <h2 class="light-blue-text text-center" ><a href="http://ourcodeworld.com/projects/projects-documentation/26/read-doc/hold-on-open/hold-on-js">Show HoldOn.js</a></h2>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
+                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-7687344986141325"
+                                     data-ad-slot="3487567897"
+                                     data-ad-format="auto"></ins>
+                                <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p>
-                    To lock the ui, we will use the <b>HoldOn.open</b> function, this function is ready to use but you can customize it how you want with javascript.
-                </p>
-<pre><code class="language-javascript">var options = {
-    message:"Welcome to the jungle babe"
+                <section id="section-demo">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <h4 class="card-title"><a href="http://ourcodeworld.com/projects/projects-documentation/26/read-doc/hold-on-open/hold-on-js" target="_blank">Demos</a></h4>
+                                    <p class="card-text">HoldOn has a lot of available themes, just provide which theme you want as parameter in the object.</p>
+                                    <pre><code class="lang-js">HoldOn.open({
+     theme:"sk-cube-grid"
+});</code></pre>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-rect">sk-rect</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-bounce">sk-bounce</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-folding-cube">sk-folding-cube</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-circle">sk-circle</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-dot">sk-dot</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-bounce">sk-bounce</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-falding-circle">sk-falding-circle</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="sk-cube-grid">sk-cube-grid</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary holdon-trigger" data-theme="custom">custom</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
+                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-7687344986141325"
+                                     data-ad-slot="3487567897"
+                                     data-ad-format="auto"></ins>
+                                <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section id="section-open">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <h4 class="card-title"><a href="http://ourcodeworld.com/projects/projects-documentation/26/read-doc/hold-on-open/hold-on-js" target="_blank">Open overlay <small>read documentation</small></a></h4>
+                                    <p class="card-text">To open an overlay, use the <code>HoldOn.open(options)</code> method.</p>
+                                    <pre><code class="lang-js">var options = {
+     theme:"sk-cube-grid",
+     message:'some cool message for your user here ! Or where the logo is ! Your skills are the only limit.<br> <input type="button" value="Close this Cover" onclick="HoldOn.close();">',
+     backgroundColor:"#1847B1",
+     textColor:"white"
 };
 
-HoldOn.open(options);
+HoldOn.open(options);</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
+                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-7687344986141325"
+                                     data-ad-slot="3487567897"
+                                     data-ad-format="auto"></ins>
+                                <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section id="section-close">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <h4 class="card-title"><a href="http://ourcodeworld.com/projects/projects-documentation/26/read-doc/hold-on-open/hold-on-js" target="_blank">Close overlay <small>read documentation</small></a></h4>
+                                    <p class="card-text">To close the active overlay, use the <code>HoldOn.close()</code> method.</p>
+                                    <pre><code class="lang-js">HoldOn.close();</code></pre>
+                                    <p>HoldOn.close function, this will close HoldOn overlay allowing again the user interaction.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="section-article">
+                    <h1 class="section-heading p-t-1 p-b-1">Trending tops in Our Code World</h1>
+                    <div class="row">
 
-// or well without options to simply show a load div
-// HoldOn.open();</code></pre>
-                <p>
-                    Read the documentation to see more available options like change the font color, background color etc.<br>
-                    Remember that only 1 instance of HoldOn can be opened at once, if you execute a HoldOn.open when an instance is already running, this will be replaced with the new one.
-                </p>
-            </div>
-            <hr>
-            <div class="section" id="guide-simulateinstruction">
-                <div class="row">
-                    <h2 class="light-blue-text text-center" ><a href="http://ourcodeworld.com/projects/projects-documentation/27/read-doc/hold-on-close/hold-on-js">Close HoldOn.js</a></h2>
-                </div>
-                <p>
-                    To close an active instance of HoldOn, we will use the <b>HoldOn.close</b> function, this will close HoldOn overlay allowing again the user interaction.
-                </p>
-<pre><code class="language-javascript">// Really easy isn't?
-HoldOn.close();</code></pre>
-            </div>
-            <hr>
-            <div class="section">
-                <!-- Hide on dev -->
-                <div class="text-center" style="width: 100%;min-height:100px;">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-7687344986141325"
-                         data-ad-slot="3487567897"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
-            <hr>
-            <div class="section">
-                <div class="row">
-                    <div class="col s12 m6">
-                      <div class="card">
-                        <div class="card-image">
-                          <img src="http://placekitten.com/600/338">
-                          <span class="card-title">Did you like HoldOn.js?</span>
+                        <div class="col-md-4">
+                            <div class="card article-ocw">
+                                <div class="view overlay hm-white-slight">
+                                    <img src="http://ourcodeworld.com/public-media/gallery/gallery-57836a36338b0.png" class="img-fluid" alt="">
+                                    <a href="#">
+                                        <div class="mask"></div>
+                                    </a>
+                                </div>
+                                <div class="card-block">
+                                    <h4 class="card-title">Top 7 : Best free web development IDE for JavaScript, HTML and CSS</h4>
+                                    <p class="card-text">See the review from 7 of the best free IDE (and code editors) for web proyects development in Our Code World.</p>
+                                    <a href="http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-for-javascript-html-and-css" target="_blank" class="btn btn-primary">Read article</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-content text-center">
-                            <p>
-                                I would really appreciate your support with this plugin
-                                give a Star <i class="fa fa-star"></i> on the Github Repository !<br>
-                            </p>
-                            <a class="waves-effect waves-light btn" href="https://github.com/sdkcarlos/holdon.js/stargazers">We are already <span id="starred-github" class="fa fa-spinner fa-spin"></span> persons , Join us !</a>
+                        <div class="col-md-4">
+                            <div class="card article-ocw">
+                                <div class="view overlay hm-white-slight">
+                                    <img src="http://ourcodeworld.com/public-media/gallery/gallery-56cb273fd67fd.png" class="img-fluid" alt="">
+                                    <a href="#">
+                                        <div class="mask"></div>
+                                    </a>
+                                </div>
+                                <div class="card-block">
+                                    <h4 class="card-title">Top 5 : Best jQuery scheduler and events calendar for web applications</h4>
+                                    <p class="card-text">See the review from 5 of the best dynamics scheduler and events calendar for Web applications with Javascript and jQuery in Our Code World</p>
+                                    <a href="http://ourcodeworld.com/articles/read/55/top-5-best-jquery-scheduler-and-events-calendar-for-web-applications" target="_blank" class="btn btn-primary">Read article</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-action text-center">
-                            <a href="https://github.com/sdkcarlos/holdon.js/issues">Issues <i class="fa fa-ambulance"></i></a>
-                            <a href="https://github.com/sdkcarlos/holdon.js/issues">Official Docs <i class="fa fa-book"></i></a>
+                        <div class="col-md-4">
+                            <div class="card article-ocw">
+                                <div class="view overlay hm-white-slight">
+                                    <img src="http://ourcodeworld.com/public-media/gallery/gallery-57b6ce5559230.png" class="img-fluid" alt="">
+                                    <a href="#">
+                                        <div class="mask"></div>
+                                    </a>
+                                </div>
+                                <div class="card-block">
+                                    <h4 class="card-title">Top 20: Best free bootstrap admin templates</h4>
+                                    <p class="card-text ">See the collection from 20 of the most imponent Admin templates built in bootstrap for free in Our Code World.</p>
+                                    <a href="http://ourcodeworld.com/articles/read/238/top-20-best-free-bootstrap-admin-templates" target="_blank" class="btn btn-primary">Read article</a>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="col s12 m6 text-center">
-                        <h4>Buy me a coffee <i class="fa fa-smile-o"></i></h4>
-                        <a href="http://ourcodeworld.com/about" target="_blank">
-                            <img src="artyom-resources/images/donation.png" />
-                        </a>
+                </section>
+                <section id="section-ending">
+                    <h1 class="section-heading p-t-1 p-b-1">Thanks for read everything !</h1>
+                    <div class="row">
+                        <div class="col-md-6 m-b-2">
+                            <div class="card-overlay card-ending" style="background-image: url('../material/images/background-about.jpg')">
+                                <div class="white-text text-xs-center">
+                                    <div class="card-block">
+                                        <h5 class="teal-text"><i class="fa fa-star"></i> Support the project</h5>
+                                        <h3>Did you like HoldOn.js?</h3>
+                                        <p>If you did, please consider in give a star on the github repository and share this project with your developer friends !</p>
+                                        <p>We are already <span id="artyom-ending-starred"><i class="fa fa-spinner fa-spin"></i></span> persons supporting holdon.js</p>
+                                        <a href="https://github.com/sdkcarlos/holdon.js/stargazers" class="btn btn-lg btn-white-outline waves-effect waves-light" target="_blank"><i class="fa fa-star-o left"></i> Star project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 m-b-2">
+                            <div class="card-overlay card-ending" style="background-image: url('../material/images/background-about.jpg')">
+                                <div class="white-text text-xs-center">
+                                    <div class="card-block">
+                                        <h5 class="cyan-text"><i class="fa fa-support"></i> I'm here to help you</h5>
+                                        <h3>Issues and troubleshooting</h3>
+                                        <p>If you need help while you're trying to implement artyom and something is not working, or you have suggestions please report a ticket in the issues are on github and i'll try to help you ASAP.</p>
+                                        <a href='https://github.com/sdkcarlos/holdon.js/issues' target="_blank" class="btn btn-lg btn-white-outline waves-effect waves-light"><i class="fa fa-clone left"></i> See issues</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
             <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-                <button class="btn-large waves-effect waves-light btn-block red" id="destroy-button" style='display:none;'>
+                <button class="btn btn-primary" id="destroy-button" style='display:none;'>
                     Destroy the project clicking this button in the background <i class='fa fa-smile-o'></i>
                 </button>
             </div>
-        </div>
-
-
-        <footer class="page-footer orange">
-            <div class="container">
+        </main>
+        <footer class="page-footer center-on-small-only">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col l9 s12">
-                        <h5 class="white-text">About HoldOn.js</h5>
-                        <p class="grey-text text-lighten-4">
-                            Humans are stupid by nature, all of us. As a developer, the things that make you most angry is a report of bugs in your code right? Nothing to do, you must write better code.
-                            However there are some situations in which is there so many logic that you need to execute to prevent that the user do an action when something important is running
-                            in the background. Horrible isn't, I wouldn't write so much code to prevent that?  To make the things easier for you and me, HoldOn.js will simply show a loading div to prevent that the user do something stupid while this task is accomplished.<br>
-                            <b>Very simple but functional.</b>
-                        </p>
-                        <p class="grey-text text-lighten-4">
-                            You want to know something or contact with me ? Write me to <a class="white-text" href='mailto:dev@ourcodeworld.com?Subject=Hello'>dev@ourcodeworld.com</a>
-                        </p>
+                    <div class="col-md-3 col-md-offset-1">
+                        <h5 class="title">About HoldOn.js</h5>
+                        <p>Instead of write more logic for actions in your project, you can simply lock the user interface to prevent stupid actions from your user while something important happens in the background.</p>
                     </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">More projects</h5>
+
+                    <hr class="hidden-md-up">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <h5 class="title">Other projects</h5>
                         <ul>
-                            <li><a class="white-text" href="http://ourcodeworld.com/apps/our-code-editor" target="_blank">Our Code Editor (Code editor for android)</a></li>
-                            <li><a class="text-white" href="http://sdkcarlos.github.io/sites/artyom.html" target="_blank">Artyom.js (Voice control for website)</a></li>
-                            <li><a class="text-white" href="https://sdkcarlos.github.io/sites/ourcontextmenu.html" target="_blank">Our Context Menu (An easy context menu for jQuery)</a></li>
+                            <li><a href="https://sdkcarlos.github.io/sites/holdon.html">HoldOn.js (loading overlay)</a></li>
+                            <li><a href="http://ourcodeworld.com/apps/our-code-editor" target="_blank">Our Code Editor (android)</a></li>
+                            <li><a href="https://sdkcarlos.github.io/sites/ourcontextmenu.html" target="_blank">Our Context Menu</a></li>
+                        </ul>
+                    </div>
+
+                    <hr class="hidden-md-up">
+
+                    <div class="col-md-3">
+                        <h5 class="title">Sponsored ocw links</h5>
+                        <ul>
+                            <li><a href="http://ourcodeworld.com/articles/read/213/introduction-to-the-javascript-promises" target="_blank">Introduction to the Javascript promises</a></li>
+                            <li><a href="http://ourcodeworld.com/articles/read/143/how-to-copy-text-to-clipboard-with-javascript-easily" target="_blank">How to copy text to clipboard with Javascript easily</a></li>
+                            <li><a href="http://ourcodeworld.com/articles/read/38/how-to-capture-an-image-from-a-dom-element-with-javascript" target="_blank">How to capture an image from a DOM element with javascript</a></li>
+                            <li><a href="http://ourcodeworld.com/articles/read/16/what-is-the-debounce-method-and-how-to-use-it-in-javascript" target="_blank">What is the debounce method and how to use it in Javascript</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <hr>
+            <div class="call-to-action">
+                <h4>Read programming articles</h4>
+                <ul>
+                    <li>
+                        <h5>Visit Our Code World</h5></li>
+                    <li><a target="_blank" href="http://ourcodeworld.com" class="btn btn-default">Learn more</a></li>
+                </ul>
+            </div>
             <div class="footer-copyright">
-                <div class="container">
-                    Made with <span class="fa fa-heart"></span> by <a class="orange-text text-lighten-3" href="http://ourcodeworld.com">Our Code World (Carlos Delgado)</a>
+                <div class="container-fluid">
+                    &copy; 2016 Copyright Carlos Delgado - <a href="http://ourcodeworld.com">ourcodeworld.com</a>
                 </div>
             </div>
         </footer>
-
-
-        <!--  Scripts-->
-        <script src="ui-resources/js/jquery.min.js"></script>
-        <script src="ui-resources/js/materialize.min.js"></script>
-        <script src="ui-resources/js/init.js"></script>
+        <script type="text/javascript" src="../material/js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="../material/js/tether.min.js"></script>
+        <script type="text/javascript" src="../material/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../material/js/mdb.min.js"></script>
+        <script type="text/javascript" src="../material/js/sdkcarlos.min.js"></script>
+        <script type="text/javascript" src="../libs/prismjs/prism.js"></script>
+        <script type="text/javascript" src="../libs/matchheight/matchheight.js"></script>
         <script src="holdon-resources/js/HoldOn.js"></script>
-        <script src="ui-resources/js/prism.js"></script>
         <script>
-            // Google Analytics
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
 
-            ga('create', 'UA-68362173-1', 'auto');
-            ga('send', 'pageview');
-
-
-            $(function(){
-                $.getJSON("https://api.github.com/repos/sdkcarlos/holdon.js",function(data){
-                    var sel = $("#starred-github");
-                    sel.removeAttr('class');
-                    sel.html(data.watchers_count);
+                $('.scroll-to').click(function (e) {
+                    e.preventDefault();
+                    var el = $(this);
+                    sdkcarlos.scrollTo(el.attr('href'));
                 });
-                
-                
-                $('.themeviewer').click(function(){
-                    var theme = $(this).attr('data-theme');
-                   
+
+                $('.holdon-trigger').click(function(){
+                    var el = $(this);
+                    var theme = el.data('theme');
+                    var message = "Loading important information, please don't do anything stupid. Removing this in 3 seconds";
+
                     if(theme == 'custom'){
                         HoldOn.open({
                             theme:"custom",
                             // If theme == "custom" , the content option will be available to customize the logo
                             content:'<img style="width:80px;" src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="center-block">',
-                            message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit.<br> <input type="button" class="btn-large waves-effect waves-light btn-block" value="Close this Cover" onclick="HoldOn.close();">',
+                            message:' Some cool message for your user here ! Or where the logo is ! Your skills are the only limit.<br> <input type="button" value="Close this Cover" class="btn btn-default" onclick="HoldOn.close();">',
                             backgroundColor:"#1847B1",
                             textColor:"white"
                         });
-                        
-                        return true;
-                    } 
-                    
-                    
+                        return;
+                    }
+
                     HoldOn.open({
-                        theme:theme,
-                        message:"<h4>"+theme+" Theme selected. Closing in 2 seconds please wait you impatient user !</h4>"
+                        message:message,
+                        theme: theme
                     });
-                    
-                    $('#destroy-button').show();
 
                     setTimeout(function(){
-                        $('#destroy-button').hide();
                         HoldOn.close();
-                    },2000);
+                    },3000);
                 });
-                
-                $('#destroy-button').click(function(){
-                    alert("I don't know how you did this, but you didn't click this with HoldOn.js active :), Have a nice day.");
+
+                sdkcarlos.crossOrigin.getJSON("https://api.github.com/repos/sdkcarlos/holdon.js", function (data) {
+                    $('#artyom-ending-starred').html("<b>" + data.watchers_count + "</b>");
                 });
             });
         </script>

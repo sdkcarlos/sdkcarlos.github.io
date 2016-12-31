@@ -10,7 +10,7 @@
 
       <!-- Don't forget to add artyom to your document in the head tag-->
 
-      <script src="https://localhost\git-repos\artyom.js\dev-no-download\artyom.js"></script>
+      <script src="https://localhost\testing\artyom.js\dev-no-download\artyom.js"></script>
   </head>
 
   <body>
@@ -88,8 +88,9 @@
 
       function startArtyom(){
         artyom.initialize({
+            soundex:true,
           lang:"en-GB",// More languages are documented in the library
-          continuous:false,//if you have https connection, you can activate continuous mode
+          continuous:true,//if you have https connection, you can activate continuous mode
           debug:true,//Show everything in the console
           listen:true // Start listening when this function is triggered
         });
