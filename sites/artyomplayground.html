@@ -20,7 +20,7 @@
     <!-- Custom styles for this template -->
     <link href="artyom-playground-resources/css/style.css" rel="stylesheet">
     <link href="artyom-playground-resources/css/style-responsive.css" rel="stylesheet">
-    
+
     <link href="artyom-old-resources/css/alertify.core.css" rel="stylesheet" />
     <link href="artyom-old-resources/css/alertify.default.css" rel="stylesheet" />
 
@@ -234,7 +234,7 @@
                                                 <p>Press <kbd>F12</kbd> and open the console</p>
                                             </div>
 	                      		</div>
-	                      	</div> 
+	                      	</div>
                       	</div><!-- /col-md-4-->
 
 
@@ -278,8 +278,8 @@
 
 
                     </div><!-- /row -->
-                    
-                    
+
+
                     <div class='row'>
                         <div class='col-md-12'>
                             <h1>Test those commands ! But first [constantly updated - last (19.08.2015)]</h1>
@@ -287,7 +287,7 @@
                                 <li><h4>&#8226;Artyom is in continuous mode, that means it will listen forever if you want it.</h4></li>
                                 <li><h4>&#8226;NEVER Run 2 tabs with artyom at the same time,otherwise the API will stop working and sometimes google chrome will crash!</h4></li>
                                 <li><h4>&#8226;Do you see the microphone in the left top under Artyom Project ? It will be red when artyom doesn't hear anything logic.<br>
-                                    And will be green when it listen to you ! Try saying hello and see the magic ! When a command is executed , it will be red again 
+                                    And will be green when it listen to you ! Try saying hello and see the magic ! When a command is executed , it will be red again
                                     till you talk again</h4></li>
                                 <li><h4>&#8226;The following list have all the available commands of artyom in this document.</h4></li>
                             </ul>
@@ -296,9 +296,9 @@
                             </ul>
                         </div>
                     </div>
-                  
-                    
-                    
+
+
+
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
       <!-- **********************************************************************************************************************************************************
@@ -330,7 +330,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-               <a href="http://www.blacktie.co/2014/07/dashgum-free-dashboard/">Original free template  2014 - Alvarez.is Thanks ! </a> 
+               <a href="http://www.blacktie.co/2014/07/dashgum-free-dashboard/">Original free template  2014 - Alvarez.is Thanks ! </a>
               <a href="#intro" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -378,11 +378,11 @@
         $("#date-popover").click(function (e) {
             $(this).hide();
         });
-        
+
         $("#artyom-commands-quant").html("+" + artyCommands.getCommands("en").length);
-        
+
         initializeArtyomInEnglish();
-        
+
         artyCommands.getCommands("en").forEach(function(comando){
             if(comando.smart){
                 $("#available-commands-list").append('<li> <b style="color:blue;">Smart : </b>'+comando.indexes+'</li>');
@@ -390,18 +390,18 @@
                 $("#available-commands-list").append('<li> <b style="color:red;">Normal : </b>'+comando.indexes+'</li>');
             }
         });
-        
+
         if(!artyom.speechSupported()){
             alertify.log("It seems artyom can't talk in this browser. You must use google chrome!", "", 0);
         }
-        
+
         if(!artyom.recognizingSupported()){
             alertify.log("It seems artyom can't listen to you in this browser. You must use google chrome!", "", 0);
         }
     });
-    
+
     $(window).load(function(){
-        artyom.say("Hey, welcome to the artyom playground"); 
+        artyom.say("Hey, welcome to the artyom playground");
     });
 </script>
   </body>

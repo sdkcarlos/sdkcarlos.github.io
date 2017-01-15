@@ -15,7 +15,7 @@
             if(window.location.protocol != 'https:'){
                 window.location.href = (window.location.href).replace('http:','https:');
             }
-            
+
             // Google Analytics
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -202,7 +202,7 @@
                 <div class="mdl-layout__tab-panel" id="features">
                     <section class="section--center mdl-grid mdl-grid--no-spacing">
                         <div id='commands-container'>
-                            
+
                         </div>
                     </section>
                 </div>
@@ -212,7 +212,7 @@
                             <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
                             <h1 class="mdl-mega-footer--heading">Documentation</h1>
                             <ul class="mdl-mega-footer--link-list">
-                                <li><a href="http://ourcodeworld.com/projects/projects-documentation/1/list/artyom-js">Read official docs of artyom.js</a></li>
+                                <li><a href="http://docs.ourcodeworld.com/projects/artyom-js">Read official docs of artyom.js</a></li>
                             </ul>
                         </div>
                         <div class="mdl-mega-footer--drop-down-section">
@@ -234,7 +234,7 @@
                             <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
                             <h1 class="mdl-mega-footer--heading">FAQ</h1>
                             <ul class="mdl-mega-footer--link-list">
-                                <li><a href="http://ourcodeworld.com/projects/projects-faq/1/list/artyom-js">Questions</a></li>
+                                <li><a href="http://docs.ourcodeworld.com/projects/artyom-js">Questions</a></li>
                             </ul>
                         </div>
                     </div>
@@ -286,7 +286,7 @@
                                 img:'https://i.scdn.co/image/4a8139e72ad0f199a1fdae5ac878977450b37784'
                             }
                         ];
-                        
+
                         var item = musicGroup[Math.floor(Math.random()*musicGroup.length)];
                         var div = $('#zone-music');
                         div.show().find('iframe').attr('src',(item.url));
@@ -359,7 +359,7 @@
                             'What do you get when you cross a dog with a telephone?.  A golden receiver.',
                             'Why are dogs such bad dancers?. They have two left feet.'
                         ];
-                        
+
                         var joke = jokes[Math.floor(Math.random() * jokes.length)];
                         artyom.say(joke);
                     }
@@ -372,11 +372,11 @@
                     }
                 },
             ]);
-            
+
             $(function(){
-                
+
             });
-            
+
             artyom.redirectRecognizedTextOutput(function(text,isFinal){
                 var sel = $('#recognized-text');
                 if(isFinal){
@@ -385,7 +385,7 @@
                     sel.html(text);
                 }
             });
-            
+
             function startArtyom(){
                 /**
                  *  Initialization of artyom
@@ -398,14 +398,14 @@
                     executionKeyword:'now'
                 });
             }
-            
+
             $(window).load(function(){
                 $('#view-source').text("this demo is running artyom.js v."+artyom.getVersion());
                 startArtyom();
-                
+
                 var commands = artyom.getAvailableCommands();
                 var html = '';
-                
+
                 for(var i = 0;i < commands.length;i++){
                     var comm = commands[i];
                     html += '<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">';
@@ -413,7 +413,7 @@
                     html +=  comm.description;
                     html += '</div>'
                 }
-                
+
                 $('#commands-container').html(html);
             });
         </script>
