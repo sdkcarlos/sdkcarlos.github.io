@@ -25,8 +25,21 @@
       <div id="commands-list">
 
       </div>
+      <input id="load-voices" type="button" value="Load voices"/>
+      <div id="voices-item"></div>
     </div>
     <script>
+
+    document.getElementById("load-voices").addEventListener("click", function(){
+        var voices = artyom.getVoices();
+        var html = "";
+
+        voices.forEach(function(voice){
+            html += "Voz name : " + voice.name + " con lang : " + voice.lang + "<br>";
+        });
+
+        document.getElementById("voices-item").innerHTML = html;
+    }, false);
       // Now we add the most important point of the plugin, the commands
       // This library is very flexible and now we will see why :
       // Every command is a literal object
