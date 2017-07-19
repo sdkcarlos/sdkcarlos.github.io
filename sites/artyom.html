@@ -37,6 +37,8 @@
             if (window.location.protocol != "https:"){
                 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
             }
+
+            window.artyom = new Artyom();
         </script>
     </head>
     <body>
@@ -138,11 +140,22 @@
                             <div class="card">
                                 <div class="card-block">
                                     <h4 class="card-title">Installation</h4>
-                                    <p class="card-text">Just include the artyom script in the head tag of your document and you are ready to go !</p>
+                                    <p class="card-text">If you don't use any module bundler like browserify, require etc, just include the artyom window script in the head tag of your document and you are ready to go !</p>
                                     <pre><code class="lang-html">&#x3C;head&#x3E;
-    &#x3C;script src=&#x22;artyom.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+    &#x3C;script src=&#x22;artyom.window.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 &#x3C;/head&#x3E;</code></pre>
-                                    <p>The global variable <code>artyom</code> will be available in your document now.</p>
+                                    <p>The <code>Artyom</code> class would be now available and you can instantiate it:</p>
+                                    <pre><code class="lang-javascript">// If you are using VanillaJS
+const artyom = new Artyom();
+                                        
+// Or if installed from NPM to use with a bundler
+import Artyom from "artyom.js"
+// const artyom = require("artyom.js");
+const artyom = new Artyom();
+</code></pre>
+
+
+                                    
                                     <blockquote class="blockquote bq-warning">
                                         <p class="bq-title">Note</p>
                                         <p>You need to load artyom.js in the head tag to preload the voices in case you want to use the speechSynthesis API. otherwise you can still load it in the end of the body tag.</p>
@@ -232,7 +245,9 @@
                                     </p>
                                     <p>A command is a literal object with some properties. There are 2 types of commands <b>normal</b> and <b>smarts</b>.</p>
                                     <p>A smart command allow you to retrieve a value from a spoken string as a wildcard. Every command can be triggered for any of the identifiers given in the indexes array.</p>
-                                    <pre><code class="lang-js">// Add a single command
+                                    <pre><code class="lang-js">const artyom = new Artyom();
+                                        
+// Add a single command
 var commandHello = {
     indexes:[&#x22;hello&#x22;,&#x22;good morning&#x22;,&#x22;hey&#x22;], // These spoken words will trigger the execution of the command
     action:function(){ // Action to be executed when a index match with spoken word
@@ -322,7 +337,8 @@ artyom.addCommands(myGroup); </code></pre>
                                         <p class="bq-title">Note</p>
                                         <p>You'll need an SSL certificate in your website (https connection) in order to use the continuous mode, otherwise you'll be prompted for the permission to access the microphone everytime the recognition ends.</p>
                                     </blockquote>
-                                    <pre><code class="lang-js"> // This function activates artyom and will listen and execute only 1 command (for http connections)
+                                    <pre><code class="lang-js">const artyom = new Artyom();
+// This function activates artyom and will listen and execute only 1 command (for http connections)
 function startOneCommandArtyom(){
     artyom.fatality();// use this to stop any of
 
@@ -526,7 +542,9 @@ UserDictation.start();
                                     <p class="card-text">
                                         You can simulate a command without use the microphone using <code>artyom.simulateInstruction("command identifier")</code> for test purposes (or you don't have any microphone for test).
                                     </p>
-                                    <pre><code class="lang-js">/**
+                                    <pre><code class="lang-js">const artyom = new Artyom();
+
+/**
  * Add a command that reacts to &#x22;Hello&#x22;
  */
 artyom.addCommands([
@@ -592,7 +610,9 @@ setTimeout(function(){
                                         Use the <code>executionKeyword</code> at the initialization to execute immediately a command though you are still talking.<br>
                                         Use the <code>obeyKeyword</code> to resume the commands recognition if you use the pause method (<code>artyom.dontObey</code>). If you say this keyword while artyom is paused, artyom will be resumed and it will continue processing commands automatically.
                                     </p>
-                                    <pre><code class="lang-js">// obeyKeyword
+                                    <pre><code class="lang-js">const artyom = new Artyom();
+                                        
+// obeyKeyword
 // command : &#x22;play some music&#x22;
 // If it&#x27;s paused, you can say :
 // listen to me, play some music
