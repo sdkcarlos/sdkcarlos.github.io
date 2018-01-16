@@ -13,6 +13,14 @@
         <link href="ui-resources/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="ui-resources/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="ui-resources/css/ourcontextmenu.youtube.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5670702528070068",
+            enable_page_level_ads: true
+          });
+        </script>
     </head>
     <body>
         <ul class="our-context-menu" id="context-menu-demo-1">
@@ -57,7 +65,7 @@
                 <h1 class="header center orange-text">A context menu, simpler than your sense of humor</h1>
                 <div class="row center">
                     <p class="header col s12 light">
-                        This plugin is a quick solution for a customized Lightweight context menu for your website. 
+                        This plugin is a quick solution for a customized Lightweight context menu for your website.
                     </p>
                 </div>
                 <div class="row center">
@@ -88,20 +96,20 @@
                             <div class="card-content">
                                 <h4 class='text-center white-text'>Right Click on this Card !</h4>
                                 <div class='text-center'>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="card yellow"  id='context-demo-2'>
                             <div class="card-content">
                                 <h4 class='text-center black-text'>Or right click in this</h4>
                                 <div class='text-center'>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="card yellow contextgroup">
                             <div class="card-content">
                                 <h4 class='text-center black-text'>Same context that the other down here</h4>
@@ -138,22 +146,8 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="section">
-                <div class="text-center" style="width: 100%;min-height:100px;">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- Responsive little -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-7687344986141325"
-                         data-ad-slot="3487567897"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
-            <hr>
+
+
             <div class="section">
                 <h2 class="light-blue-text text-center" ><a href="javascript:void();">Do you like the context menu of Youtube?</a></h2>
                 <div>
@@ -170,22 +164,8 @@
                     </p>
                 </div>
             </div>
-            <hr>
-            <div class="section">
-                <div class="text-center" style="width: 100%;min-height:100px;">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- Responsive little -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-7687344986141325"
-                         data-ad-slot="3487567897"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
-            <hr>
+
+
             <div class="section">
                 <h2 class="light-blue-text text-center" ><a href="javascript:void();">Dynamic context according to content</a></h2>
                 <div>
@@ -223,22 +203,7 @@
                     </p>
                 </div>
             </div>
-            <hr>
-            <div class="section">
-                <div class="text-center" style="width: 100%;min-height:100px;">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- Responsive little -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-7687344986141325"
-                         data-ad-slot="3487567897"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
-            <hr>
+
             <div class="section">
                 <div class="text-center">
                     <h2>More themes available in the repository<br><small>There are a lot of colors and flavors <i class="fa fa-heart"></i></small></h2>
@@ -328,7 +293,7 @@
                     sel.removeAttr('class');
                     sel.html(data.watchers_count);
                 });
-                
+
                 $('#context-menu-demo-1').ourcontextmenu({
                     target: $('#context-demo-1'),
                     onAction: function(dom){
@@ -339,7 +304,7 @@
                         }
                     }
                 });
-                
+
                 $('#context-menu-demo-2').ourcontextmenu({
                     target: $('#context-demo-2'),
                     onAction: function(dom){
@@ -350,7 +315,7 @@
                                 alert("This options has been dinamically added :3");
                             break;
                         }
-                        
+
                         return true;
                     },
                     beforeShow: function(DOMTarget){
@@ -358,7 +323,7 @@
                         $('#context-menu-demo-2').append('<li data-action="4">Everytime you open this dialog an option like this will be dinamically added</li>');
                     }
                 });
-                
+
                 $('#context-menu-demo-group').ourcontextmenu({
                     target: $('.contextgroup'),
                     onAction: function(dom){
@@ -368,7 +333,7 @@
                         console.log(DOMTarget);
                     }
                 });
-               
+
                 $('#context-menu-demo-music').ourcontextmenu({
                     target: $('#container-music-select'),
                     onAction: function(dom){
@@ -381,7 +346,7 @@
                         $('#context-menu-demo-music').find('[data-action="go_to_artist"]').html('<i class="fa fa-user"></i> '+'See artist : '+ $dom.data('artist'));
                     }
                 });
-                
+
             });
 
         </script>

@@ -39,6 +39,16 @@
             }
 
             window.artyom = new Artyom();
+
+
+
+        </script>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5670702528070068",
+            enable_page_level_ads: true
+          });
         </script>
     </head>
     <body>
@@ -147,7 +157,7 @@
                                     <p>The <code>Artyom</code> class would be now available and you can instantiate it:</p>
                                     <pre><code class="lang-javascript">// If you are using VanillaJS
 const artyom = new Artyom();
-                                        
+
 // Or if installed from NPM to use with a bundler
 import Artyom from "artyom.js"
 // const artyom = require("artyom.js");
@@ -155,7 +165,7 @@ const artyom = new Artyom();
 </code></pre>
 
 
-                                    
+
                                     <blockquote class="blockquote bq-warning">
                                         <p class="bq-title">Note</p>
                                         <p>You need to load artyom.js in the head tag to preload the voices in case you want to use the speechSynthesis API. otherwise you can still load it in the end of the body tag.</p>
@@ -199,23 +209,7 @@ const artyom = new Artyom();
                         </div>
                     </div>
                 </section>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
-                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-7687344986141325"
-                                     data-ad-slot="3487567897"
-                                     data-ad-format="auto"></ins>
-                                <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <section id="section-voicecommands">
                     <div class="row">
                         <div class="col-md-12">
@@ -246,7 +240,7 @@ const artyom = new Artyom();
                                     <p>A command is a literal object with some properties. There are 2 types of commands <b>normal</b> and <b>smarts</b>.</p>
                                     <p>A smart command allow you to retrieve a value from a spoken string as a wildcard. Every command can be triggered for any of the identifiers given in the indexes array.</p>
                                     <pre><code class="lang-js">const artyom = new Artyom();
-                                        
+
 // Add a single command
 var commandHello = {
     indexes:[&#x22;hello&#x22;,&#x22;good morning&#x22;,&#x22;hey&#x22;], // These spoken words will trigger the execution of the command
@@ -306,23 +300,7 @@ artyom.addCommands(myGroup); </code></pre>
                         </div>
                     </div>
                 </section>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
-                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-7687344986141325"
-                                     data-ad-slot="3487567897"
-                                     data-ad-format="auto"></ins>
-                                <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <section id="section-initialize">
                     <div class="row">
                         <div class="col-md-12">
@@ -441,23 +419,7 @@ function startContinuousArtyom(){
                         </div>
                     </div>
                 </section>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-block text-xs-center" style="width: 100%;min-height:100px;">
-                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-7687344986141325"
-                                     data-ad-slot="3487567897"
-                                     data-ad-format="auto"></ins>
-                                <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <section id="section-speechapi">
                     <div class="row">
                         <div class="col-md-12">
@@ -611,7 +573,7 @@ setTimeout(function(){
                                         Use the <code>obeyKeyword</code> to resume the commands recognition if you use the pause method (<code>artyom.dontObey</code>). If you say this keyword while artyom is paused, artyom will be resumed and it will continue processing commands automatically.
                                     </p>
                                     <pre><code class="lang-js">const artyom = new Artyom();
-                                        
+
 // obeyKeyword
 // command : &#x22;play some music&#x22;
 // If it&#x27;s paused, you can say :
